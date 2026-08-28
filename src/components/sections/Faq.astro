@@ -1,8 +1,8 @@
 ---
-import Img from "./ImgLoader.astro";
+import Img from "../utils/ImgLoader.astro";
 ---
 
-<section class="faq_sec main_sec">
+<section class="faq main_sec">
   <div class="contents_wrapper">
     <div class="heading_block heading_block--center">
       <h2 class="heading_block__heading">
@@ -10,7 +10,7 @@ import Img from "./ImgLoader.astro";
       </h2>
       <p class="heading_block__lead">よくあるご質問</p>
     </div>
-    <p class="faq_sec__emphasized_text">
+    <p class="faq__emphasized_text">
       <Img
         img={{ src: "text/faq__emphasized_text.svg" }}
         width={325}
@@ -18,49 +18,49 @@ import Img from "./ImgLoader.astro";
       />
     </p>
 
-    <dl class="faq_sec__list">
-      <div class="faq_sec__list_item js-acc_wrapper">
-        <dt class="faq_sec__list_item_head js-acc_switch">
+    <dl class="faq__list">
+      <div class="faq__list_item js-acc_wrapper">
+        <dt class="faq__list_item_head js-acc_switch">
           <p>「出島スキーム」とは具体的に<br class="sp_only">どんな仕組みですか？</p>
         </dt>
-        <dd class="faq_sec__list_item_contents js-acc_target">
-          <div class="faq_sec__list_item_contents_inner">
+        <dd class="faq__list_item_contents js-acc_target">
+          <div class="faq__list_item_contents_inner">
             <p>
               貴社の看板を一時的に外に置くことで、レビュテーションリスクを抑えながら、仮説検証を高速で回せます。検証が進んだ後で貴社に事業を戻す、JV化する、カーブアウトするなど、出口設計も含めてご相談に応じます。
             </p>
           </div>
         </dd>
       </div>
-      <div class="faq_sec__list_item js-acc_wrapper">
-        <dt class="faq_sec__list_item_head js-acc_switch">
+      <div class="faq__list_item js-acc_wrapper">
+        <dt class="faq__list_item_head js-acc_switch">
           <p>支援期間はどれくらいですか？</p>
         </dt>
-        <dd class="faq_sec__list_item_contents js-acc_target">
-          <div class="faq_sec__list_item_contents_inner">
+        <dd class="faq__list_item_contents js-acc_target">
+          <div class="faq__list_item_contents_inner">
             <p>
               最短3ヶ月から、長期は数年単位までご支援可能です。事業フェーズと目標に応じてご相談ください。
             </p>
           </div>
         </dd>
       </div>
-      <div class="faq_sec__list_item js-acc_wrapper">
-        <dt class="faq_sec__list_item_head js-acc_switch">
+      <div class="faq__list_item js-acc_wrapper">
+        <dt class="faq__list_item_head js-acc_switch">
           <p>費用感の目安は？</p>
         </dt>
-        <dd class="faq_sec__list_item_contents js-acc_target">
-          <div class="faq_sec__list_item_contents_inner">
+        <dd class="faq__list_item_contents js-acc_target">
+          <div class="faq__list_item_contents_inner">
             <p>
               支援内容・体制規模により異なります。月額型・成果報酬型・JV型・CVC型など、グループ各社の機能を組み合わせた柔軟な契約形態に対応しています。
             </p>
           </div>
         </dd>
       </div>
-      <div class="faq_sec__list_item js-acc_wrapper">
-        <dt class="faq_sec__list_item_head js-acc_switch">
+      <div class="faq__list_item js-acc_wrapper">
+        <dt class="faq__list_item_head js-acc_switch">
           <p>構想がまだ固まっていない段階でも<br class="sp_only">相談できますか？</p>
         </dt>
-        <dd class="faq_sec__list_item_contents js-acc_target">
-          <div class="faq_sec__list_item_contents_inner">
+        <dd class="faq__list_item_contents js-acc_target">
+          <div class="faq__list_item_contents_inner">
             <p>
               はい。むしろ構想段階からのご相談を多くいただいています。ワークショップやIDEATION
               Cloudを活用し、構想の輪郭づくりからご支援可能です。
@@ -68,12 +68,12 @@ import Img from "./ImgLoader.astro";
           </div>
         </dd>
       </div>
-      <div class="faq_sec__list_item js-acc_wrapper">
-        <dt class="faq_sec__list_item_head js-acc_switch">
+      <div class="faq__list_item js-acc_wrapper">
+        <dt class="faq__list_item_head js-acc_switch">
           <p>秘密保持・コンプライアンスは？</p>
         </dt>
-        <dd class="faq_sec__list_item_contents js-acc_target">
-          <div class="faq_sec__list_item_contents_inner">
+        <dd class="faq__list_item_contents js-acc_target">
+          <div class="faq__list_item_contents_inner">
             <p>
               ご相談前にNDA締結が可能です。ISO/IEC
               27001認証取得済で、上場企業対応の情報管理体制を整備しています。
@@ -81,26 +81,26 @@ import Img from "./ImgLoader.astro";
           </div>
         </dd>
       </div>
-      <div class="faq_sec__list_item js-acc_wrapper">
-        <dt class="faq_sec__list_item_head js-acc_switch">
+      <div class="faq__list_item js-acc_wrapper">
+        <dt class="faq__list_item_head js-acc_switch">
           <p>
             アサインされる担当者の質に不安が<br class="sp_only">あります。提案時と実際の担当が<br class="sp_only">変わったりしますか？
           </p>
         </dt>
-        <dd class="faq_sec__list_item_contents js-acc_target">
-          <div class="faq_sec__list_item_contents_inner">
+        <dd class="faq__list_item_contents js-acc_target">
+          <div class="faq__list_item_contents_inner">
             <p>
               ご提案時にアサインメンバーを明示し、商談段階で面談していただける運用にしています。途中でのメンバー変更も、事前のご相談なく勝手に行うことはありません。
             </p>
           </div>
         </dd>
       </div>
-      <div class="faq_sec__list_item js-acc_wrapper">
-        <dt class="faq_sec__list_item_head js-acc_switch">
+      <div class="faq__list_item js-acc_wrapper">
+        <dt class="faq__list_item_head js-acc_switch">
           <p>海外展開やシンガポールでの事業<br class="sp_only">立ち上げも対応できますか</p>
         </dt>
-        <dd class="faq_sec__list_item_contents js-acc_target">
-          <div class="faq_sec__list_item_contents_inner">
+        <dd class="faq__list_item_contents js-acc_target">
+          <div class="faq__list_item_contents_inner">
             <p>
               可能です。シンガポール拠点（KEEP TECH
               JAPAN）を起点に、東南アジアでの事業立ち上げをご支援しています。
@@ -108,12 +108,12 @@ import Img from "./ImgLoader.astro";
           </div>
         </dd>
       </div>
-      <div class="faq_sec__list_item js-acc_wrapper">
-        <dt class="faq_sec__list_item_head js-acc_switch">
+      <div class="faq__list_item js-acc_wrapper">
+        <dt class="faq__list_item_head js-acc_switch">
           <p>社内人材の育成・内製化も<br class="sp_only">依頼できますか？</p>
         </dt>
-        <dd class="faq_sec__list_item_contents js-acc_target">
-          <div class="faq_sec__list_item_contents_inner">
+        <dd class="faq__list_item_contents js-acc_target">
+          <div class="faq__list_item_contents_inner">
             <p>
               可能です。新規事業人材育成プログラム「Innovator's
               101」を中心に、伴走しながら内製化を進めるプログラムをご用意しています。依存と内製化のジレンマには真正面から向き合います。
@@ -126,7 +126,7 @@ import Img from "./ImgLoader.astro";
 </section>
 
 <style lang="scss">
-  .faq_sec {
+  .faq {
     position: relative;
 
     .contents_wrapper {
@@ -227,7 +227,7 @@ import Img from "./ImgLoader.astro";
 </style>
 
 <script>
-  import * as slide from "../assets/js/lib/slide";
+  import * as slide from "../../assets/js/lib/slide";
 
   /*-------------------------------------------
     アコーディオン

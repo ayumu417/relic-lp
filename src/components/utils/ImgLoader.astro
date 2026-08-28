@@ -3,18 +3,18 @@ import type { ImageMetadata } from "astro";
 import { Image, getImage as astroGetImage } from "astro:assets";
 
 /*****************************
- * 
+ *
  * 使用マニュアル
- * 
+ *
 *****   基本的な使い方    *****
-<Img 
-  img={{ src: "sample.jpg" }} 
-  width={800} 
-  alt="サンプル画像" 
+<Img
+  img={{ src: "sample.jpg" }}
+  width={800}
+  alt="サンプル画像"
 />
 
 *****   アートディレクション    *****
-<Img 
+<Img
   sources={[
     {
       media: "(max-width: 767px)",
@@ -29,18 +29,18 @@ import { Image, getImage as astroGetImage } from "astro:assets";
 />
 
 *****   widthsやsizesでの画像サイズの切り替え    *****
-<Img 
-  img={{ 
+<Img
+  img={{
     src: "thumbnail.png",
     widths: [400, 800, 1200] // 生成したい画像サイズ
   }}
   sizes="(max-width: 768px) 100vw, 800px" // ブラウザに伝える画像の表示幅
-  width={800} 
+  width={800}
   alt="サムネイル"
 />
 
 *****   svg画像    *****
-<Img 
+<Img
   img={{ src: "logo.svg" }}
   width={200}
   alt="サイトロゴ"

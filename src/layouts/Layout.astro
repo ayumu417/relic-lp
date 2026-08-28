@@ -1,5 +1,4 @@
 ---
-import Img from "../components/ImgLoader.astro";
 import "../assets/scss/style.scss";
 
 const BaseUrl = new URL(Astro.url.pathname, Astro.site);
@@ -27,7 +26,7 @@ const { PageTitle = "title", PageDescription = "description" } = Astro.props;
     <!-- OGP -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={BaseUrl} />
-    <meta property="og:site_name" content="調光スルーカーテン「スリーヌ」" />
+    <meta property="og:site_name" content="" />
     <meta property="og:title" content={PageTitle} />
     <meta property="og:description" content={PageDescription} />
     <meta

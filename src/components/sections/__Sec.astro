@@ -1,8 +1,8 @@
 ---
-import Img from "./ImgLoader.astro";
+import Img from "../utils/ImgLoader.astro";
 ---
 
-<section class="test_sec main_sec">
+<section class="test main_sec">
   <div class="contents_wrapper">
     <div class="heading_block">
       <h2 class="heading_block__heading">
@@ -10,14 +10,14 @@ import Img from "./ImgLoader.astro";
       </h2>
       <p class="heading_block__lead"></p>
     </div>
-    <p class="test_sec__emphasized_text">
+    <p class="test__emphasized_text">
       <Img img={{ src: "text/test__emphasized_text.svg" }} width={0} alt="" />
     </p>
   </div>
 </section>
 
 <style lang="scss">
-  .test_sec {
+  .test {
     position: relative;
 
     &__emphasized_text {

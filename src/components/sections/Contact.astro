@@ -1,8 +1,8 @@
 ---
-import Img from "./ImgLoader.astro";
+import Img from "../utils/ImgLoader.astro";
 ---
 
-<section class="contact_sec main_sec">
+<section class="contact main">
   <div class="contents_wrapper">
     <div class="heading_block heading_block--center">
       <h2 class="heading_block__heading">
@@ -14,7 +14,7 @@ import Img from "./ImgLoader.astro";
       </h2>
       <p class="heading_block__lead">お問い合わせ</p>
     </div>
-    <p class="contact_sec__emphasized_text">
+    <p class="contact__emphasized_text">
       <Img
         img={{ src: "text/contact__emphasized_text.svg" }}
         width={530}
@@ -22,12 +22,12 @@ import Img from "./ImgLoader.astro";
       />
     </p>
 
-    <div class="contact_sec__block">
-      <div class="contact_sec__box01" data-item="01">
-        <div class="contact_sec__box01_img_block">
+    <div class="contact__block">
+      <div class="contact__box01" data-item="01">
+        <div class="contact__box01_img_block">
           <Img
             img={{
-              src: "contact_sec__illust01.png",
+              src: "contact__illust01.png",
               widths: [600, 400, 300],
             }}
             sizes="(max-width: 768px) 100vw, 400px"
@@ -35,25 +35,25 @@ import Img from "./ImgLoader.astro";
             alt=""
           />
         </div>
-        <h3 class="contact_sec__box01_tit">無料相談のお申し込み</h3>
-        <p class="contact_sec__box01_text">
+        <h3 class="contact__box01_tit">無料相談のお申し込み</h3>
+        <p class="contact__box01_text">
           現状の課題と目指したい姿を伺い、出島スキームが使えるかどうかも含めて、進め方をご提案します。
         </p>
-        <div class="contact_sec__box01_block">
-          <h4 class="contact_sec__box01_block_tit">当日カバー範囲</h4>
-          <p class="contact_sec__box01_block_text">
+        <div class="contact__box01_block">
+          <h4 class="contact__box01_block_tit">当日カバー範囲</h4>
+          <p class="contact__box01_block_text">
             事業構想・フェーズ整理・出島スキームの適用可否・ロードマップ案・予算感のご提示まで
           </p>
         </div>
-        <a href="###" class="contact_sec__box01_btn btn01" data-color="blue">
+        <a href="###" class="contact__box01_btn btn01" data-color="blue">
           無料相談を申し込む
         </a>
       </div>
-      <div class="contact_sec__box01" data-item="02">
-        <div class="contact_sec__box01_img_block" data-shadow="on">
+      <div class="contact__box01" data-item="02">
+        <div class="contact__box01_img_block" data-shadow="on">
           <Img
             img={{
-              src: "contact_sec__img01.png",
+              src: "contact__img01.png",
               widths: [600, 400, 300],
             }}
             sizes="(max-width: 768px) 100vw, 400px"
@@ -61,24 +61,24 @@ import Img from "./ImgLoader.astro";
             alt=""
           />
         </div>
-        <h3 class="contact_sec__box01_tit">資料・ホワイトペーパーを請求</h3>
-        <p class="contact_sec__box01_text">
+        <h3 class="contact__box01_tit">資料・ホワイトペーパーを請求</h3>
+        <p class="contact__box01_text">
           支援メニュー・自社プロダクト・グループ会社・ご支援実績まで網羅した会社資料に加え、最新ホワイトペーパーを同時お届け。
         </p>
-        <div class="contact_sec__box01_block">
-          <h4 class="contact_sec__box01_block_tit">同梱コンテンツ</h4>
-          <p class="contact_sec__box01_block_text">
+        <div class="contact__box01_block">
+          <h4 class="contact__box01_block_tit">同梱コンテンツ</h4>
+          <p class="contact__box01_block_text">
             ホワイトペーパー『大企業のための「出島スキーム」完全ガイド』を同梱
           </p>
         </div>
-        <a href="###" class="contact_sec__box01_btn btn01" data-color="beige">
+        <a href="###" class="contact__box01_btn btn01" data-color="beige">
           資料・ホワイトペーパーを請求する
         </a>
       </div>
-      <div class="contact_sec__box02" data-item="03">
-        <div class="contact_sec__box02_contents">
-          <h3 class="contact_sec__box02_tit">メールマガジンに登録する</h3>
-          <p class="contact_sec__box02_text">
+      <div class="contact__box02" data-item="03">
+        <div class="contact__box02_contents">
+          <h3 class="contact__box02_tit">メールマガジンに登録する</h3>
+          <p class="contact__box02_text">
             最新ホワイトペーパー・限定オンライン講演・事業創出事例を、月数回お届け。<br
             />
             情報収集段階のご登録も歓迎です。
@@ -90,7 +90,7 @@ import Img from "./ImgLoader.astro";
             </dd>
           </dl>
         </div>
-        <a href="###" class="contact_sec__box02_btn01 btn01">
+        <a href="###" class="contact__box02_btn01 btn01">
           メールマガジンに登録する
         </a>
       </div>
@@ -99,18 +99,18 @@ import Img from "./ImgLoader.astro";
 </section>
 
 <style lang="scss">
-  .contact_sec {
+  .contact {
     position: relative;
     background: var(--color-black02);
     background-repeat: no-repeat;
     background-size: cover;
     @include media_min(sp) {
-      background-image: url(../assets/img/design/contact_sec__bg-pc.jpg);
+      background-image: url(../assets/img/design/contact__bg-pc.jpg);
       padding-top: 14rem;
       padding-bottom: 20rem;
     }
     @include media_max(sp) {
-      background-image: url(../assets/img/design/contact_sec__bg-sp.jpg);
+      background-image: url(../assets/img/design/contact__bg-sp.jpg);
     }
 
     .contents_wrapper {

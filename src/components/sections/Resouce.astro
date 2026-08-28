@@ -1,0 +1,36 @@
+---
+import Img from "../utils/ImgLoader.astro";
+---
+
+<section class="resouce main_sec">
+  <div class="contents_wrapper">
+    <div class="heading_block">
+      <h2 class="heading_block__heading">
+        <Img img={{ src: "text/resouce__heading.svg" }} width={0} alt="" />
+      </h2>
+      <p class="heading_block__lead">
+        事業共創エコシステム
+      </p>
+    </div>
+    <p class="resouce__emphasized_text">
+      <Img img={{ src: "text/resouce__emphasized_text.svg" }} width={0} alt="" />
+    </p>
+  </div>
+</section>
+
+<style lang="scss">
+  .resouce {
+    position: relative;
+
+    &__emphasized_text :global(img){
+      width: auto;
+      height: 4rem;
+      max-width: 100%;
+      margin: 0 auto;
+      object-fit: contain;
+      @include media_max(sp) {
+        height: 2.8rem;
+      }
+    }
+  }
+</style>
