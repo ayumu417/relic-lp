@@ -1,0 +1,44 @@
+---
+import Img from "./ImgLoader.astro";
+import Heading01 from "./parts/Heading01.astro";
+---
+
+<section class="fv">
+  <div class="contents_wrapper">
+    <div class="heading_block">
+      <h2 class="heading_block__heading">
+
+      </h2>
+      <p class="heading_block__lead">
+
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .fv {
+
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+
+  const fade_sliders = document.querySelectorAll(".js-fade_slider");
+  fade_sliders.forEach((fade_slider) => {
+    let fade_slider_block = new Swiper(fade_slider, {
+      slidesPerView: 1,
+      loop: true,
+      effect: "fade",
+      allowTouchMove: false,
+      speed: 2500,
+      fadeEffect: {
+        crossFade: true,
+      },
+      autoplay: {
+        delay: 1500,
+      },
+    });
+  });
+</script>

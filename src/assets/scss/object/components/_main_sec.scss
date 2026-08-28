@@ -1,0 +1,13 @@
+@use "../../foundation/import" as *;
+
+/****************
+  main_sec
+****************/
+.main_sec {
+  position: relative;
+  padding: 12rem 0 15rem;
+
+  @include media_max(sp) {
+    padding: 5.5rem 0 6.2rem;
+  }
+}

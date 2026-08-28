@@ -1,0 +1,86 @@
+---
+import Img from "./ImgLoader.astro";
+---
+
+<section class="videos_sec main_sec">
+  <div class="contents_wrapper">
+    <div class="heading_block heading_block--center">
+      <h2 class="heading_block__heading">
+        <Img
+          img={{ src: "text/videos__heading.svg" }}
+          width={180}
+          alt="VIDEOS"
+        />
+      </h2>
+      <p class="heading_block__lead">講演動画</p>
+    </div>
+    <p class="videos_sec__emphasized_text">
+      <Img
+        img={{ src: "text/videos__emphasized_text.svg" }}
+        width={340}
+        alt="オンライン講演動画"
+      />
+    </p>
+
+    <p class="videos_sec__text">
+      新規事業推進者向けに毎月開催しているオンライン講演の動画一覧。<br />
+      登壇者は事業を実際に立ち上げてきた専門人材と、ご一緒した企業のご担当者さまです。
+    </p>
+
+    <ul class="videos_sec__list">
+      <li class="videos_sec__list_item">
+        <div class="videos_sec__list_item_detail01">
+          <p class="videos_sec__list_item_dates">2026年4月</p>
+          <p class="videos_sec__list_item_number">第32回</p>
+        </div>
+        <div class="videos_sec__list_item_tags">
+          <p class="videos_sec__list_item_tag">出島スキーム</p>
+        </div>
+        <div class="videos_sec__list_item_detail02">
+          <h3 class="videos_sec__list_item_tit">
+            新規事業を「形にする」──出島スキーム実践事例
+          </h3>
+          <p class="videos_sec__list_item_speaker">
+            登壇：Relic 事業プロデュース統括／大手製造業 新規事業推進室 室長
+          </p>
+        </div>
+        <div class="videos_sec__list_item_detail03">
+          <p class="videos_sec__list_item_time">視聴目安 75分</p>
+          <p class="videos_sec__list_item_applicant">
+            申込 368名／金融機関中心
+          </p>
+        </div>
+        <a href="###" class="videos_sec__list_item_btn btn01"> 視聴する </a>
+      </li>
+    </ul>
+    <a href="###" class="videos_sec__btn btn01"> 講演動画をすべて見る </a>
+  </div>
+</section>
+
+<style lang="scss">
+  .videos_sec {
+    position: relative;
+
+    &__emphasized_text :gloabal(img){
+      width: auto;
+      height: 4rem;
+      max-width: 100%;
+      margin: 0 auto;
+      object-fit: contain;
+      @include media_max(sp) {
+        height: 2.8rem;
+      }
+    }
+
+    &__text {
+      margin-top: 2.2em;
+      text-align: center;
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    &__list {
+      border-top: 1px solid var(--color-black01);
+    }
+  }
+</style>

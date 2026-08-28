@@ -1,0 +1,187 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image, getImage as astroGetImage } from "astro:assets";
+
+/*****************************
+ * 
+ * 使用マニュアル
+ * 
+*****   基本的な使い方    *****
+<Img 
+  img={{ src: "sample.jpg" }} 
+  width={800} 
+  alt="サンプル画像" 
+/>
+
+*****   アートディレクション    *****
+<Img 
+  sources={[
+    {
+      media: "(max-width: 767px)",
+      src: "sp/hero-kv.webp",
+      width: 375, // スマホ用の幅を指定
+    }
+  ]}
+  img={{ src: "pc/hero-kv.webp" }}
+  width={1200} // PC用の表示幅
+  alt="ヒーローバナー"
+  loading="eager" // ファーストビュー向け
+/>
+
+*****   widthsやsizesでの画像サイズの切り替え    *****
+<Img 
+  img={{ 
+    src: "thumbnail.png",
+    widths: [400, 800, 1200] // 生成したい画像サイズ
+  }}
+  sizes="(max-width: 768px) 100vw, 800px" // ブラウザに伝える画像の表示幅
+  width={800} 
+  alt="サムネイル"
+/>
+
+*****   svg画像    *****
+<Img 
+  img={{ src: "logo.svg" }}
+  width={200}
+  alt="サイトロゴ"
+/>
+
+
+*
+* /使用マニュアル
+***************************/
+
+
+
+/**
+ * 画像アセットを一括インポート
+ */
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/img/**/*.{jpg,jpeg,png,webp,avif,gif,svg}",
+);
+
+interface SourceItem {
+  media: string;
+  src: string;
+  width?: number; // PC等の表示上の横幅（省略可）
+  height?: number; // 指定がなければ元画像の比率から自動計算
+  densities?: (number | string)[];
+}
+
+interface ImgItem {
+  src: string;
+  densities?: (number | string)[];
+  widths?: number[]; // sizes利用時に生成したい画像横幅の配列（例: [400, 800, 1200]）
+}
+
+interface Props {
+  alt?: string;
+  class?: string;
+  loading?: "lazy" | "eager";
+  decoding?: "async" | "sync";
+  width: number; // 基本となる表示上の横幅
+  height?: number; // 指定がなければ元画像の比率から自動計算
+  sources?: SourceItem[];
+  img: ImgItem;
+  sizes?: string; // レスポンシブ画像用のsizes属性（例: "(max-width: 768px) 100vw, 1100px"）
+}
+
+const {
+  alt = "",
+  class: className,
+  loading = "lazy",
+  decoding = "async",
+  width,
+  height,
+  sources = [],
+  img,
+  sizes,
+} = Astro.props;
+
+/**
+ * パスから画像アセットを取得する共通関数
+ */
+async function getAsset(path: string) {
+  const fullPath = `/src/assets/img/${path}`;
+  if (!allImages[fullPath]) {
+    throw new Error(
+      `画像 "${fullPath}" が見つかりません。src/assets/img/ 配下を確認してください。`,
+    );
+  }
+  const mod = await allImages[fullPath]();
+  return mod.default;
+}
+
+// メイン画像のアセット取得
+const fallbackAsset = await getAsset(img.src);
+const isSvg = (path: string) => path.endsWith(".svg");
+
+// 高さを計算（指定がない場合はアスペクト比を維持）
+const fallbackHeight =
+  height || Math.round(width * (fallbackAsset.height / fallbackAsset.width));
+
+/**
+ * Astroの仕様対策:
+ * widths (srcset) と densities (x記述子) は同時に指定できないため、
+ * widths がある場合は densities を無効化する。
+ */
+const finalDensities = img.widths ? undefined : img.densities || [1, 2];
+---
+
+<picture>
+  {
+    /* sources配列がある場合、メディアクエリに応じたsourceタグを生成 */
+    sources.length > 0 &&
+      (await Promise.all(
+        sources.map(async (source) => {
+          const asset = await getAsset(source.src);
+
+          const sWidth = source.width || asset.width;
+          const sHeight =
+            source.height || Math.round(sWidth * (asset.height / asset.width));
+
+          const optimized = await astroGetImage({
+            src: asset,
+            width: sWidth,
+            height: sHeight,
+            densities: source.densities || [1, 2],
+            format: isSvg(source.src) ? "svg" : undefined,
+          });
+
+          return (
+            <source
+              media={source.media}
+              srcset={optimized.srcSet.attribute}
+              width={sWidth}
+              height={sHeight}
+            />
+          );
+        }),
+      ))
+  }
+
+  {
+    /* メインの画像タグ。SVGとそれ以外で処理を分岐 */
+    isSvg(img.src) ? (
+      <img
+        src={fallbackAsset.src}
+        alt={alt}
+        class={className}
+        width={width}
+        height={fallbackHeight}
+        decoding={decoding}
+      />
+    ) : (
+      <Image
+        src={fallbackAsset}
+        alt={alt}
+        class={className}
+        width={width}
+        height={fallbackHeight}
+        widths={img.widths}
+        sizes={sizes}
+        densities={finalDensities}
+      />
+    )
+  }
+</picture>

@@ -1,0 +1,31 @@
+---
+import Img from "./ImgLoader.astro";
+---
+
+<section class="problem_sec">
+  <div class="contents_wrapper">
+    <div class="heading_block">
+      <h2 class="heading_block__heading">
+        <Img img={{ src: "text/problem__heading.svg" }} width={229} alt="" />
+      </h2>
+      <p class="heading_block__lead">新規事業を阻む、3つの構造的な壁</p>
+    </div>
+    <p class="problem_sec__emphasized_text">
+      
+    </p>
+  </div>
+</section>
+
+<style lang="scss">
+  .problem_sec {
+    position: relative;
+
+    .heading_block {
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    &__emphasized_text {
+    }
+  }
+</style>

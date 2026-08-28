@@ -1,0 +1,26 @@
+---
+import Img from "./ImgLoader.astro";
+---
+
+<section class="test_sec main_sec">
+  <div class="contents_wrapper">
+    <div class="heading_block">
+      <h2 class="heading_block__heading">
+        <Img img={{ src: "text/test__heading.svg" }} width={0} alt="" />
+      </h2>
+      <p class="heading_block__lead"></p>
+    </div>
+    <p class="test_sec__emphasized_text">
+      <Img img={{ src: "text/test__emphasized_text.svg" }} width={0} alt="" />
+    </p>
+  </div>
+</section>
+
+<style lang="scss">
+  .test_sec {
+    position: relative;
+
+    &__emphasized_text {
+    }
+  }
+</style>

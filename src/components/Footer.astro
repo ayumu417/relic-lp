@@ -1,0 +1,60 @@
+---
+
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="copyright">&copy; 2026 Relic. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<style lang="scss">
+  .footer {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5.1rem 1rem 8.7rem;
+    background: var(--color-black02);
+    color: var(--color-white);
+    /* border グラデーション */
+    border-top: 2rem solid var(--color-black02);
+    border-image: linear-gradient(
+      90deg,
+      rgba(20, 60, 93, 1) 0%,
+      rgba(22, 59, 93, 1) 17%,
+      rgba(29, 57, 94, 1) 24%,
+      rgba(41, 53, 96, 1) 29%,
+      rgba(59, 48, 98, 1) 34%,
+      rgba(82, 41, 101, 1) 38%,
+      rgba(110, 33, 105, 1) 41%,
+      rgba(144, 23, 110, 1) 44%,
+      rgba(182, 13, 115, 1) 47%,
+      rgba(227, 2, 122, 1) 50%,
+      rgba(224, 40, 122, 1) 53%,
+      rgba(222, 73, 122, 1) 56%,
+      rgba(219, 101, 122, 1) 60%,
+      rgba(218, 124, 122, 1) 64%,
+      rgba(216, 142, 122, 1) 69%,
+      rgba(215, 154, 122, 1) 75%,
+      rgba(215, 161, 122, 1) 82%,
+      rgba(215, 164, 122, 1) 100%
+    );
+    border-image-slice: 1;
+    z-index: 10;
+
+    @include media_max(sp) {
+      padding: 2.5rem 1rem 7rem;
+    }
+
+    .copyright {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      font-size: 1.4rem;
+      line-height: 1.6;
+
+      @include media_max(sp) {
+      }
+    }
+  }
+</style>

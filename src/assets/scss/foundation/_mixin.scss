@@ -1,0 +1,30 @@
+@use "sass:map";
+
+/*****   media query   *****/
+$breakpoints: (
+  'sp': '768px',
+  'pc_l': '1800px',
+) !default;
+
+@mixin media_max($breakpoint:sp) {
+  @media screen and (max-width: #{map.get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+@mixin media_min($breakpoint:sp) {
+  @media screen and (min-width: #{map.get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+
+@mixin content-center($w){
+  margin: 0 auto;
+  max-width: $w;
+}
+
+@mixin flex-center() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

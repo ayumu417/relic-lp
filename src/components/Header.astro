@@ -1,0 +1,306 @@
+---
+import Img from "../components/ImgLoader.astro";
+---
+
+<header id="header" class="header">
+  <div class="header__inner">
+    <a href="./" class="header__logo">
+      <Img
+        img={{
+          src: "logo.svg",
+        }}
+        width={140}
+        alt="Relic"
+      />
+    </a>
+    <div id="js-hamburger_btn" class="hamburger_btn sp_only">
+      <div></div>
+    </div>
+    <nav class="header__nav">
+      <ul class="header__nav_list">
+        <li class="header__nav_list_item">
+          <a href="###" class="header__nav_list_item_link">
+            事業プロデュース
+          </a>
+        </li>
+        <li class="header__nav_list_item">
+          <a href="###" class="header__nav_list_item_link"> 専門人材 </a>
+        </li>
+        <li class="header__nav_list_item">
+          <a href="###" class="header__nav_list_item_link"> DUALii </a>
+        </li>
+        <li class="header__nav_list_item">
+          <a href="###" class="header__nav_list_item_link"> 事例 </a>
+        </li>
+      </ul>
+
+      <div class="header__nav_btn_wrapper">
+        <a href="###" class="header__nav_btn"> 無料相談 </a>
+        <a href="###" class="header__nav_btn sp_only">
+          資料・<br />ホワイトペーパー請求
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 10;
+    background: var(--color-white);
+    z-index: 9990;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+
+    &__inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1440px;
+      padding: 0 10rem 0 6.2rem;
+      height: 100%;
+      margin: 0 auto;
+      @include media_max(sp) {
+        padding: 0 2rem 0 2.5rem;
+      }
+    }
+
+    &__logo {
+      position: relative;
+      display: block;
+      width: auto;
+      height: auto;
+      padding: 1rem 1rem 1.2rem;
+      @include media_max(sp) {
+        padding: 0;
+      }
+
+      :global(img) {
+        height: 4.7rem;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        @include media_max(sp) {
+          height: 3.9rem;
+        }
+      }
+    }
+
+    &__nav {
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      column-gap: 4.5rem;
+
+      @include media_max(sp) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 3.2rem 4.5rem 5.5rem;
+        background: #fff;
+        flex-direction: column;
+        box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateX(-62%) translateZ(0);
+        transition: opacity 0.26s ease, transform 0.5s ease-out;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      &_list {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 3.2rem;
+        font-size: 1.4rem;
+        @include media_max(sp) {
+          width: 100%;
+          flex-direction: column;
+          font-size: 1.6rem;
+        }
+
+        &_item {
+          font-size: 1em;
+          @include media_max(sp) {
+            width: 100%;
+          }
+
+          &_link {
+            display: block;
+            padding: 0.2em 0.4em;
+            font-size: 1em;
+            font-weight: 700;
+            line-height: 1.4;
+            @include media_max(sp) {
+              width: 100%;
+              padding: 0.92em 0.5em 1.02em;
+              border-bottom: 1px solid var(--color-black01);
+              text-align: left;
+            }
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &_btn_wrapper {
+        display: block;
+        @include media_max(sp) {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          column-gap: 1rem;
+          width: 100%;
+          margin-top: 3.2rem;
+        }
+      }
+      &_btn {
+        --bg_color: var(--color-black02);
+        --text_color: var(--color-white);
+        --border_color: var(--color-black02);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: var(--bg_color);
+        color: var(--text_color);
+        border: 2px solid var(--border_color);
+        padding: 0.92em 3em 1em;
+        border-radius: 10em;
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.4;
+        @include media_max(sp) {
+          padding: 0.2em 0.2em 0.44em;
+          font-size: 1.3rem;
+          width: 12rem;
+          height: 5.5rem;
+
+          &:nth-of-type(2) {
+            flex: 1;
+            letter-spacing: -0.025em;
+            --bg_color: var(--color-white);
+            --text_color: var(--color-black02);
+
+            &:hover {
+              --bg_color: var(--color-black02);
+              --text_color: var(--color-white);
+            }
+          }
+        }
+
+        &:hover {
+          --bg_color: var(--color-white);
+          --text_color: var(--color-black02);
+          filter: brightness(1.2);
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .header.is-hamburger-active {
+    @include media_max(sp) {
+      .header__nav {
+        opacity: 1;
+        transform: translateX(0) translateZ(0);
+        pointer-events: all;
+      }
+    }
+  }
+
+  // ハンバーガーボタン
+  .hamburger_btn {
+    position: relative;
+    display: block;
+    width: 4.3rem;
+    height: auto;
+    aspect-ratio: 40/40;
+    cursor: pointer;
+
+    &::before,
+    > div,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: block;
+      width: 76%;
+      height: 3px;
+      background: var(--color-black02);
+      transition:
+        top 0.2s 0.2s ease,
+        transform 0.2s ease,
+        opacity 0s 0.2s ease;
+    }
+
+    &::before {
+      top: calc(50% - 1.2rem);
+    }
+
+    &::after {
+      top: calc(50% + 1.2rem);
+    }
+  }
+  .header.is-hamburger-active {
+    .hamburger_btn {
+      > div {
+        opacity: 0;
+        transition: opacity 0.1s ease;
+      }
+      &::before,
+      &::after {
+        top: 50%;
+        transition:
+          top 0.2s ease,
+          transform 0.2s 0.2s ease,
+          opacity 0.1s ease;
+      }
+
+      &::before {
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      }
+      &::after {
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      }
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    /************************
+     * hamburger menu
+     ************************/
+    const header = document.getElementById("header");
+    const hamburger_menu_btn = document.getElementById("js-hamburger_btn");
+    if (hamburger_menu_btn && header) {
+      const header_link = header.querySelectorAll("a");
+      hamburger_menu_btn.addEventListener(
+        "click",
+        function () {
+          header.classList.toggle("is-hamburger-active");
+        },
+        false,
+      );
+
+      header_link.forEach((target) => {
+        target.addEventListener("click", function () {
+          header.classList.remove("is-hamburger-active");
+        });
+      });
+    }
+  });
+</script>

@@ -1,0 +1,19 @@
+@use "../../foundation/import" as *;
+
+/****************
+  contents_wrapper
+****************/
+.contents_wrapper {
+    position: relative;
+    width: 96%;
+    max-width: var(--wrapper-m);
+    margin-left: auto;
+    margin-right: auto;
+}
+@include media_max(sp) {
+    .contents_wrapper {
+        width: calc(100% - 5rem);
+        max-width: 100%;
+    }
+}
+
