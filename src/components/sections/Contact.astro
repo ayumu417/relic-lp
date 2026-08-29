@@ -1,19 +1,19 @@
 ---
 import Img from "../utils/ImgLoader.astro";
+import Button from "../ui/Button.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
 ---
 
 <section class="contact main">
   <div class="contents_wrapper">
-    <div class="heading_block heading_block--center">
-      <h2 class="heading_block__heading">
-        <Img
-          img={{ src: "text/contact__heading.svg" }}
-          width={228}
-          alt="CONTACT"
-        />
-      </h2>
-      <p class="heading_block__lead">お問い合わせ</p>
-    </div>
+    <SectionHeader
+      headingText="お問い合わせ"
+      imgSrc="text/contact__heading.svg"
+      imgWidth={228}
+      imgAlt="CONTACT"
+      align="center"
+    />
+
     <p class="contact__emphasized_text">
       <Img
         img={{ src: "text/contact__emphasized_text.svg" }}
@@ -45,9 +45,14 @@ import Img from "../utils/ImgLoader.astro";
             事業構想・フェーズ整理・出島スキームの適用可否・ロードマップ案・予算感のご提示まで
           </p>
         </div>
-        <a href="###" class="contact__box01_btn btn01" data-color="blue">
-          無料相談を申し込む
-        </a>
+        <Button
+          text="無料相談を申し込む"
+          class="contact__box01_btn"
+          href="###"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-color="blue"
+        />
       </div>
       <div class="contact__box01" data-item="02">
         <div class="contact__box01_img_block" data-shadow="on">
@@ -71,9 +76,14 @@ import Img from "../utils/ImgLoader.astro";
             ホワイトペーパー『大企業のための「出島スキーム」完全ガイド』を同梱
           </p>
         </div>
-        <a href="###" class="contact__box01_btn btn01" data-color="beige">
-          資料・ホワイトペーパーを請求する
-        </a>
+        <Button
+          text="資料・ホワイトペーパーを請求する"
+          class="contact__box01_btn"
+          href="###"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-color="beige"
+        />
       </div>
       <div class="contact__box02" data-item="03">
         <div class="contact__box02_contents">
@@ -90,9 +100,14 @@ import Img from "../utils/ImgLoader.astro";
             </dd>
           </dl>
         </div>
-        <a href="###" class="contact__box02_btn01 btn01">
-          メールマガジンに登録する
-        </a>
+
+        <Button
+          text="メールマガジンに登録する"
+          class="contact__box02_button"
+          href="###"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
       </div>
     </div>
   </div>
@@ -105,19 +120,19 @@ import Img from "../utils/ImgLoader.astro";
     background-repeat: no-repeat;
     background-size: cover;
     @include media_min(sp) {
-      background-image: url(../assets/img/design/contact__bg-pc.jpg);
+      background-image: url(../../assets/img/design/contact__bg-pc.jpg);
       padding-top: 14rem;
       padding-bottom: 20rem;
     }
     @include media_max(sp) {
-      background-image: url(../assets/img/design/contact__bg-sp.jpg);
+      background-image: url(../../assets/img/design/contact__bg-sp.jpg);
     }
 
     .contents_wrapper {
       max-width: 104rem;
     }
 
-    .heading_block {
+    :global(.section_header) {
       color: var(--color-white);
       &::after {
         background: #e3027a;
@@ -277,8 +292,8 @@ import Img from "../utils/ImgLoader.astro";
         font-size: 2.6rem;
         line-height: 1.4;
         @include media_max(sp) {
-          margin-bottom: 1.0rem;
-          font-size: 2.0rem;
+          margin-bottom: 1rem;
+          font-size: 2rem;
           text-align: center;
         }
       }
@@ -317,16 +332,17 @@ import Img from "../utils/ImgLoader.astro";
       dd {
         flex: 1;
         text-align: left;
-        font-size: 1.4rem;line-height: 1.6;
+        font-size: 1.4rem;
+        line-height: 1.6;
       }
 
-      &_btn01 {
+      &_button {
         --bg_color: var(--color-white);
         --text_color: var(--color-black02);
         --border_color: var(--color-white);
         @include media_max(sp) {
-      margin-top: 1.8rem; 
-      }
+          margin-top: 1.8rem;
+        }
       }
     }
   }

@@ -1,10 +1,14 @@
 ---
 import Img from "../utils/ImgLoader.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
 
 /**
- * FAQの内容を配列で管理
+ * 「FAQ」を配列で管理
  * ※ pタグ内に出力
  * ※ HTMLタグの記載可能
+ *
+ * question: `質問`,
+ * answer: `回答`,
  */
 
 const faqs = [
@@ -41,17 +45,18 @@ const faqs = [
     answer: `可能です。新規事業人材育成プログラム「Innovator's 101」を中心に、伴走しながら内製化を進めるプログラムをご用意しています。依存と内製化のジレンマには真正面から向き合います。`,
   },
 ];
-
 ---
 
 <section class="faq main_sec">
   <div class="contents_wrapper">
-    <div class="heading_block heading_block--center">
-      <h2 class="heading_block__heading">
-        <Img img={{ src: "text/faq__heading.svg" }} width={91} alt="FAQ" />
-      </h2>
-      <p class="heading_block__lead">よくあるご質問</p>
-    </div>
+    <SectionHeader
+      headingText="よくあるご質問"
+      imgSrc="text/faq__heading.svg"
+      imgWidth={91}
+      imgAlt="FAQ"
+      align="center"
+    />
+
     <p class="faq__emphasized_text">
       <Img
         img={{ src: "text/faq__emphasized_text.svg" }}
@@ -79,10 +84,14 @@ const faqs = [
   </div>
 </section>
 
-
 <style lang="scss">
   .faq {
     position: relative;
+    padding-top: 0;
+    margin-top: 13rem;
+    @include media_max(sp) {
+      margin-top: 7rem;
+    }
 
     .contents_wrapper {
       max-width: var(--wrapper-s);

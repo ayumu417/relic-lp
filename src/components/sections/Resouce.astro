@@ -1,20 +1,71 @@
 ---
 import Img from "../utils/ImgLoader.astro";
+import Button from "../ui/Button.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
 ---
 
 <section class="resouce main_sec">
   <div class="contents_wrapper">
-    <div class="heading_block">
-      <h2 class="heading_block__heading">
-        <Img img={{ src: "text/resouce__heading.svg" }} width={0} alt="" />
-      </h2>
-      <p class="heading_block__lead">
-        事業共創エコシステム
-      </p>
-    </div>
+    <SectionHeader
+      headingText="資料ライブラリ"
+      imgSrc="text/resouce__heading.svg"
+      imgWidth={258}
+      imgAlt="RESOURCE"
+      align="left"
+    />
+
     <p class="resouce__emphasized_text">
-      <Img img={{ src: "text/resouce__emphasized_text.svg" }} width={0} alt="" />
+      <Img
+        img={{ src: "text/resouce__emphasized_text.svg" }}
+        width={570}
+        alt=""
+      />
     </p>
+
+    <p class="resouce__text">
+      業界横断のご支援から見えてきた、新規事業推進のリアルな知見を業界別・テーマ別に体系化しました。<br
+      />
+      ご関心のあるテーマからダウンロードいただけます。
+    </p>
+
+    <ul class="resouce__list">
+      <li class="resouce__list_item">
+        <div class="resouce__list_item_img_block">
+          <Img
+            img={{
+              src: "resouce__item_img001.jpg",
+              widths: [720, 500, 360],
+            }}
+            sizes="(max-width: 768px) 100vw, 360px"
+            width={360}
+            alt=""
+          />
+        </div>
+        <div class="resouce__list_item_contents">
+          <div class="resouce__list_item_tags">
+            <p class="resouce__list_item_tag">新着</p>
+            <p class="resouce__list_item_tag">テーマ別</p>
+          </div>
+          <h3 class="resouce__list_item_tit">
+            大企業のための<br />
+            「出島スキーム」完全ガイド
+          </h3>
+          <p class="resouce__list_item_detail">
+            制約を越えて事業を形にする実務
+          </p>
+          <p class="resouce__list_item_meta">全48P／2026年最新版</p>
+          <Button
+            text="資料をダウンロード"
+            class="contact__box01_btn"
+            href="###"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-color="blue"
+            color="beige"
+          />
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -22,14 +73,14 @@ import Img from "../utils/ImgLoader.astro";
   .resouce {
     position: relative;
 
-    &__emphasized_text :global(img){
+    &__emphasized_text :global(img) {
       width: auto;
-      height: 4rem;
+      height: 10.8rem;
       max-width: 100%;
-      margin: 0 auto;
+      margin: 0;
       object-fit: contain;
       @include media_max(sp) {
-        height: 2.8rem;
+        height: 6.2rem;
       }
     }
   }
