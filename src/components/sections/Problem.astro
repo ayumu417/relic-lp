@@ -111,17 +111,18 @@ import SectionHeader from "../ui/SectionHeader.astro";
 <style lang="scss">
   .problem {
     position: relative;
-    background-image: url(/src/assets/img/design/problem__bg.png);
+    background-image: url(../../assets/img/design/problem__bg.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
     @include media_min(sp) {
-      padding-top: 11rem;
+      padding-top: 12rem;
       padding-bottom: 10.6rem;
     }
 
     @include media_max(sp) {
-      background-image: url(/src/assets/img/design/problem__bg-sp.png);
+      background-image: url(../../assets/img/design/problem__bg-sp.png);
+      padding-top: 12.5rem;
     }
 
     &::before {
@@ -129,15 +130,17 @@ import SectionHeader from "../ui/SectionHeader.astro";
       position: absolute;
       top: -5.5rem;
       left: 0;
-      background-image: url(/src/assets/img/design/bg_visual_img01.jpg);
+      background-image: url(../../assets/img/design/bg_visual_img01.jpg);
       background-repeat: no-repeat;
       background-size: cover;
-      width: clamp(69rem, 47vw, 762rem);
+      width: clamp(69rem, 47vw, 77rem);
       height: auto;
       aspect-ratio: 748/326;
       @include media_max(sp) {
         top: -5rem;
         width: 32rem;
+        aspect-ratio: 748/280;
+        background-position: bottom;
       }
     }
 

@@ -89,70 +89,75 @@ import SectionHeader from "../ui/SectionHeader.astro";
             事業企画・仮説検証・開発・マーケ・営業・カスタマーサクセスまで、新規事業に必要な機能や役割をRelicが事業会社の代わりに担う、共創パートナーシップ型のプラットフォーム。人とプロダクトをセットで提供する形態です。
           </p>
         </div>
-        <div class="products__block_box swiper-slide">
-          <div class="products__block_box_logo_block">
-            <Img
-              img={{
-                src: "products__logo04.png",
-                widths: [300, 200, 150],
-              }}
-              sizes="(max-width: 768px) 100vw, 150px"
-              height={70}
-              alt=""
-            />
+
+        <div class="products__block_box_wrapper swiper-slide">
+          <div class="products__block_box">
+            <div class="products__block_box_logo_block">
+              <Img
+                img={{
+                  src: "products__logo04.png",
+                  widths: [300, 200, 150],
+                }}
+                sizes="(max-width: 768px) 100vw, 150px"
+                height={70}
+                alt=""
+              />
+            </div>
+            <p class="products__block_box_text">
+              国内クラウドファンディングSaaS
+              No.1。新規事業の市場検証・先行需要獲得。
+            </p>
           </div>
-          <p class="products__block_box_text">
-            国内クラウドファンディングSaaS
-            No.1。新規事業の市場検証・先行需要獲得。
-          </p>
+          <div class="products__block_box swiper-slide">
+            <div class="products__block_box_logo_block">
+              <Img
+                img={{
+                  src: "products__logo05.png",
+                  widths: [400, 300, 200],
+                }}
+                sizes="(max-width: 768px) 100vw, 200px"
+                height={70}
+                alt=""
+              />
+            </div>
+            <p class="products__block_box_text">
+              業界唯一の新規事業特化型eラーニング。社内に推進役を育てます。
+            </p>
+          </div>
         </div>
-        <div class="products__block_box swiper-slide">
-          <div class="products__block_box_logo_block">
-            <Img
-              img={{
-                src: "products__logo05.png",
-                widths: [400, 300, 200],
-              }}
-              sizes="(max-width: 768px) 100vw, 200px"
-              height={70}
-              alt=""
-            />
+        <div class="products__block_box_wrapper swiper-slide">
+          <div class="products__block_box">
+            <div class="products__block_box_logo_block">
+              <Img
+                img={{
+                  src: "products__logo06.png",
+                  widths: [400, 300, 200],
+                }}
+                sizes="(max-width: 768px) 100vw, 200px"
+                height={70}
+                alt=""
+              />
+            </div>
+            <p class="products__block_box_text">
+              検証用LP・MVPを最短で構築します。仮説検証スピードを高めるラボです。
+            </p>
           </div>
-          <p class="products__block_box_text">
-            業界唯一の新規事業特化型eラーニング。社内に推進役を育てます。
-          </p>
-        </div>
-        <div class="products__block_box swiper-slide">
-          <div class="products__block_box_logo_block">
-            <Img
-              img={{
-                src: "products__logo06.png",
-                widths: [400, 300, 200],
-              }}
-              sizes="(max-width: 768px) 100vw, 200px"
-              height={70}
-              alt=""
-            />
+          <div class="products__block_box swiper-slide">
+            <div class="products__block_box_logo_block">
+              <Img
+                img={{
+                  src: "products__logo07.png",
+                  widths: [400, 300, 200],
+                }}
+                sizes="(max-width: 768px) 100vw, 200px"
+                height={70}
+                alt=""
+              />
+            </div>
+            <p class="products__block_box_text">
+              1→10フェーズ専門のグロース支援部隊です。マーケ・営業・CSを一括組成します。
+            </p>
           </div>
-          <p class="products__block_box_text">
-            検証用LP・MVPを最短で構築します。仮説検証スピードを高めるラボです。
-          </p>
-        </div>
-        <div class="products__block_box swiper-slide">
-          <div class="products__block_box_logo_block">
-            <Img
-              img={{
-                src: "products__logo07.png",
-                widths: [400, 300, 200],
-              }}
-              sizes="(max-width: 768px) 100vw, 200px"
-              height={70}
-              alt=""
-            />
-          </div>
-          <p class="products__block_box_text">
-            1→10フェーズ専門のグロース支援部隊です。マーケ・営業・CSを一括組成します。
-          </p>
         </div>
       </div>
 
@@ -173,14 +178,14 @@ import SectionHeader from "../ui/SectionHeader.astro";
       position: absolute;
       top: 0;
       left: 0;
-      background-image: url(/src/assets/img/design/products__bg.png);
+      background-image: url(../../assets/img/design/products__bg.png);
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
       height: 200rem;
       z-index: -10;
       @include media_max(sp) {
-        background-image: url(/src/assets/img/design/products__bg-sp.png);
+        background-image: url(../../assets/img/design/products__bg-sp.png);
         height: 120rem;
       }
     }
@@ -190,7 +195,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
       position: absolute;
       top: -21rem;
       right: 0;
-      background-image: url(/src/assets/img/design/bg_design_img03.png);
+      background-image: url(../../assets/img/design/bg_design_img03.png);
       background-repeat: no-repeat;
       background-size: cover;
       width: 50rem;
@@ -258,14 +263,8 @@ import SectionHeader from "../ui/SectionHeader.astro";
         box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
 
         @include media_min(sp) {
-          width: calc(((100% - var(--gap) * 3) / 4));
-          height: auto;
-          padding: 3.2rem 4rem 4rem;
-
-          &:has(.products__block_box_tit) {
-            width: calc(((100% - var(--gap) * 2) / 3));
-            padding: 4rem 4rem 4.4rem;
-          }
+          width: calc(((100% - var(--gap) * 2) / 3));
+          padding: 4rem 4rem 4.4rem;
         }
 
         @include media_max(sp) {
@@ -303,6 +302,52 @@ import SectionHeader from "../ui/SectionHeader.astro";
           font-size: 1.4rem;
           line-height: 1.7;
           @include media_max(sp) {
+          }
+        }
+      }
+
+      &_box_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+        padding: 0;
+        @include media_min(sp) {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: var(--gap);
+          width: calc(((100% - var(--gap) * 1) / 2));
+        }
+        @include media_max(sp) {
+          padding: 2rem 3.2rem 3.2rem;
+          background: var(--color-white);
+          border-radius: 1.4rem;
+          box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+        }
+      }
+      &_box_wrapper &_box {
+        width: 100%;
+        padding: 3.2rem 4rem 4rem;
+
+        @include media_max(sp) {
+          row-gap: 0;
+          background: transparent;
+          box-shadow: none;
+          border-radius: 0;
+          padding: 0;
+
+          &:nth-of-type(2) {
+            border-top: 1px solid var(--color-black02);
+            padding-top: 0.4rem;
+            margin-top: 2.5rem;
+          }
+
+          &_logo_block :global(img) {
+            height: 7.3rem;
+          }
+          &_text {
+            margin-top: 0.4rem;
           }
         }
       }

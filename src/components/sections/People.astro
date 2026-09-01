@@ -124,6 +124,7 @@ const experts = [
 ---
 
 <section id="people" class="people main_sec">
+  <div class="people__bg"></div>
   <div class="contents_wrapper">
     <SectionHeader
       headingText="私たちを構成する人"
@@ -135,6 +136,12 @@ const experts = [
 
     <h3 class="people__tit">
       <Img
+        sources={[
+          {
+            media: "(max-width: 768px)",
+            src: "text/people__tit-sp.svg",
+          },
+        ]}
         img={{ src: "text/people__tit.svg" }}
         width={570}
         alt="難所を共に越える、多種多様な`事業を立てた経験`を持つ人"
@@ -142,10 +149,13 @@ const experts = [
     </h3>
 
     <p class="people__text">
-      メソッドでもプロダクトでもなく、まず「人」。ご支援に入るのは、自分自身で事業を立ち上げてきた経験を持つ専門人材です。
+      メソッドでもプロダクトでもなく、まず「人」。<br
+        class="sp_only"
+      />ご支援に入るのは、自分自身で事業を立ち上げてきた経験を持つ専門人材です。
     </p>
 
     <div class="people__experts_wrapper swiper js-expert_swiper">
+      <p class="people__experts_hint">スワイプで他のメンバーを見る</p>
       <ul class="people__experts swiper-wrapper">
         {
           experts.map((expert) => (
@@ -176,8 +186,13 @@ const experts = [
     </div>
 
     <div class="people__block01">
-      <h4 class="people__block01_tit">構想を実行へ変える、<br>Relicの実行体制</h4>
-      <p class="people__block01_text">戦略設計からユーザー検証・開発までを一気通貫で支援する実行体制を構築しています。<br>ビジネスとプロダクトの両視点を持つチームが、事業の成功確度を軸に意思決定を行いながら推進します。</p>
+      <h4 class="people__block01_tit">
+        構想を実行へ変える、<br />Relicの実行体制
+      </h4>
+      <p class="people__block01_text">
+        戦略設計からユーザー検証・開発までを一気通貫で支援する実行体制を構築しています。<br
+        />ビジネスとプロダクトの両視点を持つチームが、事業の成功確度を軸に意思決定を行いながら推進します。
+      </p>
       <div class="people__block01_figure">
         <Img
           sources={[
@@ -191,17 +206,91 @@ const experts = [
           ]}
           img={{
             src: "people__figure.png",
-            widths: [2200, 1800, 1200],
+            widths: [1200, 1000, 800],
           }}
-          width={1186}
-          sizes="(min-width: 1500px) 1800px, 1200px"
+          width={800}
+          sizes="(min-width: 1500px) 1800px, 800px"
+          alt=""
+        />
+      </div>
+      <div class="people__block01_figure_detail sp_only">
+        <Img
+          img={{
+            src: "people__figure_detail-sp.png",
+            widths: [800, 500],
+          }}
+          sizes="(max-width: 768px) 100vw, 500px"
+          width={500}
           alt=""
         />
       </div>
     </div>
 
-    <div class="people__block01">
-      
+    <div class="people__block02_wrapper swiper js-products_swiper">
+      <div class="people__block02 swiper-wrapper">
+        <div class="people__block02_box swiper-slide">
+          <div class="people__block02_box_illust_block">
+            <Img
+              img={{
+                src: "people__illust01.png",
+                widths: [600, 450, 300],
+              }}
+              sizes="(max-width: 768px) 100vw, 300px"
+              width={300}
+              alt=""
+            />
+          </div>
+          <p class="people__block02_box_sub">特徴</p>
+          <h4 class="people__block02_box_tit">
+            事業を立ち上げた<br />当事者経験を持つ
+          </h4>
+          <p class="people__block02_box_text">
+            自分自身で事業を立ち上げ、グロースさせ、時に撤退判断まで担ってきた人材が、御社の事業オーナーの傍らに座ります。机上の論ではなく、自分の事業として動かせる人材構成です。
+          </p>
+        </div>
+        <div class="people__block02_box swiper-slide">
+          <div class="people__block02_box_illust_block">
+            <Img
+              img={{
+                src: "people__illust02.png",
+                widths: [600, 450, 300],
+              }}
+              sizes="(max-width: 768px) 100vw, 300px"
+              width={300}
+              alt=""
+            />
+          </div>
+          <p class="people__block02_box_sub">特徴</p>
+          <h4 class="people__block02_box_tit">
+            ビジネス・テクノロジー・<br />クリエイティブが揃う
+          </h4>
+          <p class="people__block02_box_text">
+            社員の約半数がエンジニアまたはデザイナー。事業開発・PdM・UX/UI・エンジニアリング・グロースマーケまでを、ひとつのチームで提供します。"分業の壁"がそもそも発生しません。
+          </p>
+        </div>
+        <div class="people__block02_box swiper-slide">
+          <div class="people__block02_box_illust_block">
+            <Img
+              img={{
+                src: "people__illust03.png",
+                widths: [600, 450, 300],
+              }}
+              sizes="(max-width: 768px) 100vw, 300px"
+              width={300}
+              alt=""
+            />
+          </div>
+          <p class="people__block02_box_sub">特徴</p>
+          <h4 class="people__block02_box_tit">
+            事業パートナーとして<br />当事者意識を持つ
+          </h4>
+          <p class="people__block02_box_text">
+            受託の枠を超え、共同事業化・JV・CVC・カーブアウトまで踏み込んだ関係をつくれるのがRelicの特徴。"作って終わり"でも"提案して終わり"でもなく、事業の結果まで一緒に追います。
+          </p>
+        </div>
+      </div>
+
+      <div class="swiper-pagination sp_only"></div>
     </div>
   </div>
 </section>
@@ -211,6 +300,63 @@ const experts = [
     position: relative;
     background: var(--color-black02);
     color: var(--color-white);
+    z-index: 1;
+    overflow: hidden;
+    @include media_max(sp) {
+      padding-top: 21rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -7rem;
+      right: 0;
+      background-image: url(../../assets/img/design/bg_visual_img02.jpg);
+      width: 73rem;
+      height: auto;
+      aspect-ratio: 748/270;
+      @include media_max(sp) {
+        top: 3.4rem;
+        width: 32rem;
+      }
+    }
+
+    &__bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-black02);
+      background-image:
+        linear-gradient(#56cad9 1px, transparent 1px),
+        linear-gradient(90deg, #56cad9 1px, transparent 1px);
+      background-size: 6.2rem 6.2rem;
+      background-position: 0rem 3.5rem;
+      opacity: 0.1;
+      z-index: -1;
+      @include media_max(sp) {
+        background-position: 0rem 0rem;
+      }
+    }
+    &__bg::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 110rem;
+      height: auto;
+      aspect-ratio: 1110/1800;
+      background: var(--color-black01);
+      clip-path: polygon( 0 0 , 100% 100% , 0 100% );
+      z-index: -1;
+      opacity: 0.9;
+      @include media_max(sp) {
+        width: 62rem;
+        left: 0;
+      }
+    }
 
     :global(.section_header) {
       --color-text: var(--color-white);
@@ -232,19 +378,56 @@ const experts = [
     &__text {
       margin-top: 2rem;
       font-weight: 500;
+      @include media_max(sp) {
+        margin-top: 1.6rem;
+      }
     }
 
     &__experts_wrapper {
+      margin-top: 8rem;
       margin-left: -5rem;
       margin-right: -5.4rem;
 
       &:not(.swiper-initialized) {
         display: none;
       }
+
+      @include media_max(sp) {
+        margin-top: 4rem;
+        margin-left: -2.5rem;
+        margin-right: -2.5rem;
+        padding-left: 2.5rem;
+      }
     }
     &__experts {
       display: flex;
-      margin-top: 8rem;
+
+      &_hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 0.5rem;
+        width: fit-content;
+        margin: 0 4.4rem 2.2rem auto;
+        color: var(--color-white);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1.4;
+        @include media_max(sp) {
+          font-size: 1.2rem;
+          margin-right: 2rem;
+        }
+
+        &::before,
+        &::after {
+          content: "◀";
+          font-size: 1.1em;
+        }
+        &::after {
+          content: "▶";
+        }
+      }
     }
     &__expert {
       position: relative;
@@ -260,7 +443,11 @@ const experts = [
       &_position {
         margin-bottom: 1.2rem;
         font-size: 1.3rem;
+        font-weight: 700;
         line-height: 1.2;
+        @include media_max(sp) {
+          margin-bottom: 1rem;
+        }
       }
       &_name {
         font-size: 2.1rem;
@@ -272,6 +459,141 @@ const experts = [
         font-size: 1.4rem;
         letter-spacing: -0.02em;
         line-height: 1.8;
+        @include media_max(sp) {
+          margin-top: 1.2rem;
+        }
+      }
+    }
+
+    /* block01 */
+    &__block01 {
+      margin-top: 8.7rem;
+      @include media_max(sp) {
+        margin-top: 6.2rem;
+      }
+      @include media_min(sp) {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto 1fr;
+        margin-left: -0.2rem;
+        margin-right: -1.2rem;
+        column-gap: 3.2rem;
+      }
+
+      &_figure {
+        margin: 0;
+        filter: drop-shadow(-1rem 1rem 1.7rem (rgba(0,0,0,0.6))) drop-shadow(-0.8rem 0.8rem 1.2rem (rgba(0,0,0,0.4)));
+        @include media_min(sp) {
+          grid-column: 2/3;
+          grid-row: 1/3;
+          width: 77rem;
+        }
+        @include media_max(sp) {
+          width: 100%;
+          margin-left: -3.1rem;
+          width: calc(100% + 6.2rem);
+          margin-top: 3.4rem;
+
+          &_detail {
+            margin-top: 3.2rem;
+          }
+        }
+      }
+      &_tit {
+        font-size: 3.28rem;
+        font-family: var(--font-noto_serif);
+        letter-spacing: -0.025em;
+        line-height: 1.45;
+        @include media_min(sp) {
+          margin-top: 2rem;
+        }
+        @include media_max(sp) {
+          font-size: 2.4rem;
+        }
+      }
+
+      &_text {
+        margin-top: 1.2rem;
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+        @include media_max(sp) {
+          font-size: 1.4rem;
+        }
+      }
+    }
+
+    //　sp版 swiper
+    &__block02_wrapper {
+      @include media_min(sp) {
+        overflow: inherit;
+      }
+      @include media_max(sp) {
+        margin-left: -2.5rem;
+        margin-right: -2.5rem;
+      }
+    }
+    &__block02 {
+      @include media_min(sp) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;
+        margin-top: 8rem;
+      }
+      @include media_max(sp) {
+        margin-top: 5.5rem;
+      }
+
+      &_box {
+        padding: 3.4rem 3rem 4rem;
+        background: var(--color-white);
+        color: var(--color-black02);
+        border-radius: 2rem;
+
+        &_illust_block {
+          width: 100%;
+          margin: 0 auto 2rem;
+        }
+
+        &_sub {
+          position: relative;
+          width: fit-content;
+          min-width: 14rem;
+          padding-bottom: 0.9em;
+          margin-bottom: 1.5rem;
+          border-bottom: 0.4rem solid var(--color-dark_beige01);
+          font-size: 1.4rem;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+
+        &_tit {
+          position: relative;
+          color: var(--color-black01);
+          font-size: 2.1rem;
+          font-family: var(--font-noto_serif);
+          line-height: 1.4;
+          z-index: 1;
+          &::before {
+            content: var(--slide-num);
+            position: absolute;
+            top: -6.6rem;
+            right: 0;
+            color: #f1f1f1;
+            font-size: 10.2rem;
+            font-family: var(--font-noto_serif);
+            line-height: 1;
+            z-index: -1;
+            @include media_max(sp) {
+
+            }
+          }
+        }
+
+        &_text {
+          margin-top: 1.2rem;
+          font-size: 1.5rem;
+          line-height: 1.66;
+        }
       }
     }
 
@@ -282,10 +604,17 @@ const experts = [
       width: calc(100% - 2.5rem);
       height: 0.4rem;
       margin: 4rem 0 0;
+      @include media_max(sp) {
+        margin-top: 3rem;
+        background: #000000ee;
+      }
     }
     :global(.swiper-scrollbar-drag) {
       background: var(--color-white);
       border-radius: 0;
+      @include media_max(sp) {
+        background: var(--color-magenta01);
+      }
     }
   }
 </style>
@@ -310,9 +639,9 @@ const experts = [
         mousewheel: false,
         autoHeight: false,
         loop: false,
-        slidesPerView: 3.5,
+        slidesPerView: 1.1,
         speed: 500,
-        spaceBetween: "3.25%",
+        spaceBetween: "5%",
 
         // スクロールバーの設定を追加
         scrollbar: scrollbarEl
@@ -321,6 +650,13 @@ const experts = [
               draggable: true, // ドラッグ操作を有効化
             }
           : false,
+
+        breakpoints: {
+          768: {
+            slidesPerView: 3.5,
+            spaceBetween: "3.25%",
+          },
+        },
       });
     });
   }

@@ -45,6 +45,9 @@ body {
   letter-spacing: 0;
   font-family: var(--font-noto_sans);
   overflow: auto;
+  @include media_max(sp) {
+    margin-top: 0;
+  }
 }
 
 #body_inner {

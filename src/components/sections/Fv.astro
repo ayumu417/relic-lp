@@ -23,6 +23,8 @@ import Button from "../ui/Button.astro";
         width={1186}
         sizes="(min-width: 1500px) 1800px, 1200px"
         alt=""
+        decoding="sync"
+        loading="eager"
       />
     </div>
     <div class="fv__contents">
@@ -38,6 +40,7 @@ import Button from "../ui/Button.astro";
           img={{ src: "text/fv__tit.svg" }}
           width={522}
           alt="新事業を、構想から事業化まで。共に形にする。"
+          decoding="sync"
         />
       </h1>
       <p class="fv__text">
@@ -55,44 +58,52 @@ import Button from "../ui/Button.astro";
       <ul class="fv__cta_list">
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
-            <Img img={{ src: "fv__cta_illust01.svg" }} width={86} alt="" />
+            <Img img={{ src: "fv__cta_illust01.svg" }} width={86} alt="" decoding="sync" />
           </div>
-          <p class="fv__cta_list_item_tit">
-            5,000<span class="fv__cta_list_item_tit_s">社＋</span>
-          </p>
-          <p class="fv__cta_list_item_text">累計ご支援先企業</p>
+          <div class="fv__cta_list_item_contents">
+            <p class="fv__cta_list_item_tit">
+              5,000<span class="fv__cta_list_item_tit_s">社＋</span>
+            </p>
+            <p class="fv__cta_list_item_text">累計ご支援先企業</p>
+          </div>
         </li>
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
-            <Img img={{ src: "fv__cta_illust02.svg" }} width={86} alt="" />
+            <Img img={{ src: "fv__cta_illust02.svg" }} width={86} alt="" decoding="sync" />
           </div>
-          <p class="fv__cta_list_item_tit">
-            <span class="fv__cta_list_item_tit_xs">国内</span>No.1
-          </p>
-          <p class="fv__cta_list_item_text">
-            新規事業開発の<br />支援実績シェア
-          </p>
+          <div class="fv__cta_list_item_contents">
+            <p class="fv__cta_list_item_tit">
+              <span class="fv__cta_list_item_tit_xs">国内</span>No.1
+            </p>
+            <p class="fv__cta_list_item_text">
+              新規事業開発の<br />支援実績シェア
+            </p>
+          </div>
         </li>
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
-            <Img img={{ src: "fv__cta_illust03.svg" }} width={86} alt="" />
+            <Img img={{ src: "fv__cta_illust03.svg" }} width={86} alt="" decoding="sync" />
           </div>
-          <p class="fv__cta_list_item_tit">
-            350<span class="fv__cta_list_item_tit_s">名＋</span>
-          </p>
-          <p class="fv__cta_list_item_text">専門メンバー</p>
+          <div class="fv__cta_list_item_contents">
+            <p class="fv__cta_list_item_tit">
+              350<span class="fv__cta_list_item_tit_s">名＋</span>
+            </p>
+            <p class="fv__cta_list_item_text">専門メンバー</p>
+          </div>
         </li>
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
-            <Img img={{ src: "fv__cta_illust04.svg" }} width={86} alt="" />
+            <Img img={{ src: "fv__cta_illust04.svg" }} width={86} alt="" decoding="sync" />
           </div>
-          <p class="fv__cta_list_item_tit">
-            17<span class="fv__cta_list_item_tit_s">拠点＋</span>
-          </p>
-          <p class="fv__cta_list_item_text">
-            国内拠点＋<br />
-            シンガポール
-          </p>
+          <div class="fv__cta_list_item_contents">
+            <p class="fv__cta_list_item_tit">
+              17<span class="fv__cta_list_item_tit_s">拠点＋</span>
+            </p>
+            <p class="fv__cta_list_item_text">
+              国内拠点＋<br />
+              シンガポール
+            </p>
+          </div>
         </li>
       </ul>
 
@@ -108,12 +119,12 @@ import Button from "../ui/Button.astro";
         </Button>
         <Button
           class="fv__cta_button"
-          href="###"
+          href="https://relic.co.jp/contact_dl/"
           target="_blank"
           rel="noopener noreferrer"
           color="white"
         >
-          資料・ホワイトペーパー請求
+          資料・<br class="sp_onnly" />ホワイトペーパー請求
         </Button>
       </div>
     </div>
@@ -122,51 +133,115 @@ import Button from "../ui/Button.astro";
 
 <style lang="scss">
   .fv {
+    position: relative;
     padding-bottom: 14rem;
+    @include media_max(sp) {
+      padding-bottom: 11rem;
+    }
 
     &__inner {
       position: relative;
       width: 100%;
       max-width: 1800px;
       margin: 0 auto;
-      font-size: clamp(10px,0.69vw,16px);
+      font-size: clamp(10px, 0.69vw, 12px);
       overflow: hidden;
+      @include media_max(sp) {
+        font-size: 1rem;
+      }
     }
     &__bg {
       width: 119em;
       margin: 0 0 0 auto;
+      @include media_max(sp) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 37rem;
+      }
 
       :global(img) {
         width: 100%;
+        border-radius: 2rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
 
     &__contents {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-47%);
       left: 0;
       width: fit-content;
-      padding-left: 15.5em;
+      padding-left: 15.1em;
       font-size: 1em;
+      @include media_max(sp) {
+        position: relative;
+        top: auto;
+        bottom: 0;
+        padding-left: 3.9rem;
+        padding-top: 36rem;
+        transform: translateY(0);
+      }
     }
 
     &__lead {
+      position: relative;
+      width: fit-content;
+      padding: 0 0 1.4em;
       margin: 0 0 1.8em;
       font-size: 1.8em;
       font-weight: 700;
+      line-height: 1.2;
+
+      @include media_max(sp) {
+        padding-bottom: 1.3em;
+        margin-bottom: 1.9rem;
+        font-size: 1.4rem;
+      }
 
       &::after {
         content: "";
         position: absolute;
         bottom: 0;
         right: 0;
+        width: calc(100% + 8.6em);
+        height: 0.5rem;
+        background-image: linear-gradient(
+          90deg,
+          rgba(20, 60, 93, 1) 0%,
+          rgba(22, 59, 93, 1) 17%,
+          rgba(29, 57, 94, 1) 24%,
+          rgba(41, 53, 96, 1) 29%,
+          rgba(59, 48, 98, 1) 34%,
+          rgba(82, 41, 101, 1) 38%,
+          rgba(110, 33, 105, 1) 41%,
+          rgba(144, 23, 110, 1) 44%,
+          rgba(182, 13, 115, 1) 47%,
+          rgba(227, 2, 122, 1) 50%,
+          rgba(224, 40, 122, 1) 53%,
+          rgba(222, 73, 122, 1) 56%,
+          rgba(219, 101, 122, 1) 60%,
+          rgba(218, 124, 122, 1) 64%,
+          rgba(216, 142, 122, 1) 69%,
+          rgba(215, 154, 122, 1) 75%,
+          rgba(215, 161, 122, 1) 82%,
+          rgba(215, 164, 122, 1) 100%
+        );
+        background-position: center center;
+        @include media_max(sp) {
+          height: 0.45rem;
+        }
       }
     }
 
     &__tit {
       font-size: 4em;
       width: 13em;
+      @include media_max(sp) {
+        width: 30rem;
+      }
 
       :global(img) {
         width: 100%;
@@ -174,33 +249,162 @@ import Button from "../ui/Button.astro";
     }
 
     &__text {
-      margin: 1.25em 0 0;
+      margin: 1.4em 0 0;
       font-size: 1.6em;
       font-weight: 500;
+      @include media_max(sp) {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 4.1rem;
+        margin-left: -1rem;
+        margin-right: -2rem;
+        letter-spacing: -0.025em;
+      }
     }
 
     /* fv下のcta */
     &__cta {
       margin: 2.8rem auto 0;
       max-width: 108rem;
+      @include media_max(sp) {
+        margin-top: 1.5rem;
+      }
 
       &_list {
         display: flex;
         align-items: stretch;
         justify-content: center;
+        width: fit-content;
+        margin: 0 auto;
+        @include media_max(sp) {
+          display: grid;
+          grid-template-columns: 17.6rem auto;
+          row-gap: 1.2rem;
+        }
+
+        &_item {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          column-gap: 1rem;
+          padding: 1.1rem 0;
+          @include media_min(sp) {
+            &:nth-of-type(n + 2) {
+              padding-left: 2.4rem;
+              margin-left: 2.5rem;
+              border-left: 1px solid #d9d9d9;
+            }
+          }
+          @include media_max(sp) {
+            padding: 0.4rem 0 0.5rem;
+            &:nth-of-type(1) {
+              order: 1;
+            }
+            &:nth-of-type(2) {
+              order: 3;
+            }
+            &:nth-of-type(3) {
+              order: 2;
+            }
+            &:nth-of-type(4) {
+              order: 4;
+            }
+
+            &:nth-of-type(3),
+            &:nth-of-type(4) {
+              padding-left: 1.6rem;
+              margin-left: 0.4rem;
+              border-left: 1px solid #d9d9d9;
+            }
+          }
+
+          &_illust_block {
+            width: 8.6rem;
+            @include media_max(sp) {
+              width: 5.1rem;
+            }
+
+            :global(img) {
+              width: 100%;
+            }
+          }
+
+          &_contents {
+            flex: 1;
+          }
+          &_tit {
+            color: var(--color-black01);
+            font-size: 4rem;
+            font-weight: 700;
+            font-family: var(--font-noto_serif);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            @include media_max(sp) {
+              font-size: 2.6rem;
+            }
+
+            &_s {
+              font-size: 2.4rem;
+              @include media_max(sp) {
+                font-size: 1.5rem;
+              }
+            }
+            &_xs {
+              font-size: 2rem;
+              @include media_max(sp) {
+                font-size: 1.4rem;
+              }
+            }
+          }
+          &_text {
+            width: fit-content;
+            margin: 0.5rem auto 0;
+            text-align: center;
+            font-size: 1.4rem;
+            line-height: 1.2;
+            @include media_max(sp) {
+              font-size: 1.2rem;
+              text-align: left;
+              margin: 0.3rem 0 0;
+            }
+          }
+        }
       }
 
       &_buttons {
         display: flex;
+        justify-content: center;
+        column-gap: 3rem;
+        margin-top: 4.3rem;
+        @include media_max(sp) {
+          column-gap: 0.8rem;
+          margin-top: 3.2rem;
+        }
       }
       &_button {
         width: 42rem;
         min-height: 7rem;
+        margin: 0;
+        @include media_max(sp) {
+          min-height: 4.8rem;
+          font-size: 1.25rem;
+
+          &:nth-of-type(1) {
+            width: 16rem;
+          }
+          &:nth-of-type(2) {
+            width: 18rem;
+          }
+        }
       }
       :global(.button--white) {
         --border_color: var(--color-black01);
+        @include media_max(sp) {
+          width: 18.6rem;
+          padding-right: 1.4em;
+          letter-spacing: -0.02em;
+        }
       }
     }
-    
   }
 </style>

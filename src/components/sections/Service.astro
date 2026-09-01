@@ -259,12 +259,31 @@ import Cta from "../block/Cta.astro";
   .service {
     position: relative;
     padding-bottom: 13.2rem;
-    background-image: url(/src/assets/img/design/service__bg.png);
+    background-image: url(../../assets/img/design/service__bg.png);
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 1;
     @include media_max(sp) {
       padding-bottom: 4rem;
-      background-image: url(/src/assets/img/design/service__bg-sp.png);
+      background-image: url(../../assets/img/design/service__bg-sp.png);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 16rem;
+      left: 0;
+      background-image: url(../../assets/img/design/bg_design_img02.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 44rem;
+      height: auto;
+      aspect-ratio: 436/1426;
+      z-index: -1;
+      @include media_max(sp) {
+        bottom: 25rem;
+        width: 36rem;
+      }
     }
 
     &__tit :global(img) {
@@ -300,6 +319,7 @@ import Cta from "../block/Cta.astro";
       max-width: 102rem;
       margin: 0 auto;
       &_list {
+        counter-reset: number 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 2rem;
@@ -316,6 +336,7 @@ import Cta from "../block/Cta.astro";
           border-radius: 2rem;
           box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
           padding: 4rem 5.4rem 3.5rem;
+          z-index: 1;
           @include media_min(sp) {
             &:nth-of-type(2n) {
               top: 6rem;
@@ -323,6 +344,23 @@ import Cta from "../block/Cta.astro";
           }
           @include media_max(sp) {
             padding: 3rem 3rem 3rem;
+          }
+
+          &::before {
+            position: absolute;
+            bottom: 0;
+            right: 2.5rem;
+            counter-increment: number 1;
+            content: counter(number, decimal-leading-zero);
+            font-family: var(--font-noto_serif);
+            color: #F1F1F1;
+            font-size: 10rem;
+            font-weight: 700;
+            line-height: 0.9;
+            z-index: -1;
+            @include media_max(sp) {
+              right: 1.7rem;
+            }
           }
 
           &_tit {
@@ -578,7 +616,7 @@ import Cta from "../block/Cta.astro";
         position: absolute;
         bottom: calc(100% - 2px);
         left: 14rem;
-        background-image: url(/src/assets/img/design/service__cta_illust.png);
+        background-image: url(../../assets/img/design/service__cta_illust.png);
         background-repeat: no-repeat;
         background-size: contain;
         width: 8rem;
