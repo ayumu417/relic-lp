@@ -1,27 +1,39 @@
 ---
 import Img from "../utils/ImgLoader.astro";
 import Button from "../ui/Button.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
 ---
 
 <section class="test main_sec">
   <div class="contents_wrapper">
-    <div class="heading_block">
-      <h2 class="heading_block__heading">
-        <Img img={{ src: "text/test__heading.svg" }} width={0} alt="" />
-      </h2>
-      <p class="heading_block__lead"></p>
-    </div>
-    <p class="test__emphasized_text">
-      <Img img={{ src: "text/test__emphasized_text.svg" }} width={0} alt="" />
-    </p>
+    <SectionHeader
+      headingText=""
+      imgSrc="text/test__heading.svg"
+      imgWidth={258}
+      imgAlt="RESOURCE"
+      align="left"
+    />
+
+    <h3 class="test__tit">
+      <Img img={{ src: "text/test__tit.svg" }} width={570} alt="" />
+    </h3>
   </div>
 </section>
+
 
 <style lang="scss">
   .test {
     position: relative;
 
-    &__emphasized_text {
+    &__tit :global(img) {
+      width: auto;
+      height: 10.8rem;
+      max-width: 100%;
+      margin: 0;
+      object-fit: contain;
+      @include media_max(sp) {
+        height: 6.2rem;
+      }
     }
   }
 </style>

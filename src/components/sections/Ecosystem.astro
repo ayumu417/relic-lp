@@ -1,0 +1,336 @@
+---
+import Img from "../utils/ImgLoader.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+
+/**
+ * 企業一覧を配列で管理
+ * ※ HTMLタグの記載可能
+ *
+ * logo: `画像パス`,
+ * name: `名前`,
+ * text: `テキスト`,
+ */
+
+const companys = [
+  {
+    logo: `ecosystem__logo001.png`,
+    name: `Relic Holdings`,
+    text: `グループ全体の持株会社（2021年9月設立）`,
+  },
+  {
+    logo: `ecosystem__logo002.png`,
+    name: `ENjiNE`,
+    text: `クラウドファンディング構築プラットフォーム『CROWDFUNDING NETWORK Powered by ENjiNE』の運営`,
+  },
+  {
+    logo: `ecosystem__logo003.png`,
+    name: `Scalehack`,
+    text: `スケールアップ・プラットフォーム事業（営業／マーケ／オペレーション／エンジニアリング）`,
+  },
+  {
+    logo: `ecosystem__logo004.png`,
+    name: `Rebootus`,
+    text: `事業再生・スモールM&A支援プラットフォーム『Rebootus』『Reboo+』の運営`,
+  },
+  {
+    logo: `ecosystem__logo005.png`,
+    name: `ZERO1000 Ventures`,
+    text: `起業家を発掘・育成・スピンオフするスタートアップスタジオ`,
+  },
+  {
+    logo: `ecosystem__logo006.png`,
+    name: `RUFU`,
+    text: `データウェアハウス（DWH）／BIを活用したSaaSプロダクト事業（ZERO1000第1号）`,
+  },
+  {
+    logo: `ecosystem__logo007.png`,
+    name: `MEAL FORWARD`,
+    text: `食品流通・購買のイノベーション事業『MEAL as a Service』（ZERO1000第2号）`,
+  },
+  {
+    logo: `ecosystem__logo008.png`,
+    name: `3rd Economy`,
+    text: `ブロックチェーン技術を活用した金銭債権トークン化マーケットプレイス（Web3×FinTech）`,
+  },
+  {
+    logo: `ecosystem__logo009.png`,
+    name: `Pro3Lab`,
+    text: `完全成果報酬型エンジニアリング事業。Webアプリ等の新規ソフトウェアを共同開発`,
+  },
+  {
+    logo: `ecosystem__logo010.png`,
+    name: `ALTILAN`,
+    text: `宇宙機器開発および宇宙ビジネス推進。異業種・地域企業の宇宙参入を支援（浜松市・2024年設立）`,
+  },
+  {
+    logo: `ecosystem__logo011.png`,
+    name: `KEEP TECH JAPAN`,
+    text: `フードテック事業を展開するシンガポール現地法人。国際特許の酸化防止技術で日本酒向けIoTサーバーを展開（2024年設立）。`,
+  },
+  {
+    logo: `ecosystem__logo012.png`,
+    name: `Relic CVC`,
+    text: `CVCファンドの組成・運営／パートナー企業のCVC設立・運用支援（2023年4月設立）`,
+  },
+];
+---
+
+<section class="ecosystem main_sec">
+  <div class="ecosystem__bg"></div>
+  <div class="contents_wrapper">
+    <SectionHeader
+      headingText="事業共創エコシステム"
+      imgSrc="text/ecosystem__heading.svg"
+      imgWidth={258}
+      imgAlt="ECOSYSTEM"
+      align="left"
+    />
+
+    <h3 class="ecosystem__tit">
+      <Img
+        img={{ src: "text/ecosystem__tit.svg" }}
+        width={570}
+        alt="28社体制で構成する、事業創出のエコシステム"
+      />
+    </h3>
+
+    <p class="ecosystem__text">
+      Relicは支援するだけでなく、自ら事業会社群を運営する事業共創グループ。<br
+      />
+      各領域の専門会社が連携し、貴社の事業を立ち上げ、育て、自走するまで伴走します。
+    </p>
+
+    <div class="ecosystem__list_wrapper swiper js-ecosystem_swiper">
+      <ul class="ecosystem__list swiper-wrapper">
+        {
+          companys.map((company) => (
+            <li class="ecosystem__list_item swiper-slide">
+              <div class="ecosystem__list_item_img_block">
+                <Img
+                  img={{
+                    src: company.logo,
+                    widths: [530, 400, 300],
+                  }}
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  width={266}
+                  alt={company.name}
+                />
+              </div>
+              <div class="ecosystem__list_item_contents">
+                <h3 class="ecosystem__list_item_name" set:html={company.name} />
+                <p class="ecosystem__list_item_text" set:html={company.text} />
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="swiper-scrollbar sp_only"></div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .ecosystem {
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -54rem;
+      right: 0;
+      background-image: url(/src/assets/img/design/bg_design_img05.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 44rem;
+      height: auto;
+      aspect-ratio: 456/1486;
+      z-index: -1;
+      @include media_max(sp) {
+        display: none;
+      }
+    }
+
+    &__bg::before,
+    &__bg::after {
+      --top: -30.9rem;
+      content: "";
+      position: absolute;
+      top: var(--top);
+      left: 0;
+      width: 100%;
+      height: calc(100% - var(--top));
+      background-position: center center;
+      z-index: -10;
+      @include media_max(sp) {
+        --top: 0rem;
+        height: calc(100%);
+      }
+    }
+    &__bg::before {
+      background-image: linear-gradient(
+        180deg,
+        rgba(241, 241, 241, 0) 0%,
+        rgba(241, 241, 241, 1) 20%
+      );
+      @include media_max(sp) {
+        background: #f1f1f1;
+      }
+    }
+    &__bg::after {
+      height: 106rem;
+      background-color: transparent;
+      background-image:
+        linear-gradient(#f3fbfc 1px, transparent 1px),
+        linear-gradient(90deg, #f3fbfc 1px, transparent 1px);
+      background-size: 6.2rem 6.2rem;
+      background-position: 0rem 3.5rem;
+      opacity: 0.8;
+      @include media_max(sp) {
+        height: 100%;
+        background-position: 0rem 0rem;
+      }
+    }
+
+    &__tit :global(img) {
+      width: auto;
+      height: 11.2rem;
+      max-width: 100%;
+      margin: 0;
+      object-fit: contain;
+      @include media_max(sp) {
+        height: 6.6rem;
+      }
+    }
+
+    &__text {
+      font-weight: 500;
+      margin-top: 3.2rem;
+      @include media_max(sp) {
+        margin-top: 2rem;
+      }
+    }
+
+    //　sp版 swiper
+    &__list_wrapper {
+      @include media_min(sp) {
+        overflow: inherit;
+        margin-top: 7rem;
+      }
+      @include media_max(sp) {
+        margin-right: -2.5rem;
+      }
+    }
+    & &__list {
+      @include media_min(sp) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: flex-start;
+        column-gap: 2rem;
+        row-gap: 3.5rem;
+      }
+      @include media_max(sp) {
+        margin-top: 3.2rem;
+      }
+      &_item {
+        width: 100%;
+
+        &_img_block {
+          margin: 0;
+          border-radius: 1.4rem;
+          box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+
+          :global(img) {
+            width: 100%;
+          }
+        }
+
+        &_name {
+          margin-top: 1.8rem;
+          font-size: 1.8rem;
+          line-height: 1.1;
+        }
+
+        &_text {
+          margin-top: 0.9rem;
+          font-size: 1.4rem;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    /* スクロールバーのカスタム */
+    .swiper-scrollbar {
+      position: static;
+      background: #fff;
+      width: calc(100% - 2.5rem);
+      height: 5px;
+      margin: 2rem 0 0;
+    }
+    :global(.swiper-scrollbar-drag) {
+      background: var(--color-magenta01);
+      border-radius: 0;
+    }
+  }
+</style>
+
+<script>
+  // @ts-ignore
+  import Swiper, { Navigation, Autoplay, EffectFade, Scrollbar } from "swiper";
+  // @ts-ignore
+  import "swiper/css/bundle";
+
+  // モジュール化を解除し、対象のクラス（.js-ecosystem_swiper）を直接指定
+  const sliders = document.querySelectorAll(".js-ecosystem_swiper");
+
+  if (sliders.length > 0) {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    // @ts-ignore
+    let swiperInstances = [];
+
+    function initSwiper() {
+      if (mediaQuery.matches) {
+        if (swiperInstances.length === 0) {
+          sliders.forEach((slider) => {
+            // スクロールバー要素を取得
+            const scrollbarEl = slider.querySelector(".swiper-scrollbar");
+
+            const instance = new Swiper(slider, {
+              // modulesにScrollbarを追加
+              modules: [Navigation, Autoplay, EffectFade, Scrollbar],
+              mousewheel: false,
+              autoHeight: false,
+              loop: false,
+              slidesPerView: 1.4,
+              speed: 500,
+              spaceBetween: "5.4%",
+
+              // スクロールバーの設定を追加
+              scrollbar: scrollbarEl
+                ? {
+                    el: scrollbarEl,
+                    draggable: true, // ドラッグ操作を有効化
+                  }
+                : false,
+            });
+
+            swiperInstances.push(instance);
+          });
+        }
+      } else {
+        if (swiperInstances.length > 0) {
+          // @ts-ignore
+          swiperInstances.forEach((instance) => {
+            instance.destroy(true, true);
+          });
+          swiperInstances = [];
+        }
+      }
+    }
+
+    initSwiper();
+    mediaQuery.addEventListener("change", initSwiper);
+  }
+</script>

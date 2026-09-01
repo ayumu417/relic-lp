@@ -1,0 +1,248 @@
+---
+import Img from "../utils/ImgLoader.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+---
+
+<section class="flow main_sec">
+  <div class="contents_wrapper">
+    <SectionHeader
+      headingText="ご支援開始までの流れ"
+      imgSrc="text/flow__heading.svg"
+      imgWidth={258}
+      imgAlt="FLOW"
+      align="left"
+    />
+
+    <h3 class="flow__tit">
+      <Img
+        img={{ src: "text/flow__tit.svg" }}
+        width={590}
+        alt="最短2週間での、伴走スタート"
+      />
+    </h3>
+
+    <p class="flow__text">
+      ISO/IEC 27001 認証取得済。<span class="flow__text_mark">※</span
+      >ご相談前のNDA締結にも対応します。<span class="flow__text_smaller"
+        >※東京本社のみ適用</span
+      >
+    </p>
+
+    <ol class="flow__block">
+      <li class="flow__block_item">
+        <div class="flow__block_item_illust_block">
+          <Img
+            img={{
+              src: "flow__illust01.png",
+              widths: [380, 250, 190],
+            }}
+            sizes="(max-width: 768px) 100vw, 190px"
+            width={190}
+            alt=""
+          />
+        </div>
+        <div class="flow__block_item_contents">
+          <h4 class="flow__block_item_tit">無料相談</h4>
+          <p class="flow__block_item_text">
+            60分のヒアリング。課題と目指す姿の整理。
+          </p>
+        </div>
+      </li>
+      <li class="flow__block_item">
+        <div class="flow__block_item_illust_block">
+          <Img
+            img={{
+              src: "flow__illust02.png",
+              widths: [380, 250, 190],
+            }}
+            sizes="(max-width: 768px) 100vw, 190px"
+            width={190}
+            alt=""
+          />
+        </div>
+        <div class="flow__block_item_contents">
+          <h4 class="flow__block_item_tit">提案・お見積</h4>
+          <p class="flow__block_item_text">
+            支援内容・体制・スケジュールのご提案。
+          </p>
+        </div>
+      </li>
+      <li class="flow__block_item">
+        <div class="flow__block_item_illust_block">
+          <Img
+            img={{
+              src: "flow__illust03.png",
+              widths: [380, 250, 190],
+            }}
+            sizes="(max-width: 768px) 100vw, 190px"
+            width={190}
+            alt=""
+          />
+        </div>
+        <div class="flow__block_item_contents">
+          <h4 class="flow__block_item_tit">契約・キックオフ</h4>
+          <p class="flow__block_item_text">
+            体制構築・スコープ確定・初回会議。
+          </p>
+        </div>
+      </li>
+      <li class="flow__block_item">
+        <div class="flow__block_item_illust_block">
+          <Img
+            img={{
+              src: "flow__illust04.png",
+              widths: [380, 250, 190],
+            }}
+            sizes="(max-width: 768px) 100vw, 190px"
+            width={190}
+            alt=""
+          />
+        </div>
+        <div class="flow__block_item_contents">
+          <h4 class="flow__block_item_tit">伴走支援開始</h4>
+          <p class="flow__block_item_text">週次会議。実行支援を伴う伴走型。</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<style lang="scss">
+  .flow {
+    position: relative;
+    padding-top: 6.2rem;
+    padding-bottom: 4.4rem;
+    @include media_max(sp) {
+      padding-top: 3.2rem;
+      padding-bottom: 2rem;
+    }
+
+    :global(.section_header)::after {
+      background: var(--color-black02);
+    }
+
+    &__tit :global(img) {
+      width: auto;
+      height: 5.4rem;
+      max-width: 100%;
+      margin: 0;
+      object-fit: contain;
+      @include media_max(sp) {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__text {
+      margin-top: 2.2rem;
+      font-weight: 500;
+      @include media_max(sp) {
+        margin-top: 1.2rem;
+      }
+
+      &_mark {
+        position: relative;
+        margin-left: -1em;
+        margin-right: 0.4em;
+        font-size: 1.2rem;
+        line-height: 1;
+        vertical-align: top;
+      }
+      &_smaller {
+        font-size: 1.2rem;
+        margin-left: 0.8em;
+      }
+    }
+
+    &__block {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      column-gap: 8.2rem;
+      max-width: 104.8rem;
+      margin: 3.9rem 0 0;
+      @include media_max(sp) {
+        flex-direction: column;
+        row-gap: 2.8rem;
+        margin-top: 2rem;
+      }
+      &_item {
+        flex: 1;
+        @include media_max(sp) {
+          display: grid;
+          grid-template-columns: 13rem 1fr;
+          align-items: center;
+          column-gap: 1.9rem;
+        }
+
+        &_illust_block {
+          position: relative;
+          width: fit-content;
+          margin: 0 auto;
+          z-index: 1;
+
+          :global(img) {
+            width: 19rem;
+            filter: drop-shadow(0 0 2rem rgba(0, 0, 0, 0.1));
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: calc(100% - 4.4rem);
+            width: 12rem;
+            height: auto;
+            aspect-ratio: 122/106;
+            background: var(--color-magenta01);
+            clip-path: polygon(
+              0 20%,
+              55% 20%,
+              55% 0,
+              100% 50%,
+              55% 100%,
+              55% 80%,
+              0 80%
+            );
+            z-index: -1;
+            @include media_max(sp) {
+              top: calc(100% - 2.6rem);
+              width: 8.6rem;
+              left: 50%;
+              transform: translateX(-50%) rotate(90deg);
+            }
+          }
+        }
+
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) &_illust_block {
+            z-index: 10 - $i;
+          }
+        }
+
+        &_contents {
+          @include media_min(sp) {
+            margin-top: 2.5rem;
+          }
+        }
+        &_tit {
+          font-size: 1.8rem;
+          line-height: 1.2;
+          text-align: center;
+          @include media_max(sp) {
+            text-align: left;
+          }
+        }
+        &_text {
+          margin-top: 1rem;
+          font-size: 1.4rem;
+          line-height: 1.6;
+          @include media_max(sp) {
+            margin-top: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+</style>

@@ -34,6 +34,8 @@ const wrapperClass = `section_header ${modifierClass}`.trim();
 
 <style lang="scss">
   .section_header {
+    --color-text: var(--color-black02);
+    --color-border: var(--color-deep_blue01);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -43,6 +45,7 @@ const wrapperClass = `section_header ${modifierClass}`.trim();
     margin: 0 0 4.7rem;
     font-size: 1em;
     z-index: 10;
+    color: var(--color-text);
 
     @include media_max(sp) {
       font-size: 1.2rem;
@@ -85,6 +88,9 @@ const wrapperClass = `section_header ${modifierClass}`.trim();
       font-size: 1.4rem;
       font-weight: 700;
       line-height: 1.2;
+      @include media_max(sp) {
+        margin-top: 1.3em;
+      }
     }
 
     &::after {
@@ -93,9 +99,9 @@ const wrapperClass = `section_header ${modifierClass}`.trim();
       margin: 3.2rem 0 0;
       width: 14rem;
       height: 0.3rem;
-      background: var(--color-deep_blue01);
+      background: var(--color-border);
       @include media_max(sp) {
-        margin-top: 2.6rem;
+        margin-top: 2.5rem;
         width: 10rem;
         height: 0.4rem;
       }

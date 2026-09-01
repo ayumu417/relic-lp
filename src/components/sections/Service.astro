@@ -1,0 +1,626 @@
+---
+import Img from "../utils/ImgLoader.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import Cta from "../block/Cta.astro";
+---
+
+<section class="service main_sec">
+  <div class="contents_wrapper">
+    <SectionHeader
+      headingText="サービスメニュー"
+      imgSrc="text/service__heading.svg"
+      imgWidth={258}
+      imgAlt="SERVICE"
+      align="center"
+    />
+
+    <div class="service__block01">
+      <h3 class="service__tit">
+        <Img
+          sources={[
+            {
+              media: "(max-width: 768px)",
+              src: "text/service__tit01-sp.svg",
+            },
+          ]}
+          img={{ src: "text/service__tit01.svg" }}
+          width={786}
+          alt="フェーズに応じた、専門人材チームの編成"
+        />
+      </h3>
+      <p class="service__text">
+        上流の頭脳支援から、開発・グロースの実行支援まで。<br class="pc_only" />
+        御社のフェーズと体制ギャップに応じて、事業パートナーとして動くチームを柔軟に組成します。
+      </p>
+
+      <ul class="service__block01_list">
+        <li class="service__block01_list_item">
+          <h4 class="service__block01_list_item_tit">
+            事業構想・戦略策定の伴走
+          </h4>
+          <p class="service__block01_list_item_text">
+            事業オーナーと並走しながら、市場機会の特定・コンセプト設計・収益モデル・ステージゲート設計までを共に組み立てる上流伴走です。
+          </p>
+          <p class="service__block01_list_item_position">
+            主な役割：事業開発リード／戦略担当／リサーチャー
+          </p>
+        </li>
+        <li class="service__block01_list_item">
+          <h4 class="service__block01_list_item_tit">仮説検証・PoC・MVP開発</h4>
+          <p class="service__block01_list_item_text">
+            構想を最短で検証可能な形にする伴走。仮説検証用のLPやMVPを高速に組み上げ、PMFに至るまでのループを回します。
+          </p>
+          <p class="service__block01_list_item_position">
+            主な役割：PdM／UXデザイナー／エンジニア／検証担当
+          </p>
+        </li>
+        <li class="service__block01_list_item">
+          <h4 class="service__block01_list_item_tit">プロダクト開発・運用</h4>
+          <p class="service__block01_list_item_text">
+            CTO代行や運用組織の体制構築を含む、開発・運用の代行および伴走。AI／LLM領域、クラウド基盤での実装にも対応します。
+          </p>
+          <p class="service__block01_list_item_position">
+            主な役割：CTO代行／PdM／エンジニア／SRE
+          </p>
+        </li>
+        <li class="service__block01_list_item">
+          <h4 class="service__block01_list_item_tit">グロース・組織化支援</h4>
+          <p class="service__block01_list_item_text">
+            PMF後のマーケティング・営業・カスタマーサクセスの運用組織を立ち上げ。社内人材への内製化移管まで設計可能です。
+          </p>
+          <p class="service__block01_list_item_position">
+            主な役割：グロース戦略／マーケター／セールス／組織開発
+          </p>
+        </li>
+        <li class="service__block01_list_item">
+          <h4 class="service__block01_list_item_tit">
+            新規事業人材の育成・内製化
+          </h4>
+          <p class="service__block01_list_item_text">
+            社内に新規事業の推進役となる人材を育てるプログラム。
+            プロジェクト伴走と並行して、内製化を進める設計で支援します。
+          </p>
+          <p class="service__block01_list_item_position">
+            主な役割：育成リード／伴走メンター
+          </p>
+        </li>
+        <li class="service__block01_list_item">
+          <h4 class="service__block01_list_item_tit">
+            JV組成・カーブアウト・CVC伴走
+          </h4>
+          <p class="service__block01_list_item_text">
+            受託の枠を超え、共同事業化・資本提携・カーブアウトの設計・実行まで踏み込む。CVCファンド組成・投資先支援も対応します。
+          </p>
+          <p class="service__block01_list_item_position">
+            主な役割：事業プロデューサー／投資・M&A担当
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="service__block02">
+      <h3 class="service__tit">
+        <Img
+          sources={[
+            {
+              media: "(max-width: 768px)",
+              src: "text/service__tit02-sp.svg",
+            },
+          ]}
+          img={{ src: "text/service__tit02.svg" }}
+          width={531}
+          alt="フェーズに応じた、専門人材チームの編成"
+        />
+      </h3>
+      <p class="service__text">
+        複数社に分けて発注する非効率"を解消し、意思決定のスピードと品質を両立させます。
+      </p>
+
+      <div class="service__block02_inner">
+        <div class="service__block02_inner_item js-acc_wrapper">
+          <h4 class="service__block02_inner_item_tit js-acc_switch">
+            事業戦略・構想
+          </h4>
+          <div class="service__block02_inner_item_contents js-acc_target">
+            <ul class="service__block02_inner_item_list">
+              <li>事業構想ワークショップ</li>
+              <li>市場・競合・顧客リサーチ</li>
+              <li>事業計画・収益モデル設計</li>
+              <li>ステージゲート設計</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service__block02_inner_item js-acc_wrapper">
+          <h4 class="service__block02_inner_item_tit js-acc_switch">
+            専門人材・組織
+          </h4>
+          <div class="service__block02_inner_item_contents js-acc_target">
+            <ul class="service__block02_inner_item_list">
+              <li>事業開発・PdM・PjM</li>
+              <li>UX/UI・サービスデザイン</li>
+              <li>CTO as a Service</li>
+              <li>SRE as a Service</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service__block02_inner_item js-acc_wrapper">
+          <h4 class="service__block02_inner_item_tit js-acc_switch">
+            プロダクト開発
+          </h4>
+          <div class="service__block02_inner_item_contents js-acc_target">
+            <ul class="service__block02_inner_item_list">
+              <li>MVP・スクラッチ開発</li>
+              <li>SaaS・モバイルアプリ</li>
+              <li>AI・LLM・データ基盤</li>
+              <li>AWS高度パートナー対応</li>
+            </ul>
+          </div>
+        </div>
+        <div class="service__block02_inner_item js-acc_wrapper">
+          <h4 class="service__block02_inner_item_tit js-acc_switch">
+            事業化・資本
+          </h4>
+          <div class="service__block02_inner_item_contents js-acc_target">
+            <ul class="service__block02_inner_item_list">
+              <li>JV設立・カーブアウト</li>
+              <li>CVC組成・共同事業化</li>
+              <li>M&A・資本提携</li>
+              <li>海外展開（シンガポール拠点）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service__block03">
+      <h3 class="service__tit">
+        <Img
+          sources={[
+            {
+              media: "(max-width: 768px)",
+              src: "text/service__tit03-sp.svg",
+            },
+          ]}
+          img={{ src: "text/service__tit03.svg" }}
+          width={840}
+          alt="インキュベーション戦略から個別事業まで、全段階での伴走"
+        />
+      </h3>
+      <p class="service__text">
+        会社全体のインキュベーション戦略から、<br
+          class="sp_only"
+        />個別事業の構想・検証・グロース・拡大まで。<br />
+        必要な部分だけのご支援も可能です。
+      </p>
+
+      <div class="service__block03_list">
+        <div class="service__block03_list_item">
+          <h4 class="service__block03_list_item_tit">インキュベーション戦略</h4>
+          <h5 class="service__block03_list_item_sub">全社の新規事業戦略</h5>
+          <p class="service__block03_list_item_text">
+            ビジョンから新規事業の方針を定める段階
+          </p>
+          <ul class="service__block03_list_item_list">
+            <li>全社ビジョンと取り組む意義の明示</li>
+            <li>取り組むテーマ・領域の定義</li>
+            <li>投資原資の確保とポートフォリオ設計</li>
+            <li>目標・時間軸・推進アプローチの策定</li>
+          </ul>
+        </div>
+        <div class="service__block03_list_item">
+          <h4 class="service__block03_list_item_tit">構想・検証／0 → 1</h4>
+          <h5 class="service__block03_list_item_sub">事業構想・仮説検証</h5>
+          <p class="service__block03_list_item_text">
+            これから事業を立ち上げたい段階
+          </p>
+          <ul class="service__block03_list_item_list">
+            <li>事業構想ワークショップ</li>
+            <li>市場・顧客リサーチ</li>
+            <li>仮説検証・PoC設計</li>
+            <li>MVP開発・PMF検証</li>
+          </ul>
+        </div>
+        <div class="service__block03_list_item">
+          <h4 class="service__block03_list_item_tit">成長／1 → 10</h4>
+          <h5 class="service__block03_list_item_sub">事業グロース</h5>
+          <p class="service__block03_list_item_text">
+            PMF後、伸ばしていくフェーズ
+          </p>
+          <ul class="service__block03_list_item_list">
+            <li>グロース戦略策定</li>
+            <li>UX/UI改善・機能拡張</li>
+            <li>マーケ・営業組織構築</li>
+            <li>収益モデル最適化</li>
+          </ul>
+        </div>
+        <div class="service__block03_list_item">
+          <h4 class="service__block03_list_item_tit">拡大／10 → 100</h4>
+          <h5 class="service__block03_list_item_sub">事業拡大・組織化</h5>
+          <p class="service__block03_list_item_text">
+            スケール／カーブアウトのフェーズ
+          </p>
+          <ul class="service__block03_list_item_list">
+            <li>事業組織の独立化</li>
+            <li>JV設立・カーブアウト</li>
+            <li>CVC・M&A・資本提携</li>
+            <li>海外展開（シンガポール拠点）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="service__cta_wrapper">
+    <Cta />
+  </div>
+</section>
+
+<style lang="scss">
+  .service {
+    position: relative;
+    padding-bottom: 13.2rem;
+    background-image: url(/src/assets/img/design/service__bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include media_max(sp) {
+      padding-bottom: 4rem;
+      background-image: url(/src/assets/img/design/service__bg-sp.png);
+    }
+
+    &__tit :global(img) {
+      width: auto;
+      max-width: 100%;
+      margin: 0;
+      object-fit: contain;
+    }
+
+    &__text {
+      margin-top: 2.5rem;
+      font-weight: 500;
+      @include media_max(sp) {
+        margin-top: 1.4rem;
+      }
+    }
+
+    /* block01 */
+    &__block01 &__tit :global(img) {
+      height: 5.6rem;
+      margin: 0 auto;
+      @include media_max(sp) {
+        height: 6.9rem;
+      }
+    }
+    &__block01 &__tit + &__text {
+      text-align: center;
+      @include media_max(sp) {
+        text-align: left;
+      }
+    }
+    &__block01 {
+      max-width: 102rem;
+      margin: 0 auto;
+      &_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        row-gap: 2rem;
+        margin-top: 7rem;
+        @include media_max(sp) {
+          margin-top: 2rem;
+          grid-template-columns: 1fr;
+          row-gap: 0.8rem;
+        }
+        &_item {
+          position: relative;
+          background: var(--color-white);
+          border-radius: 2rem;
+          box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+          padding: 4rem 5.4rem 3.5rem;
+          @include media_min(sp) {
+            &:nth-of-type(2n) {
+              top: 6rem;
+            }
+          }
+          @include media_max(sp) {
+            padding: 3rem 3rem 3rem;
+          }
+
+          &_tit {
+            font-size: 2rem;
+            @include media_max(sp) {
+              font-size: 1.8rem;
+            }
+          }
+          &_text {
+            margin-top: 1.4rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.7;
+            @include media_max(sp) {
+              margin-top: 1rem;
+            }
+          }
+          &_position {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.5;
+            @include media_max(sp) {
+              margin-top: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+
+    /* block02 */
+    &__block02 &__tit :global(img) {
+      height: 11.2rem;
+      margin: 0;
+      @include media_max(sp) {
+        height: 6.6rem;
+      }
+    }
+    &__block02 &__tit + &__text {
+      text-align: left;
+    }
+    &__block02 {
+      margin-top: 18rem;
+      @include media_max(sp) {
+        margin-top: 6.6rem;
+      }
+
+      &_inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2.8rem;
+        margin-top: 4rem;
+        @include media_max(sp) {
+          grid-template-columns: 1fr;
+          row-gap: 0;
+          margin-top: 2.6rem;
+        }
+        &_item {
+          width: 100%;
+          &_tit {
+            margin: 0 0 0.8rem;
+            padding: 0.6em 1.2em 0.76em;
+            background: var(--color-black02);
+            color: var(--color-white);
+            font-size: 1.8rem;
+            line-height: 1.2;
+            pointer-events: none;
+            @include media_max(sp) {
+              cursor: pointer;
+              pointer-events: all;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 2rem;
+                width: 0.7em;
+                height: auto;
+                aspect-ratio: 1/1;
+                border: 2px solid var(--color-white);
+                border-top: 0;
+                border-left: 0;
+                transition: 0.5s ease;
+                transform-origin: 50% 50%;
+                transform: translateY(-80%) rotateY(30deg) rotateZ(45deg);
+                @include media_max(sp) {
+                  width: 0.6em;
+                  right: 1.2rem;
+                }
+              }
+            }
+          }
+          &.active &_tit::after {
+            transform: translateY(-32%) rotateY(30deg) rotateZ(-135deg);
+          }
+
+          &_contents {
+            @include media_min(sp) {
+              display: block !important;
+            }
+            @include media_max(sp) {
+              display: none;
+              padding-bottom: 1.6rem;
+            }
+          }
+
+          li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            column-gap: 0.7rem;
+            padding: 0.2em 0;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.8;
+
+            &::before {
+              content: "";
+              position: relative;
+              display: inline-block;
+              width: 2.4rem;
+              height: 1px;
+              background: var(--color-black01);
+            }
+          }
+        }
+      }
+    }
+
+    /* block03 */
+    &__block03 &__tit :global(img) {
+      height: 12.5rem;
+      margin-left: auto;
+      margin-right: 0;
+      @include media_max(sp) {
+        height: 10.6rem;
+      }
+    }
+    &__block03 &__tit + &__text {
+      text-align: right;
+    }
+    &__block03 {
+      margin: 15rem auto 0;
+      @include media_max(sp) {
+        margin-top: 6.6rem;
+      }
+      &_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        row-gap: 2rem;
+        max-width: 78rem;
+        margin: 4rem 0 0 auto;
+        @include media_max(sp) {
+          margin-top: 3.2rem;
+          grid-template-columns: 1fr;
+          row-gap: 0.8rem;
+        }
+        &_item {
+          position: relative;
+          background: var(--color-white);
+          border-radius: 2rem;
+          box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+          padding: 4rem;
+          @include media_min(sp) {
+            &:nth-of-type(2n) {
+              top: 6rem;
+            }
+          }
+          @include media_max(sp) {
+            padding: 3rem 2.8rem 2.8rem;
+          }
+
+          &_tit {
+            padding-bottom: 1.2em;
+            margin: 0 0 1.6rem;
+            font-size: 1.4rem;
+            line-height: 1.2;
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 14rem;
+              height: 0.4rem;
+              background: var(--color-dark_beige01);
+            }
+            @include media_max(sp) {
+              margin-bottom: 1.2rem;
+            }
+          }
+          &_sub {
+            color: var(--color-black01);
+            font-size: 2.1rem;
+            font-family: var(--font-noto_serif);
+            line-height: 1.45;
+            @include media_max(sp) {
+              font-size: 2.0rem;
+            }
+          }
+          &_text {
+            color: var(--color-dark_beige01);
+            margin-top: 0.7rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.7;
+          }
+
+          ul {
+            margin: 1rem 0 0;
+            @include media_max(sp) {
+              margin-top: 0.7rem;
+            }
+          }
+
+          li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            column-gap: 0.7rem;
+            padding: 0.2em 0;
+            font-size: 1.4rem;
+            font-weight: 500;
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+
+            &::before {
+              content: "";
+              position: relative;
+              display: inline-block;
+              width: 2.4rem;
+              height: 1px;
+              background: var(--color-black01);
+            }
+          }
+        }
+      }
+    }
+
+    &__cta_wrapper {
+      position: relative;
+      width: fit-content;
+      margin: 12.5rem auto 0;
+      @include media_max(sp) {
+        width: 100%;
+        margin-top: 4.4rem;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: calc(100% - 2px);
+        left: 14rem;
+        background-image: url(/src/assets/img/design/service__cta_illust.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 8rem;
+        height: auto;
+        aspect-ratio: 122/336;
+        @include media_max(sp) {
+          display: none;
+        }
+      }
+    }
+  }
+</style>
+
+<script>
+  import * as slide from "../../assets/js/lib/slide";
+
+  /*-------------------------------------------
+    アコーディオン
+  -------------------------------------------*/
+  (() => {
+    const acc_swith = document.querySelectorAll(".js-acc_switch");
+    acc_swith.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        let wrapper = e.target.closest(".js-acc_wrapper");
+        if (wrapper) {
+          let target = wrapper.querySelector(".js-acc_target");
+          if (target) {
+            let style = getComputedStyle(target);
+            if (!(style.overflow == "hidden")) {
+              if (style.display == "none") {
+                wrapper.classList.add("active");
+                target.classList.add("active");
+                slide.slideDown(target, 470);
+              } else {
+                wrapper.classList.remove("active");
+                target.classList.remove("active");
+                slide.slideUp(target, 470);
+              }
+            }
+          }
+        }
+      });
+    });
+  })();
+</script>

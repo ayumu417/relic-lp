@@ -1,9 +1,8 @@
 ---
 export interface Props {
-  text: string;
   href?: string;
   class?: string;
-  color?: "black" | "white" | "pink" | "blue" | "beige"; //色のバリエーションを定義
+  color?: "black" | "white" | "magenta" | "blue" | "beige"; //色のバリエーションを定義
   [key: string]: any; // 任意のHTML属性を受け取れるようにする
 }
 
@@ -15,18 +14,18 @@ const colorClass = `button--${color}`;
 {
   href ? (
     <a href={href} class:list={["button", colorClass, className]} {...rest}>
-      {text}
+      <slot />
     </a>
   ) : (
     <div class:list={["button", colorClass, className]} {...rest}>
-      {text}
+      <slot />
     </div>
   )
 }
 
 <style lang="scss">
   .button {
-    --bg_color: var(--color-black01);
+    --bg_color: var(--color-black02);
     --text_color: var(--color-white);
     --border_color: var(--color-black02);
     position: relative;
@@ -37,7 +36,7 @@ const colorClass = `button--${color}`;
     width: 33rem;
     height: auto;
     min-height: 5.6rem;
-    padding: 0.5em 2.5em 0.6em;
+    padding: 0.5em 2.5em 0.62em;
     margin: 0 auto;
     background: var(--bg_color);
     color: var(--text_color);
@@ -45,7 +44,7 @@ const colorClass = `button--${color}`;
     border-radius: 10em;
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 1.6;
+    line-height: 1.2;
     transition: 0s;
 
     @include media_max(sp) {
@@ -84,6 +83,11 @@ const colorClass = `button--${color}`;
       --bg_color: var(--color-white);
       --text_color: var(--color-black02);
       --border_color: var(--color-white);
+    }
+    &--magenta {
+      --bg_color: var(--color-magenta01);
+      --text_color: var(--color-white);
+      --border_color: var(--color-magenta01);
     }
     &--beige {
       --bg_color: var(--color-dark_beige01);

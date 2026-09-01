@@ -6,6 +6,8 @@
 .main_sec {
   position: relative;
   padding: 12rem 0 15rem;
+  margin: 0 auto;
+  max-width: 1800px;
 
   @include media_max(sp) {
     padding: 5.5rem 0 6.2rem;

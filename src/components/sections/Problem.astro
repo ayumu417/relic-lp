@@ -3,30 +3,281 @@ import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 ---
 
-<section class="problem">
+<section class="problem main_sec">
   <div class="contents_wrapper">
-    <div class="heading_block">
-      <h2 class="heading_block__heading">
-        <Img img={{ src: "text/problem__heading.svg" }} width={229} alt="" />
-      </h2>
-      <p class="heading_block__lead">新規事業を阻む、3つの構造的な壁</p>
-    </div>
-    <p class="problem__emphasized_text">
+    <SectionHeader
+      headingText="新規事業を阻む、3つの構造的な壁"
+      imgSrc="text/problem__heading.svg"
+      imgWidth={228}
+      imgAlt="PROBLEM"
+      align="right"
+    />
 
+    <h3 class="problem__tit">
+      <Img
+        sources={[
+          {
+            media: "(max-width: 768px)",
+            src: "text/problem__tit-sp.svg",
+            width: 250,
+          },
+        ]}
+        img={{ src: "text/problem__tit.svg" }}
+        width={530}
+        alt="良い構想があっても、組織の壁に阻まれる"
+      />
+    </h3>
+
+    <p class="problem__text">
+      私たちが5,000社以上をご支援してきた中で、<br />
+      新規事業推進責任者の方が直面している<br
+        class="sp_only"
+      />"本当の課題"はこの3つに集約されます。
     </p>
+
+    <div class="problem__block_wrapper swiper js-problem_swiper">
+      <div class="problem__block swiper-wrapper">
+        <div class="problem__block_box swiper-slide">
+          <Img
+            img={{
+              src: "problem__illust01.png",
+              widths: [732, 500, 366],
+            }}
+            sizes="(max-width: 768px) 100vw, 366px"
+            width={366}
+            alt=""
+            class="problem__block_box_illust"
+          />
+          <div class="problem__block_box_contents">
+            <h4 class="problem__block_box_lead">社内調整</h4>
+            <h5 class="problem__block_box_tit">
+              複雑な社内調整で、<br />
+              スピード感をもって進められない。
+            </h5>
+            <p class="problem__block_box_text">
+              新規事業はスピードが命の領域。それでも複雑な決裁プロセス、既存事業向けに作られた社内ルール、説明責任の重さが立ちはだかり、小さな仮説検証ひとつ、なかなか進められない。
+            </p>
+          </div>
+        </div>
+        <div class="problem__block_box swiper-slide">
+          <Img
+            img={{
+              src: "problem__illust02.png",
+              widths: [732, 500, 366],
+            }}
+            sizes="(max-width: 768px) 100vw, 366px"
+            width={366}
+            alt=""
+          />
+          <div class="problem__block_box_contents">
+            <h4 class="problem__block_box_lead">実行人材</h4>
+            <h5 class="problem__block_box_tit">
+              実行し、形にできる人材が、<br />
+              社内に足りない。
+            </h5>
+            <p class="problem__block_box_text">
+              戦略構築や社内調整は得意でも、事業を実際に立ち上げた経験を持つ人材・チームが社内にいない。泥臭い実務までやりきれる現場部隊が欲しい。
+            </p>
+          </div>
+        </div>
+        <div class="problem__block_box swiper-slide">
+          <Img
+            img={{
+              src: "problem__illust03.png",
+              widths: [732, 500, 366],
+            }}
+            sizes="(max-width: 768px) 100vw, 366px"
+            width={366}
+            alt=""
+          />
+          <div class="problem__block_box_contents">
+            <h4 class="problem__block_box_lead">リスク許容度</h4>
+            <h5 class="problem__block_box_tit">
+              企業規模ゆえに、<br />
+              リスクの許容度が低い。
+            </h5>
+            <p class="problem__block_box_text">
+              自社の看板を背負って小さな失敗を繰り返すことが難しい。レピュテーションリスクを気にせず、仮説検証を高速で回せる仕組みが欲しい。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-pagination sp_only"></div>
+    </div>
   </div>
 </section>
 
 <style lang="scss">
   .problem {
     position: relative;
+    background-image: url(/src/assets/img/design/problem__bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 
-    .heading_block {
-      width: fit-content;
-      margin: 0 auto;
+    @include media_min(sp) {
+      padding-top: 11rem;
+      padding-bottom: 10.6rem;
     }
 
-    &__emphasized_text {
+    @include media_max(sp) {
+      background-image: url(/src/assets/img/design/problem__bg-sp.png);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5.5rem;
+      left: 0;
+      background-image: url(/src/assets/img/design/bg_visual_img01.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: clamp(69rem, 47vw, 762rem);
+      height: auto;
+      aspect-ratio: 748/326;
+      @include media_max(sp) {
+        top: -5rem;
+        width: 32rem;
+      }
+    }
+
+    :global(.section_header) {
+      position: relative;
+      @include media_max(sp) {
+        align-items: center;
+      }
+    }
+
+    &__tit :global(img) {
+      width: auto;
+      height: 12.6rem;
+      max-width: 100%;
+      margin: 0;
+      margin-left: auto;
+      object-fit: contain;
+      @include media_max(sp) {
+        height: 6.9rem;
+        margin-right: auto;
+      }
+    }
+
+    &__text {
+      margin-top: 2.9rem;
+      text-align: right;
+      font-weight: 500;
+      @include media_max(sp) {
+        margin-top: 1.5rem;
+        text-align: center;
+        line-height: 1.8;
+      }
+    }
+
+    //　sp版 swiper
+    &__block_wrapper {
+      @include media_min(sp) {
+        overflow: inherit;
+      }
+      @include media_max(sp) {
+        margin-left: -2.5rem;
+        margin-right: -2.5rem;
+      }
+    }
+    & &__block {
+      @include media_min(sp) {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 1.2rem;
+        margin-top: 0.4rem;
+      }
+      @include media_max(sp) {
+        margin-top: 3.5rem;
+      }
+      &_box {
+        height: auto;
+        background: #fff;
+        border-radius: 1.4rem;
+        filter: drop-shadow(0 0 2rem rgba(0, 0, 0, 0.1));
+        @include media_min(sp) {
+          flex: 1;
+          @for $i from 2 through 3 {
+            &:nth-of-type(#{$i}) {
+              margin-top: ($i - 1) * 6.6rem;
+            }
+          }
+          &:nth-of-type(2) {
+            padding-bottom: 1.2rem;
+          }
+        }
+
+        :global(img) {
+          width: 100%;
+        }
+
+        &_contents {
+          position: relative;
+          padding: 4rem 3rem 3.2rem;
+          @include media_max(sp) {
+            padding: 3.2rem 2.5rem 3rem;
+          }
+
+          &::before {
+            content: var(--slide-num);
+            position: absolute;
+            top: 1.4rem;
+            right: 3.2rem;
+            color: #f1f1f1;
+            font-size: 10.2rem;
+            font-family: var(--font-noto_serif);
+            line-height: 1;
+            @include media_max(sp) {
+              top: -0.2rem;
+              right: 2rem;
+            }
+          }
+        }
+
+        &_lead {
+          width: fit-content;
+          padding-bottom: 1.1rem;
+          min-width: 13.2rem;
+          margin: 0 0 1.9rem;
+          font-size: 1.4rem;
+          line-height: 1.1;
+          letter-spacing: 0.2em;
+          border-bottom: 4px solid var(--color-dark_beige01);
+          @include media_max(sp) {
+            margin-bottom: 1.2rem;
+          }
+        }
+        &_tit {
+          margin-right: -2rem;
+          margin-bottom: 1rem;
+          color: var(--color-black01);
+          font-size: 2rem;
+          font-family: var(--font-noto_serif);
+          font-weight: 700;
+          line-height: 1.44;
+          letter-spacing: -0.01em;
+          @include media_max(sp) {
+            font-size: 1.86rem;
+            margin-right: -1rem;
+          }
+        }
+        &_text {
+          font-size: 1.5rem;
+          line-height: 1.66;
+          @include media_max(sp) {
+            font-size: 1.4rem;
+          }
+        }
+      }
     }
   }
 </style>
+
+<script>
+  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp"; // 拡張子は環境に合わせて調整
+
+  // このセクションのクラス名を指定して実行
+  setupResponsiveSwiperSp(".js-problem_swiper");
+</script>

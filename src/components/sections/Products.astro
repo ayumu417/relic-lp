@@ -1,0 +1,325 @@
+---
+import Img from "../utils/ImgLoader.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+---
+
+<section class="products main_sec">
+  <div class="contents_wrapper">
+    <SectionHeader
+      headingText="専門人材を増強する独自基盤"
+      imgSrc="text/products__heading.svg"
+      imgWidth={263}
+      imgAlt="PRODUCTS"
+      align="left"
+    />
+
+    <h3 class="products__tit">
+      <Img
+        sources={[
+          {
+            media: "(max-width: 768px)",
+            src: "text/products__tit-sp.svg",
+            width: 290,
+          },
+        ]}
+        img={{ src: "text/products__tit.svg" }}
+        width={886}
+        alt="人の伴走を支える、Relic独自のプロダクト群"
+      />
+    </h3>
+
+    <p class="products__text">
+      Relicは支援だけでなく、自社で事業創出のためのプロダクト群を開発・運営しています。<br
+      />
+      プロジェクトのご状況に応じて、これらの独自プロダクトもご活用いただけます。
+    </p>
+
+    <div class="products__block_wrapper swiper js-products_swiper">
+      <div class="products__block swiper-wrapper">
+        <div class="products__block_box swiper-slide">
+          <div class="products__block_box_logo_block">
+            <Img
+              img={{
+                src: "products__logo01.png",
+                widths: [600, 450, 300],
+              }}
+              sizes="(max-width: 768px) 100vw, 300px"
+              height={70}
+              alt="IDEATION Cloud"
+            />
+          </div>
+          <h3 class="products__block_box_tit">事業アイデア創出 / AI活用</h3>
+          <p class="products__block_box_text">
+            世界で実証されたスタートアップの成功事例をもとに、日本市場に最適化した自社向けの新規事業アイデアを創出するSaaS。社内コンテスト・社員発案制度の運用にも活用できる戦略的アイディエーション基盤です。
+          </p>
+        </div>
+        <div class="products__block_box swiper-slide">
+          <div class="products__block_box_logo_block">
+            <Img
+              img={{
+                src: "products__logo02.png",
+                widths: [400, 300, 200],
+              }}
+              sizes="(max-width: 768px) 100vw, 200px"
+              height={70}
+              alt=""
+            />
+          </div>
+          <h3 class="products__block_box_tit">
+            国内シェアNo.1 / 新規事業創出プログラム管理
+          </h3>
+          <p class="products__block_box_text">
+            大企業を中心に2,000社・5万人以上が導入。新規事業創出プログラム・社内ベンチャー制度・オープンイノベーション等を一元管理するイノベーションマネジメント・プラットフォーム。生成AI機能を含めた継続的なアップデートで進化を続けています。
+          </p>
+        </div>
+        <div class="products__block_box swiper-slide">
+          <div class="products__block_box_logo_block">
+            <Img
+              img={{
+                src: "products__logo03.png",
+                widths: [400, 300, 200],
+              }}
+              sizes="(max-width: 768px) 100vw, 200px"
+              height={70}
+              alt=""
+            />
+          </div>
+          <h3 class="products__block_box_tit">事業共創プラットフォーム</h3>
+          <p class="products__block_box_text">
+            事業企画・仮説検証・開発・マーケ・営業・カスタマーサクセスまで、新規事業に必要な機能や役割をRelicが事業会社の代わりに担う、共創パートナーシップ型のプラットフォーム。人とプロダクトをセットで提供する形態です。
+          </p>
+        </div>
+        <div class="products__block_box swiper-slide">
+          <div class="products__block_box_logo_block">
+            <Img
+              img={{
+                src: "products__logo04.png",
+                widths: [300, 200, 150],
+              }}
+              sizes="(max-width: 768px) 100vw, 150px"
+              height={70}
+              alt=""
+            />
+          </div>
+          <p class="products__block_box_text">
+            国内クラウドファンディングSaaS
+            No.1。新規事業の市場検証・先行需要獲得。
+          </p>
+        </div>
+        <div class="products__block_box swiper-slide">
+          <div class="products__block_box_logo_block">
+            <Img
+              img={{
+                src: "products__logo05.png",
+                widths: [400, 300, 200],
+              }}
+              sizes="(max-width: 768px) 100vw, 200px"
+              height={70}
+              alt=""
+            />
+          </div>
+          <p class="products__block_box_text">
+            業界唯一の新規事業特化型eラーニング。社内に推進役を育てます。
+          </p>
+        </div>
+        <div class="products__block_box swiper-slide">
+          <div class="products__block_box_logo_block">
+            <Img
+              img={{
+                src: "products__logo06.png",
+                widths: [400, 300, 200],
+              }}
+              sizes="(max-width: 768px) 100vw, 200px"
+              height={70}
+              alt=""
+            />
+          </div>
+          <p class="products__block_box_text">
+            検証用LP・MVPを最短で構築します。仮説検証スピードを高めるラボです。
+          </p>
+        </div>
+        <div class="products__block_box swiper-slide">
+          <div class="products__block_box_logo_block">
+            <Img
+              img={{
+                src: "products__logo07.png",
+                widths: [400, 300, 200],
+              }}
+              sizes="(max-width: 768px) 100vw, 200px"
+              height={70}
+              alt=""
+            />
+          </div>
+          <p class="products__block_box_text">
+            1→10フェーズ専門のグロース支援部隊です。マーケ・営業・CSを一括組成します。
+          </p>
+        </div>
+      </div>
+
+      <div class="swiper-pagination sp_only"></div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .products {
+    position: relative;
+    padding-bottom: 7rem;
+    @include media_max(sp) {
+      padding-bottom: 4rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url(/src/assets/img/design/products__bg.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 200rem;
+      z-index: -10;
+      @include media_max(sp) {
+        background-image: url(/src/assets/img/design/products__bg-sp.png);
+        height: 120rem;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -21rem;
+      right: 0;
+      background-image: url(/src/assets/img/design/bg_design_img03.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 50rem;
+      height: auto;
+      aspect-ratio: 496/1614;
+      z-index: -1;
+      @include media_max(sp) {
+        top: -13.2rem;
+        width: 13rem;
+      }
+    }
+
+    :global(.section_header):after {
+      background: var(--color-black02);
+    }
+
+    &__tit :global(img) {
+      width: auto;
+      height: 5.5rem;
+      max-width: 100%;
+      margin: 0;
+      object-fit: contain;
+      @include media_max(sp) {
+        height: 6.8rem;
+      }
+    }
+
+    &__text {
+      margin-top: 3.5rem;
+      font-weight: 500;
+      @include media_max(sp) {
+        margin-top: 1.4rem;
+      }
+    }
+
+    //　sp版 swiper
+    &__block_wrapper {
+      @include media_min(sp) {
+        overflow: inherit;
+      }
+      @include media_max(sp) {
+        margin-top: 3.5rem;
+        margin-left: -2.5rem;
+        margin-right: -2.5rem;
+      }
+    }
+    &__block {
+      --gap: 2rem;
+      @include media_min(sp) {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        column-gap: var(--gap);
+        row-gap: var(--gap);
+        margin-top: 5rem;
+      }
+      @include media_min(sp) {
+      }
+
+      &_box {
+        display: block;
+        background: var(--color-white);
+        border-radius: 1.4rem;
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+
+        @include media_min(sp) {
+          width: calc(((100% - var(--gap) * 3) / 4));
+          height: auto;
+          padding: 3.2rem 4rem 4rem;
+
+          &:has(.products__block_box_tit) {
+            width: calc(((100% - var(--gap) * 2) / 3));
+            padding: 4rem 4rem 4.4rem;
+          }
+        }
+
+        @include media_max(sp) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          row-gap: 1rem;
+          padding: 1rem 3rem 5rem;
+          &:has(.products__block_box_tit) {
+            row-gap: 0rem;
+            padding: 1.5rem 3rem 2.5rem;
+          }
+        }
+
+        &_logo_block :global(img) {
+          height: 7rem;
+          width: auto;
+          margin: 0 auto;
+        }
+
+        &_tit {
+          margin: 1.9rem 0 1.2rem;
+          font-size: 1.3rem;
+          line-height: 1.8;
+          @include media_max(sp) {
+            width: 100%;
+            margin: 0.8rem 0 0;
+            text-align: left;
+          }
+        }
+
+        &_text {
+          margin-top: 0.8rem;
+          font-size: 1.4rem;
+          line-height: 1.7;
+          @include media_max(sp) {
+          }
+        }
+      }
+    }
+
+    :global(.swiper-pagination) {
+      filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.25));
+    }
+    :global(.swiper-pagination-bullet):not(.swiper-pagination-bullet-active) {
+      background: var(--color-white);
+    }
+  }
+</style>
+
+<script>
+  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp"; // 拡張子は環境に合わせて調整
+
+  // このセクションのクラス名を指定して実行
+  setupResponsiveSwiperSp(".js-products_swiper");
+</script>

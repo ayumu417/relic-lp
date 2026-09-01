@@ -1,44 +1,206 @@
 ---
 import Img from "../utils/ImgLoader.astro";
+import Button from "../ui/Button.astro";
 ---
 
 <section class="fv">
-  <div class="contents_wrapper">
-    <div class="heading_block">
-      <h2 class="heading_block__heading">
-
-      </h2>
-      <p class="heading_block__lead">
-
+  <div class="fv__inner">
+    <div class="fv__bg">
+      <Img
+        sources={[
+          {
+            media: "(max-width: 768px)",
+            src: "fv__bg_img-sp.jpg",
+            width: 375,
+            widths: [1125, 750, 375],
+            sizes: "100vw",
+          },
+        ]}
+        img={{
+          src: "fv__bg_img-pc.jpg",
+          widths: [2200, 1800, 1200],
+        }}
+        width={1186}
+        sizes="(min-width: 1500px) 1800px, 1200px"
+        alt=""
+      />
+    </div>
+    <div class="fv__contents">
+      <p class="fv__lead">新規事業の推進をリードする方へ</p>
+      <h1 class="fv__tit">
+        <Img
+          sources={[
+            {
+              media: "(max-width: 768px)",
+              src: "text/fv__tit-sp.svg",
+            },
+          ]}
+          img={{ src: "text/fv__tit.svg" }}
+          width={522}
+          alt="新事業を、構想から事業化まで。共に形にする。"
+        />
+      </h1>
+      <p class="fv__text">
+        戦略策定だけで終わらない。実装だけで終わらない。<br />
+        ビジネス・テクノロジー・クリエイティブの<br
+          class="sp_only"
+        />専門人材が、<br class="pc_only" />
+        御社の新規事業に並走します。
       </p>
+    </div>
+  </div>
+
+  <div class="fv__cta">
+    <div class="contents_wrapper">
+      <ul class="fv__cta_list">
+        <li class="fv__cta_list_item">
+          <div class="fv__cta_list_item_illust_block">
+            <Img img={{ src: "fv__cta_illust01.svg" }} width={86} alt="" />
+          </div>
+          <p class="fv__cta_list_item_tit">
+            5,000<span class="fv__cta_list_item_tit_s">社＋</span>
+          </p>
+          <p class="fv__cta_list_item_text">累計ご支援先企業</p>
+        </li>
+        <li class="fv__cta_list_item">
+          <div class="fv__cta_list_item_illust_block">
+            <Img img={{ src: "fv__cta_illust02.svg" }} width={86} alt="" />
+          </div>
+          <p class="fv__cta_list_item_tit">
+            <span class="fv__cta_list_item_tit_xs">国内</span>No.1
+          </p>
+          <p class="fv__cta_list_item_text">
+            新規事業開発の<br />支援実績シェア
+          </p>
+        </li>
+        <li class="fv__cta_list_item">
+          <div class="fv__cta_list_item_illust_block">
+            <Img img={{ src: "fv__cta_illust03.svg" }} width={86} alt="" />
+          </div>
+          <p class="fv__cta_list_item_tit">
+            350<span class="fv__cta_list_item_tit_s">名＋</span>
+          </p>
+          <p class="fv__cta_list_item_text">専門メンバー</p>
+        </li>
+        <li class="fv__cta_list_item">
+          <div class="fv__cta_list_item_illust_block">
+            <Img img={{ src: "fv__cta_illust04.svg" }} width={86} alt="" />
+          </div>
+          <p class="fv__cta_list_item_tit">
+            17<span class="fv__cta_list_item_tit_s">拠点＋</span>
+          </p>
+          <p class="fv__cta_list_item_text">
+            国内拠点＋<br />
+            シンガポール
+          </p>
+        </li>
+      </ul>
+
+      <div class="fv__cta_buttons">
+        <Button
+          class="fv__cta_button"
+          href="###"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="black"
+        >
+          無料で相談する
+        </Button>
+        <Button
+          class="fv__cta_button"
+          href="###"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="white"
+        >
+          資料・ホワイトペーパー請求
+        </Button>
+      </div>
     </div>
   </div>
 </section>
 
-
 <style lang="scss">
   .fv {
+    padding-bottom: 14rem;
 
+    &__inner {
+      position: relative;
+      width: 100%;
+      max-width: 1800px;
+      margin: 0 auto;
+      font-size: clamp(10px,0.69vw,16px);
+      overflow: hidden;
+    }
+    &__bg {
+      width: 119em;
+      margin: 0 0 0 auto;
+
+      :global(img) {
+        width: 100%;
+      }
+    }
+
+    &__contents {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: fit-content;
+      padding-left: 15.5em;
+      font-size: 1em;
+    }
+
+    &__lead {
+      margin: 0 0 1.8em;
+      font-size: 1.8em;
+      font-weight: 700;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    &__tit {
+      font-size: 4em;
+      width: 13em;
+
+      :global(img) {
+        width: 100%;
+      }
+    }
+
+    &__text {
+      margin: 1.25em 0 0;
+      font-size: 1.6em;
+      font-weight: 500;
+    }
+
+    /* fv下のcta */
+    &__cta {
+      margin: 2.8rem auto 0;
+      max-width: 108rem;
+
+      &_list {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+      }
+
+      &_buttons {
+        display: flex;
+      }
+      &_button {
+        width: 42rem;
+        min-height: 7rem;
+      }
+      :global(.button--white) {
+        --border_color: var(--color-black01);
+      }
+    }
+    
   }
 </style>
-
-<script>
-  import Swiper from "swiper";
-
-  const fade_sliders = document.querySelectorAll(".js-fade_slider");
-  fade_sliders.forEach((fade_slider) => {
-    let fade_slider_block = new Swiper(fade_slider, {
-      slidesPerView: 1,
-      loop: true,
-      effect: "fade",
-      allowTouchMove: false,
-      speed: 2500,
-      fadeEffect: {
-        crossFade: true,
-      },
-      autoplay: {
-        delay: 1500,
-      },
-    });
-  });
-</script>

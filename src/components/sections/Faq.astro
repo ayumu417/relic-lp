@@ -57,13 +57,13 @@ const faqs = [
       align="center"
     />
 
-    <p class="faq__emphasized_text">
+    <h3 class="faq__tit">
       <Img
-        img={{ src: "text/faq__emphasized_text.svg" }}
+        img={{ src: "text/faq__tit.svg" }}
         width={325}
         alt="よくいただくご質問"
       />
-    </p>
+    </h3>
 
     <dl class="faq__list">
       {
@@ -97,7 +97,7 @@ const faqs = [
       max-width: var(--wrapper-s);
     }
 
-    &__emphasized_text :global(img) {
+    &__tit :global(img) {
       width: auto;
       height: 4rem;
       max-width: 100%;
@@ -125,6 +125,7 @@ const faqs = [
         }
 
         &_head {
+          color: var(--color-black01);
           position: relative;
           padding: 2.4rem var(--padding-right) 2.8rem var(--padding-left);
           font-size: 1.7rem;
@@ -198,8 +199,8 @@ const faqs = [
   -------------------------------------------*/
   (() => {
     const acc_swith = document.querySelectorAll(".js-acc_switch");
-    acc_swith.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
+    acc_swith.forEach((button) => {
+      button.addEventListener("click", (e) => {
         let wrapper = e.target.closest(".js-acc_wrapper");
         if (wrapper) {
           let target = wrapper.querySelector(".js-acc_target");

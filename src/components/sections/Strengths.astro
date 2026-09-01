@@ -1,0 +1,309 @@
+---
+import Img from "../utils/ImgLoader.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import Cta from "../block/Cta.astro";
+---
+
+<section id="strengths" class="strengths main_sec">
+  <div class="contents_wrapper">
+    <SectionHeader
+      headingText="Relicが選ばれる理由"
+      imgSrc="text/strengths__heading.svg"
+      imgWidth={290}
+      imgAlt="STRENGTHS"
+      align="left"
+    />
+
+    <h3 class="strengths__tit">
+      <Img
+        sources={[
+          {
+            media: "(max-width: 768px)",
+            src: "text/strengths__tit-sp.svg",
+            width: 344,
+          },
+        ]}
+        img={{ src: "text/strengths__tit.svg" }}
+        width={620}
+        alt="新事業を形にし続けてきた、3つの強み"
+      />
+    </h3>
+
+    <ul class="strengths__list">
+      <li class="strengths__list_item">
+        <div class="strengths__list_item_contents">
+          <h4 class="strengths__list_item_tit">
+            <span class="strengths__list_item_number"></span>
+            <span class="strengths__list_item_tit_inner">
+              新規事業領域に特化した、<br />
+              5,000社の実績と専門人材
+            </span>
+          </h4>
+          <p class="strengths__list_item_text">
+            2015年の創業以来、新規事業領域に特化したご支援を続けてきました。経験豊富な専門人材が御社の事業に深く入り込み、構想から事業化まで共に創り上げる伴走者となります。
+          </p>
+        </div>
+        <div class="strengths__list_item_img_block">
+          <Img
+            img={{
+              src: "strengths__illust01.png",
+              widths: [500, 400, 300],
+            }}
+            sizes="(max-width: 768px) 100vw, 300px"
+            width={300}
+            alt=""
+          />
+        </div>
+      </li>
+      <li class="strengths__list_item">
+        <div class="strengths__list_item_contents">
+          <h4 class="strengths__list_item_tit">
+            <span class="strengths__list_item_number"></span>
+            <span class="strengths__list_item_tit_inner">
+              構想から事業化まで、<br />すべての機能を一つのチームで
+            </span>
+          </h4>
+          <p class="strengths__list_item_text">
+            事業企画・開発・クリエイティブ・営業・マーケティングまで、事業を形にするために必要な機能をワンストップで提供。"分業の壁"が生まれない一つのチームで、泥臭い実務までやりきります。
+          </p>
+        </div>
+        <div class="strengths__list_item_img_block">
+          <Img
+            img={{
+              src: "strengths__illust02.png",
+              widths: [550, 450, 350],
+            }}
+            sizes="(max-width: 768px) 100vw, 350px"
+            width={350}
+            alt=""
+          />
+        </div>
+      </li>
+      <li class="strengths__list_item">
+        <div class="strengths__list_item_contents">
+          <h4 class="strengths__list_item_tit">
+            <span class="strengths__list_item_number"></span>
+            <span class="strengths__list_item_tit_inner">
+              アドバイザーではなく、<br />事業パートナーとして並走
+            </span>
+          </h4>
+          <p class="strengths__list_item_text">
+            計画通りに進まない不確実な状況でも、共に乗り越えるパートナー。当事者意識を持って共に悩み、次の打ち手を考え、実行する。受託の枠を超えた関係性が、新規事業を前に進める力になります。
+          </p>
+        </div>
+        <div class="strengths__list_item_img_block">
+          <Img
+            img={{
+              src: "strengths__illust03.png",
+              widths: [550, 450, 350],
+            }}
+            sizes="(max-width: 768px) 100vw, 350px"
+            width={350}
+            alt=""
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <Cta />
+</section>
+
+<style lang="scss">
+  .strengths {
+    position: relative;
+    @include media_max(sp) {
+      padding-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -55.5rem;
+      right: 0;
+      background-image: url(/src/assets/img/design/bg_design_img01.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 45.5rem;
+      height: auto;
+      aspect-ratio: 447/1463;
+      z-index: -1;
+      @include media_max(sp) {
+        top: -14.4rem;
+        background-image: url(/src/assets/img/design/bg_design_img01-sp.png);
+        width: 10.8rem;
+        aspect-ratio: 105/344;
+      }
+    }
+
+    &__tit :global(img) {
+      width: auto;
+      height: 11.9rem;
+      max-width: 100%;
+      margin: 0;
+      object-fit: contain;
+      @include media_max(sp) {
+        height: 6.82rem;
+      }
+    }
+
+    &__list {
+      counter-reset: number 0;
+      position: relative;
+      margin: 5rem 0 0;
+
+      &_item {
+        position: relative;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: fit-content;
+        column-gap: 2.2rem;
+        @include media_max(sp) {
+          flex-direction: column-reverse;
+        }
+        &_number {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          background: var(--color-black02);
+          color: var(--color-white);
+          width: auto;
+          height: 1.86em;
+          padding-top: 0.1em;
+          aspect-ratio: 1/1;
+          border-radius: 10rem;
+          font-size: 6.6rem;
+          box-sizing: border-box;
+          @include media_max(sp) {
+            font-size: 4.1rem;
+          }
+
+          &::before {
+            content: "";
+            position: relative;
+            display: block;
+            background-image: url(/src/assets/img/text/text-strengths.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 1.17em;
+            height: auto;
+            aspect-ratio: 77/12;
+          }
+
+          &::after {
+            counter-increment: number 1;
+            content: counter(number, decimal-leading-zero);
+            font-family: var(--font-noto_serif);
+            font-size: 1em;
+            font-weight: 700;
+            line-height: 1;
+          }
+        }
+        &_tit {
+          display: flex;
+          align-items: flex-end;
+          column-gap: 2rem;
+          margin-bottom: 2.2rem;
+          padding-right: 4.7rem;
+          @include media_max(sp) {
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 1rem;
+            padding: 0;
+            margin-bottom: 0.8rem;
+          }
+
+          &_inner {
+            color: var(--color-black01);
+            font-size: 2.5rem;
+            font-family: var(--font-noto_serif);
+            line-height: 1.45;
+            @include media_max(sp) {
+              font-size: 2.1rem;
+            }
+          }
+        }
+        &_text {
+          margin: 0 0 0 auto;
+          width: 42.2rem;
+          font-size: 1.5rem;
+          line-height: 1.7;
+          @include media_max(sp) {
+            width: 100%;
+          }
+        }
+
+        &_img_block {
+          @include media_max(sp) {
+            width: 100%;
+          }
+        }
+        &_img_block :global(img) {
+          width: 33rem;
+          @include media_max(sp) {
+            width: 23.5rem;
+            margin-left: auto;
+            margin-right: 0;
+            margin-bottom: -8rem;
+          }
+        }
+
+        // numbserごとの調整
+        @include media_min(sp) {
+          &:nth-of-type(2) {
+            justify-content: center;
+            margin-top: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 9.6rem;
+          }
+          &:nth-of-type(2) &_tit {
+            column-gap: 30rem;
+            padding-right: 7.3rem;
+            margin-bottom: 1rem;
+          }
+          &:nth-of-type(2) &_img_block :global(img) {
+            position: absolute;
+            top: 4rem;
+            left: 5rem;
+          }
+          &:nth-of-type(3) {
+            margin-left: auto;
+            margin-right: 0;
+          }
+        }
+
+        @include media_max(sp) {
+          &:nth-of-type(1) &_img_block :global(img) {
+            width: 24rem;
+            margin-right: -1.5rem;
+          }
+          &:nth-of-type(2) &_tit {
+          align-items: flex-end;
+          text-align: right;
+          }
+          &:nth-of-type(2) &_img_block :global(img) {
+            margin-left: 0;
+            margin-right: auto;
+            margin-top: 3.2rem;
+          }
+          &:nth-of-type(3) &_img_block :global(img) {
+            margin-bottom: -6.2rem;
+            margin-top: 2.5rem;
+          }
+        }
+      }
+    }
+
+    :global(.cta) {
+      margin-top: 8.7rem;
+      @include media_max(sp) {
+        margin-top: 5.5rem;
+      }
+    }
+  }
+</style>

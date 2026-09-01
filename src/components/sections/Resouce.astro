@@ -2,9 +2,11 @@
 import Img from "../utils/ImgLoader.astro";
 import Button from "../ui/Button.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+import Cta from "../block/Cta.astro";
 ---
 
 <section class="resouce main_sec">
+  <div class="resouce__bg"></div>
   <div class="contents_wrapper">
     <SectionHeader
       headingText="資料ライブラリ"
@@ -14,66 +16,473 @@ import SectionHeader from "../ui/SectionHeader.astro";
       align="left"
     />
 
-    <p class="resouce__emphasized_text">
+    <h3 class="resouce__tit">
       <Img
-        img={{ src: "text/resouce__emphasized_text.svg" }}
+        img={{ src: "text/resouce__tit.svg" }}
         width={570}
-        alt=""
+        alt="業界初の新規事業レポートとホワイトペーパー"
       />
-    </p>
+    </h3>
 
     <p class="resouce__text">
       業界横断のご支援から見えてきた、新規事業推進のリアルな知見を業界別・テーマ別に体系化しました。<br
+        class="pc_only"
       />
       ご関心のあるテーマからダウンロードいただけます。
     </p>
 
-    <ul class="resouce__list">
-      <li class="resouce__list_item">
-        <div class="resouce__list_item_img_block">
-          <Img
-            img={{
-              src: "resouce__item_img001.jpg",
-              widths: [720, 500, 360],
-            }}
-            sizes="(max-width: 768px) 100vw, 360px"
-            width={360}
-            alt=""
-          />
-        </div>
-        <div class="resouce__list_item_contents">
-          <div class="resouce__list_item_tags">
-            <p class="resouce__list_item_tag">新着</p>
-            <p class="resouce__list_item_tag">テーマ別</p>
+    <div class="resouce__list_wrapper swiper js-problem_swiper">
+      <ul class="resouce__list swiper-wrapper">
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img001.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
           </div>
-          <h3 class="resouce__list_item_tit">
-            大企業のための<br />
-            「出島スキーム」完全ガイド
-          </h3>
-          <p class="resouce__list_item_detail">
-            制約を越えて事業を形にする実務
-          </p>
-          <p class="resouce__list_item_meta">全48P／2026年最新版</p>
-          <Button
-            text="資料をダウンロード"
-            class="contact__box01_btn"
-            href="###"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-color="blue"
-            color="beige"
-          />
-        </div>
-      </li>
-    </ul>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="magenta">新着</p>
+                <p class="resouce__list_item_tag" data-color="black">
+                  テーマ別
+                </p>
+                <p class="resouce__list_item_tag" data-color="white">最重要</p>
+              </div>
+              <h4 class="resouce__list_item_tit">
+                大企業のための<br />
+                「出島スキーム」完全ガイド
+              </h4>
+              <p class="resouce__list_item_detail">
+                制約を越えて事業を形にする実務
+              </p>
+              <p class="resouce__list_item_meta">全48P／2026年最新版</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img002.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
+          </div>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="magenta">新着</p>
+                <p class="resouce__list_item_tag" data-color="white">
+                  業界レポート
+                </p>
+                <p class="resouce__list_item_tag" data-color="pale_blue">
+                  製造業
+                </p>
+              </div>
+              <h4 class="resouce__list_item_tit">
+                「最初の10社」をどう獲得するか
+              </h4>
+              <p class="resouce__list_item_detail">
+                B2B新規事業のGTM設計と<br />
+                営業・検証の同時進行術
+              </p>
+              <p class="resouce__list_item_meta">全00P／2026年公開予定</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img003.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
+          </div>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="magenta">新着</p>
+                <p class="resouce__list_item_tag" data-color="black">
+                  テーマ別
+                </p>
+                <p class="resouce__list_item_tag" data-color="gold">金融</p>
+              </div>
+              <h4 class="resouce__list_item_tit">
+                「コスト」としての特許から<br />
+                「利益」を産む特許へ
+              </h4>
+              <p class="resouce__list_item_detail">
+                大企業における知財起点の事業開発
+              </p>
+              <p class="resouce__list_item_meta">全00P／2026年公開予定</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img004.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
+          </div>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="white">
+                  業界レポート
+                </p>
+                <p class="resouce__list_item_tag" data-color="light_green">
+                  ヘルスケア
+                </p>
+              </div>
+              <h4 class="resouce__list_item_tit">
+                ヘルスケアD2C／PHR領域の事業開発 と、規制対応の実務
+              </h4>
+              <p class="resouce__list_item_meta">全36P／2025年公開</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img005.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
+          </div>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="white">
+                  業界レポート
+                </p>
+                <p class="resouce__list_item_tag" data-color="pale_red">
+                  小売・流通
+                </p>
+              </div>
+              <h4 class="resouce__list_item_tit">
+                地方創生を成功に導く<br />
+                自治体の役割
+              </h4>
+              <p class="resouce__list_item_detail">
+                官民連携・起業支援・制度活用の実際
+              </p>
+              <p class="resouce__list_item_meta">全00P／2026年公開予定</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img006.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
+          </div>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="black">
+                  テーマ別
+                </p>
+                <p class="resouce__list_item_tag" data-color="white">
+                  ガバナンス
+                </p>
+              </div>
+              <h4 class="resouce__list_item_tit">
+                大企業の稟議を突破するMVPの作り方
+              </h4>
+              <p class="resouce__list_item_detail">
+                失敗が許されない中で仮説検証を進める方法
+              </p>
+              <p class="resouce__list_item_meta">全28P／2025年公開</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img007.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
+          </div>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="black">
+                  テーマ別
+                </p>
+                <p class="resouce__list_item_tag" data-color="white">
+                  技術活用
+                </p>
+              </div>
+              <h4 class="resouce__list_item_tit">
+                生成AI／LLMで新規事業を作る
+              </h4>
+              <p class="resouce__list_item_detail">PoCから事業化までの実務</p>
+              <p class="resouce__list_item_meta">全44P／2025年公開</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img008.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
+          </div>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="black">
+                  テーマ別
+                </p>
+                <p class="resouce__list_item_tag" data-color="white">
+                  人材・組織
+                </p>
+              </div>
+              <h4 class="resouce__list_item_tit">
+                社内起業家を発掘・育成する<br />
+                「イントレプレナー制度」設計ガイド
+              </h4>
+              <p class="resouce__list_item_meta">全32P／2025年公開</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+        <li class="resouce__list_item swiper-slide">
+          <div class="resouce__list_item_img_block">
+            <Img
+              img={{
+                src: "resouce__item_img009.jpg",
+                widths: [720, 500, 360],
+              }}
+              sizes="(max-width: 768px) 100vw, 360px"
+              width={360}
+              alt=""
+            />
+          </div>
+          <div class="resouce__list_item_contents">
+            <div class="resouce__list_item_contents_inner">
+              <div class="resouce__list_item_tags">
+                <p class="resouce__list_item_tag" data-color="black">
+                  テーマ別
+                </p>
+                <p class="resouce__list_item_tag" data-color="white">
+                  資本戦略
+                </p>
+              </div>
+              <h4 class="resouce__list_item_tit">JV組成・カーブアウト・CVC</h4>
+              <p class="resouce__list_item_detail">
+                事業創出における資本戦略の選び方
+              </p>
+              <p class="resouce__list_item_meta">全30P／2025年公開</p>
+            </div>
+            <Button
+              class="resouce__list_item_button"
+              href="###"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="beige"
+            >
+              資料をダウンロード
+            </Button>
+          </div>
+        </li>
+      </ul>
+
+      <div class="swiper-pagination sp_only"></div>
+    </div>
+
+    <Button
+      class="resouce__button"
+      href="###"
+      target="_blank"
+      rel="noopener noreferrer"
+      color="black"
+    >
+      資料ライブラリをすべて見る
+    </Button>
   </div>
+  <Cta />
 </section>
 
 <style lang="scss">
   .resouce {
     position: relative;
+    background: transparent;
+    padding-top: 7.6rem;
+    padding-bottom: 19rem;
+    @include media_max(sp) {
+      padding-top: 12rem;
+      padding-bottom: 11.7rem;
+    }
 
-    &__emphasized_text :global(img) {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      right: 0;
+      background-image: url(/src/assets/img/design/bg_visual_img03.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: clamp(59rem, 41vw, 70rem);
+      height: auto;
+      aspect-ratio: 590/210;
+      @include media_max(sp) {
+        top: -5rem;
+        width: 32rem;
+        aspect-ratio: 590/190;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -59.6rem;
+      left: 0;
+      background-image: url(/src/assets/img/design/bg_design_img06.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 45rem;
+      height: auto;
+      aspect-ratio: 449/1461;
+      z-index: -1;
+      @include media_max(sp) {
+        bottom: -31.5rem;
+        background-image: url(/src/assets/img/design/bg_design_img06-sp.png);
+        width: 14rem;
+        aspect-ratio: 135/439;
+      }
+    }
+
+    &__bg::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #f1f1f1;
+      z-index: -1;
+      @include media_max(sp) {
+        height: calc(100%);
+        background-image:
+          linear-gradient(#f3fbfc 1px, transparent 1px),
+          linear-gradient(90deg, #f3fbfc 1px, transparent 1px);
+        background-size: 6.2rem 6.2rem;
+        background-position: 0rem 0rem;
+      }
+    }
+
+    &__tit :global(img) {
       width: auto;
       height: 10.8rem;
       max-width: 100%;
@@ -83,5 +492,174 @@ import SectionHeader from "../ui/SectionHeader.astro";
         height: 6.2rem;
       }
     }
+
+    &__text {
+      font-weight: 500;
+      margin-top: 3.2rem;
+      @include media_max(sp) {
+        margin-top: 2rem;
+      }
+    }
+
+    &__button {
+      margin-top: 6.2rem;
+      @include media_max(sp) {
+        margin-top: 4.7rem;
+      }
+    }
+
+    //　sp版はswiper
+    &__list_wrapper {
+      @include media_min(sp) {
+        overflow: inherit;
+      }
+      @include media_max(sp) {
+        margin-left: -2.5rem;
+        margin-right: -2.5rem;
+      }
+    }
+    & &__list {
+      @include media_min(sp) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: flex-start;
+        column-gap: 2.2rem;
+        row-gap: 2.4rem;
+        margin-top: 5.5rem;
+      }
+      @include media_max(sp) {
+        margin-top: 2.5rem;
+      }
+      &_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 1.4rem;
+        padding-top: 2.4rem;
+        overflow: hidden;
+        background: var(--color-white);
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+        @include media_max(sp) {
+          padding-top: 2rem;
+        }
+
+        &_img_block {
+          :global(img) {
+            width: 100%;
+          }
+        }
+
+        &_contents {
+          flex: 1;
+          width: 100%;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          padding: 2rem 3.2rem 4rem;
+          @include media_max(sp) {
+            padding: 2rem 2.5rem 3.2rem;
+          }
+        }
+
+        &_tags {
+          display: flex;
+          align-items: stretch;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          column-gap: 0.5rem;
+          margin: 0 0 1.4rem;
+        }
+        &_tag {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: auto;
+          padding: 0.3em 0.92em 0.35em;
+          background: #fff;
+          color: var(--color-black01);
+          font-size: 1.3rem;
+          font-weight: 700;
+          line-height: 1.2;
+          letter-spacing: 0.05em;
+
+          &[data-color="white"] {
+            background: #fff;
+            color: var(--color-black01);
+            border: 1px solid var(--color-black01);
+          }
+          &[data-color="black"] {
+            background: var(--color-black01);
+            color: var(--color-white);
+          }
+          &[data-color="magenta"] {
+            background: var(--color-magenta01);
+            color: var(--color-white);
+          }
+          &[data-color="pale_blue"] {
+            background: #5181c5;
+            color: var(--color-white);
+          }
+          &[data-color="gold"] {
+            background: #c8aa66;
+            color: var(--color-white);
+          }
+          &[data-color="light_green"] {
+            background: #5fae9c;
+            color: var(--color-white);
+          }
+          &[data-color="pale_red"] {
+            background: #ca6060;
+            color: var(--color-white);
+          }
+        }
+
+        &_tit {
+          color: var(--color-black01);
+          font-size: 1.7rem;
+          font-weight: 700;
+          font-family: var(--font-noto_serif);
+          line-height: 1.45;
+          letter-spacing: -0.01em;
+        }
+
+        &_detail {
+          color: var(--color-black01);
+          margin-top: 0.9rem;
+          font-size: 1.5rem;
+          font-weight: 700;
+          font-family: var(--font-noto_serif);
+          line-height: 1.5;
+        }
+
+        &_meta {
+          margin-top: 1rem;
+          font-size: 1.4rem;
+          line-height: 1.2;
+        }
+
+        &_button {
+          margin-top: 2.1rem;
+          width: 90.4%;
+        }
+      }
+    }
+
+    :global(.cta) {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
+    }
   }
 </style>
+
+<script>
+  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp"; // 拡張子は環境に合わせて調整
+
+  // このセクションのクラス名を指定して実行
+  setupResponsiveSwiperSp(".js-resouce_swiper");
+</script>

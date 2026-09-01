@@ -61,9 +61,7 @@ const { PageTitle = "title", PageDescription = "description" } = Astro.props;
       <slot />
 
       <script>
-        import { initCommonScripts } from "../assets/js/script";
-
-        initCommonScripts();
+        import "../assets/js/script";
       </script>
     </div>
   </body>

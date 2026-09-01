@@ -1,0 +1,316 @@
+---
+import Img from "../utils/ImgLoader.astro";
+import Button from "../ui/Button.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+import Cta from "../block/Cta.astro";
+---
+
+<section id="story" class="story main_sec">
+  <div class="contents_wrapper">
+    <SectionHeader
+      headingText="挑戦の物語"
+      imgSrc="text/story__heading.svg"
+      imgWidth={162}
+      imgAlt="STORY"
+      align="right"
+    />
+
+    <h3 class="story__tit">
+      <Img
+        sources={[
+          {
+            media: "(max-width: 768px)",
+            src: "text/story__tit-sp.svg",
+          },
+        ]}
+        img={{ src: "text/story__tit.svg" }}
+        width={786}
+        alt="事例ではなく、`苦悩と挑戦`のストーリー"
+      />
+    </h3>
+
+    <p class="story__text">
+      単なる成果のご紹介ではなく、<br
+        class="sp_only"
+      />一人のご担当社様がどんな葛藤を抱え、<br
+        class="sp_only"
+      />Relicと共にどう突破したか。<br />
+      ストーリーとしてお届けします。
+    </p>
+
+    <div class="story__block_wrapper swiper js-service_swiper">
+      <div class="story__block swiper-wrapper">
+        <div class="story__block_box swiper-slide">
+          <h4 class="story__block_box_tit">
+            <Img
+              img={{ src: "text/story__label_tit01.svg" }}
+              width={82}
+              alt="地域発の健康経営を全国へ。「Ciaeru」開発の舞台裏"
+            />
+          </h4>
+          <div class="story__block_box_inner">
+            <div class="story__block_box_img_block">
+              <Img
+                img={{
+                  src: "story__img01.jpg",
+                  widths: [630, 420, 350],
+                }}
+                sizes="(max-width: 768px) 100vw, 420px"
+                width={420}
+                alt=""
+              />
+            </div>
+            <div class="story__block_box_contents">
+              <p class="story__block_box_name">株式会社Canvas 様</p>
+              <p class="story__block_box_text">
+                健康経営支援の再現性を高める<br />
+                「Ciaeru」開発とフランチャイズ<br />
+                展開の基盤構築
+              </p>
+              <a href="###" class="story__block_box_link">
+                事例ストーリーを読む
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="story__block_box swiper-slide">
+          <h4 class="story__block_box_tit">
+            <Img
+              img={{ src: "text/story__label_tit02.svg" }}
+              width={82}
+              alt="構想が固まらないところから始まった新規事業"
+            />
+          </h4>
+          <div class="story__block_box_inner">
+            <div class="story__block_box_img_block">
+              <Img
+                img={{
+                  src: "story__img02.jpg",
+                  widths: [630, 420, 350],
+                }}
+                sizes="(max-width: 768px) 100vw, 420px"
+                width={420}
+                alt=""
+              />
+            </div>
+            <div class="story__block_box_contents">
+              <p class="story__block_box_name">LDT株式会社 様</p>
+              <p class="story__block_box_text">
+                構想初期からの不確実性を <br
+                />乗り越えた「マッチドライブ」<br class="sp_only">立ち上げ
+              </p>
+              <a href="###" class="story__block_box_link">
+                事例ストーリーを読む
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-pagination sp_only"></div>
+    </div>
+
+    <Button
+      class="story__button"
+      href="###"
+      target="_blank"
+      rel="noopener noreferrer"
+      color="beige"
+    >
+      すべての事例ストーリーを読む
+    </Button>
+  </div>
+  <Cta />
+</section>
+
+<style lang="scss">
+  .story {
+    position: relative;
+    padding-top: 10.6rem;
+    padding-bottom: 19rem;
+    @include media_max(sp) {
+      padding-top: 8.2rem;
+      padding-bottom: 12rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -22rem;
+      left: 0;
+      background-image: url(/src/assets/img/design/bg_design_img04.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 48.7rem;
+      height: auto;
+      aspect-ratio: 495/1627;
+      z-index: -1;
+      @include media_max(sp) {
+        top: -13.2rem;
+        width: 13rem;
+      }
+    }
+
+    &__tit :global(img) {
+      width: auto;
+      height: 4.7rem;
+      max-width: 100%;
+      margin: 0 0 0 auto;
+      object-fit: contain;
+      @include media_max(sp) {
+        height: 6.2rem;
+      }
+    }
+
+    :global(.section_header)::after {
+      background: var(--color-black02);
+    }
+
+    &__text {
+      margin: 2.8rem 0 0;
+      text-align: right;
+      font-weight: 500;
+      @include media_max(sp) {
+        margin-top: 1.5rem;
+      }
+    }
+
+    &__button {
+      margin-top: 2.5rem;
+      margin-right: 0;
+      @include media_max(sp) {
+        margin-top: 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 1.4em;
+      }
+    }
+
+    //　sp版は swiper
+    &__block_wrapper {
+      @include media_min(sp) {
+        overflow: inherit;
+      }
+      @include media_max(sp) {
+        margin-left: -2.5rem;
+        margin-right: -2.5rem;
+      }
+    }
+    &__block {
+      margin-top: 8.7rem;
+      @include media_min(sp) {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        column-gap: 4rem;
+      }
+      @include media_max(sp) {
+        margin-top: 4.4rem;
+      }
+
+      &_box {
+        position: relative;
+        @include media_min(sp) {
+          width: 42rem;
+
+          &:nth-of-type(n + 2) {
+            margin-top: 7.7rem;
+          }
+        }
+        @include media_max(sp) {
+          width: 34rem;
+        }
+        &_inner {
+          padding: 0;
+          overflow: hidden;
+          border-radius: 1.4rem;
+          box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+        }
+
+        &_img_block :global(img) {
+          width: 100%;
+        }
+
+        &_tit {
+          position: absolute;
+          top: -4rem;
+          right: -1.9rem;
+          width: 8.4rem;
+          @include media_max(sp) {
+            top: -2rem;
+            right: -1rem;
+            width: 7rem;
+          }
+        }
+
+        &_contents {
+          padding: 3rem 4rem 5.5rem;
+          @include media_max(sp) {
+            padding: 2.2rem 2.4rem 4.6rem;
+          }
+        }
+        &_name {
+          margin-bottom: 1rem;
+          color: var(--color-deep_blue01);
+          font-size: 1.4rem;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+        &_text {
+          color: var(--color-black01);
+          font-size: 1.9rem;
+          font-weight: 700;
+          font-family: var(--font-noto_serif);
+          letter-spacing: -0.02em;
+          line-height: 1.45;
+        }
+        &_link {
+          position: relative;
+          display: block;
+          margin-top: 2.4rem;
+          width: 25rem;
+          font-weight: 700;
+          line-height: 1.6;
+          padding-bottom: 0.15em;
+          padding-right: 2.5rem;
+          @include media_max(sp) {
+            margin-top: 1.9rem;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-image: url(/src/assets/img/icon/story__link_arrow.svg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 253/9;
+            transition: 0.1s ease;
+            transform-origin: bottom left;
+          }
+
+          &:hover::after {
+            transform: translateX(1em);
+          }
+        }
+      }
+    }
+
+    :global(.cta) {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
+    }
+  }
+</style>
+
+<script>
+  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp"; // 拡張子は環境に合わせて調整
+
+  // このセクションのクラス名を指定して実行
+  setupResponsiveSwiperSp(".js-service_swiper", "auto", "14%");
+</script>

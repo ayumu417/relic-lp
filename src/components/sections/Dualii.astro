@@ -1,0 +1,447 @@
+---
+import Img from "../utils/ImgLoader.astro";
+import Button from "../ui/Button.astro";
+import SectionHeader from "../ui/SectionHeader.astro";
+---
+
+<section id="dualii" class="dualii main_sec">
+  <div class="contents_wrapper">
+    <SectionHeader
+      headingText="＋α　Relicだけの、もう一つの特徴"
+      imgSrc="text/dualii__heading.svg"
+      imgWidth={160}
+      imgAlt="DUALii"
+      align="center"
+    />
+
+    <h3 class="dualii__tit">
+      <Img
+        sources={[
+          {
+            media: "(max-width: 768px)",
+            src: "text/dualii__tit-sp.svg",
+          },
+        ]}
+        img={{ src: "text/dualii__tit.svg" }}
+        width={886}
+        alt="組織の壁の外で、事業を立ち上げる。業界初の出島共創スキーム「DUALii」。"
+      />
+    </h3>
+
+    <dl class="dualii__block">
+      <dt class="dualii__block_tit">
+        DUALii<span class="dualii__block_tit_smaller">(デュアリー)</span>とは？
+      </dt>
+      <dd class="dualii__block_text">
+        一気通貫で実行・検証するインキュベーション・プラットフォームです。市場の中で事業を磨き上げ、検証済みの事業を貴社へ持ち帰る。そこから事業化・スケールへつなげます。
+      </dd>
+    </dl>
+    <div class="dualii__figure">
+      <Img
+        sources={[
+          {
+            media: "(max-width: 768px)",
+            src: "dualii__figure_img-sp.png",
+            width: 375,
+            widths: [350, 700, 1050],
+            sizes: "100vw",
+          },
+        ]}
+        img={{
+          src: "dualii__figure_img.png",
+          widths: [945, 1410],
+        }}
+        width={945}
+        sizes="(max-width: 1200px) 100vw, 1200px"
+        alt="「DUALii」の説明図"
+      />
+    </div>
+
+    <h3 class="dualii__list_tit">「DUALii」で実現できること</h3>
+    <ul class="dualii__list">
+      <li class="dualii__list_item">
+        <div class="dualii__list_item_number"></div>
+        <h4 class="dualii__list_item_tit">レピュテーションリスクを<br class="sp_only">抑える</h4>
+        <p class="dualii__list_item_text">
+          企業ブランドを直接背負わず、Relicが事業主体として運営します。失敗しても本体ブランドに傷がつかないから、思い切った仮説検証ができます。
+        </p>
+      </li>
+      <li class="dualii__list_item">
+        <div class="dualii__list_item_number"></div>
+        <h4 class="dualii__list_item_tit">社内決裁プロセスから<br class="sp_only">切り離す</h4>
+        <p class="dualii__list_item_text">
+          組織の既存ルールやガバナンスに縛られず、スタートアップ並みのスピードで意思決定し、小さく早く動かせます。
+        </p>
+      </li>
+      <li class="dualii__list_item">
+        <div class="dualii__list_item_number"></div>
+        <h4 class="dualii__list_item_tit">検証済みの事業を<br class="sp_only">持ち帰る</h4>
+        <p class="dualii__list_item_text">
+          DUALiiで検証した事業を、貴社へ移管するか、JV化するか、カーブアウトするか。出口の設計まで含めてご支援します。
+        </p>
+      </li>
+    </ul>
+
+    <div class="dualii__cta">
+      <div class="dualii__cta_inner">
+        <div class="dualii__cta_contents">
+          <h2 class="dualii__cta_heading">
+            業界初の出島共創スキーム 「DUALii」
+          </h2>
+          <p class="dualii__cta_text">
+            生み出された事業は既に50件以上。<br />
+            最短1ヶ月のPoCプランから、共同検証・<br class="sp_only">共同運営まで柔軟に対応します。
+          </p>
+        </div>
+        <div class="dualii__cta_button_block">
+          <Button
+            class="dualii__cta_button"
+            href="###"
+            target="_blank"
+            rel="noopener noreferrer"
+            color="magenta"
+          >
+            DUALiiの詳細を見る
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .dualii {
+    position: relative;
+    background: var(--color-black02);
+    color: var(--color-white);
+    background-image: url(/src/assets/img/design/dualii__bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 2.5rem solid var(--color-black02);
+    border-bottom: 2.5rem solid var(--color-black02);
+    border-image: linear-gradient(
+      90deg,
+      rgba(20, 60, 93, 1) 0%,
+      rgba(22, 59, 93, 1) 17%,
+      rgba(29, 57, 94, 1) 24%,
+      rgba(41, 53, 96, 1) 29%,
+      rgba(59, 48, 98, 1) 34%,
+      rgba(82, 41, 101, 1) 38%,
+      rgba(110, 33, 105, 1) 41%,
+      rgba(144, 23, 110, 1) 44%,
+      rgba(182, 13, 115, 1) 47%,
+      rgba(227, 2, 122, 1) 50%,
+      rgba(224, 40, 122, 1) 53%,
+      rgba(222, 73, 122, 1) 56%,
+      rgba(219, 101, 122, 1) 60%,
+      rgba(218, 124, 122, 1) 64%,
+      rgba(216, 142, 122, 1) 69%,
+      rgba(215, 154, 122, 1) 75%,
+      rgba(215, 161, 122, 1) 82%,
+      rgba(215, 164, 122, 1) 100%
+    );
+    border-image-slice: 1;
+    @include media_max(sp) {
+      background-image: url(/src/assets/img/design/dualii__bg-sp.png);
+      border-width: 1.8rem;
+    }
+
+    :global(.section_header) {
+      --color-text: #fff;
+      --color-border: #fff;
+    }
+
+    &__tit :global(img) {
+      width: auto;
+      height: 11.7rem;
+      max-width: 100%;
+      margin: 0 auto;
+      object-fit: contain;
+      @include media_max(sp) {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__block {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      max-width: 95rem;
+      margin: 8rem auto 0;
+      @include media_max(sp) {
+        flex-direction: column;
+        margin-top: 3.5rem;
+      }
+
+      &_tit {
+        font-size: 3.2rem;
+        font-family: var(--font-noto_serif);
+        line-height: 1.44;
+        letter-spacing: -0.02em;
+        @include media_max(sp) {
+          font-size: 2.2rem;
+          margin: 0 auto 0.9rem;
+        }
+        @include media_min(sp) {
+          padding-right: 4rem;
+          margin-right: 4rem;
+          border-right: 1px solid var(--color-white);
+        }
+
+        &_smaller {
+          display: inline-block;
+          font-size: 0.59em;
+          padding: 0 0.25em 0.4em 0.32em;
+          vertical-align: middle;
+          letter-spacing: -0.02em;
+        }
+      }
+      &_text {
+        font-size: 1.5rem;
+        line-height: 1.6;
+        letter-spacing: -0.02em;
+        @include media_min(sp) {
+          flex: 1;
+          margin-top: -0.4em;
+          margin-bottom: -0.2em;
+        }
+      }
+    }
+
+    &__figure {
+      max-width: 95rem;
+      margin: 6.6rem auto 0;
+      text-align: center;
+      @include media_max(sp) {
+        margin-top: 3rem;
+      }
+    }
+
+    &__list_tit {
+      margin: 8.7rem auto 5rem;
+      font-size: 3.2rem;
+      font-family: var(--font-noto_serif);
+      text-align: center;
+      @include media_max(sp) {
+        margin-top: 4rem;
+        margin-bottom: 1.6rem;
+        font-size: 2rem;
+      }
+    }
+    &__list {
+      counter-reset: number 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      @include media_max(sp) {
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      &_item {
+        flex: 1;
+        height: auto;
+        padding: 0 5.4rem;
+
+        @include media_min(sp) {
+          border-left: 1px solid var(--color-white);
+          &:nth-of-type(3n + 1) {
+            padding-left: 0;
+            border: 0;
+          }
+          &:nth-of-type(3n) {
+            padding-right: 0;
+          }
+        }
+
+        @include media_max(sp) {
+          width: 100%;
+          padding: 0;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          grid-template-rows: auto 1fr;
+          column-gap: 2.0rem;
+          row-gap: 1.2rem;
+          align-items: flex-end;
+
+          &:nth-of-type(n+2) {
+            border-top: 1px solid var(--color-white);
+            padding-top: 2.5rem;
+            margin-top: 2.5rem;
+          }
+        }
+
+        &_number {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: fit-content;
+          font-size: 5.4rem;
+          margin-bottom: 2.2rem;
+          color: #d9d9d9;
+
+          &::before {
+            content: "CAPABILITIES";
+            font-weight: 700;
+            font-size: 0.22em;
+            letter-spacing: -0.04em;
+          }
+          &::after {
+            counter-increment: number 1;
+            content: counter(number, decimal-leading-zero);
+            line-height: 1;
+            font-size: 1em;
+            font-weight: 700;
+            font-family: var(--font-noto_serif);
+          }
+
+          @include media_max(sp) {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            margin: 0;
+          }
+        }
+
+        &_tit {
+          font-size: 2rem;
+          font-weight: 700;
+          font-family: var(--font-noto_serif);
+          letter-spacing: -0.02em;
+          line-height: 1.4;
+          @include media_max(sp) {
+            grid-column: 2/3;
+            grid-row: 1/2;
+            margin-bottom: 0em;
+          }
+        }
+
+        &_text {
+          margin-top: 1.8rem;
+          font-size: 1.5rem;
+          line-height: 1.66;
+          @include media_max(sp) {
+            grid-column: 1/3;
+            grid-row: 2/3;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    
+    /* cta */
+    &__cta {
+      position: relative;
+      width: 100%;
+      max-width: 92rem;
+      margin: 7rem auto 0;
+      background: var(--color-white);
+      color: var(--color-black02);
+      border-radius: 1.4rem;
+      overflow: hidden;
+      @include media_max(sp) {
+        margin-top: 4rem;
+      }
+
+      &::after {
+        content: "";
+        position: relative;
+        display: block;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1rem;
+        background-image: linear-gradient(
+          90deg,
+          rgba(20, 60, 93, 1) 0%,
+          rgba(22, 59, 93, 1) 17%,
+          rgba(29, 57, 94, 1) 24%,
+          rgba(41, 53, 96, 1) 29%,
+          rgba(59, 48, 98, 1) 34%,
+          rgba(82, 41, 101, 1) 38%,
+          rgba(110, 33, 105, 1) 41%,
+          rgba(144, 23, 110, 1) 44%,
+          rgba(182, 13, 115, 1) 47%,
+          rgba(227, 2, 122, 1) 50%,
+          rgba(224, 40, 122, 1) 53%,
+          rgba(222, 73, 122, 1) 56%,
+          rgba(219, 101, 122, 1) 60%,
+          rgba(218, 124, 122, 1) 64%,
+          rgba(216, 142, 122, 1) 69%,
+          rgba(215, 154, 122, 1) 75%,
+          rgba(215, 161, 122, 1) 82%,
+          rgba(215, 164, 122, 1) 100%
+        );
+        background-position: center center;
+      }
+
+      &_inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 2rem;
+        padding: 2.2rem 5.5rem 2.2rem;
+        width: 100%;
+        margin: 0 auto;
+        @include media_max(sp) {
+          flex-direction: column;
+          width: 100%;
+          padding: 2.4rem 1.6rem 1.5rem;
+        }
+      }
+
+      &_contents {
+        @include media_min(sp) {
+          flex: 1;
+        }
+        @include media_max(sp) {
+          width: 100%;
+        }
+      }
+
+      &_heading {
+        margin: 0;
+        font-size: 2.1rem;
+        font-family: var(--font-noto_serif);
+        font-weight: 700;
+        line-height: 1.4;
+        @include media_max(sp) {
+          font-size: 1.6rem;
+          letter-spacing: -0.02em;
+          text-align: center;
+        }
+      }
+      &_text {
+        margin: 0.5rem 0 0;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: 0.02em;
+        @include media_max(sp) {
+          margin-top: 0.4rem;
+          text-align: center;
+        }
+      }
+
+      &_button_block {
+        grid-column: 2/3;
+        grid-row: 1/3;
+        display: block;
+        width: fit-content;
+        margin-top: 0.8rem;
+        @include media_max(sp) {
+          width: 100%;
+          margin-top: 1.7rem;
+        }
+      }
+      &_button {
+        width: 26.6rem;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        border-width: 1px;
+        @include media_max(sp) {
+        }
+      }
+    }
+  }
+</style>

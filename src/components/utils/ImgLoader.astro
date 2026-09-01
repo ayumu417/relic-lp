@@ -51,8 +51,6 @@ import { Image, getImage as astroGetImage } from "astro:assets";
 * /使用マニュアル
 ***************************/
 
-
-
 /**
  * 画像アセットを一括インポート
  */
@@ -66,6 +64,8 @@ interface SourceItem {
   width?: number; // PC等の表示上の横幅（省略可）
   height?: number; // 指定がなければ元画像の比率から自動計算
   densities?: (number | string)[];
+  widths?: number[];
+  sizes?: string;
 }
 
 interface ImgItem {
@@ -140,11 +140,17 @@ const finalDensities = img.widths ? undefined : img.densities || [1, 2];
           const sHeight =
             source.height || Math.round(sWidth * (asset.height / asset.width));
 
+          // widthsが指定されている場合はdensitiesを無効化（Astroの仕様対策）
+          const sourceDensities = source.widths
+            ? undefined
+            : source.densities || [1, 2];
+
           const optimized = await astroGetImage({
             src: asset,
             width: sWidth,
             height: sHeight,
-            densities: source.densities || [1, 2],
+            widths: source.widths,
+            densities: sourceDensities,
             format: isSvg(source.src) ? "svg" : undefined,
           });
 
@@ -152,6 +158,7 @@ const finalDensities = img.widths ? undefined : img.densities || [1, 2];
             <source
               media={source.media}
               srcset={optimized.srcSet.attribute}
+              sizes={source.sizes}
               width={sWidth}
               height={sHeight}
             />

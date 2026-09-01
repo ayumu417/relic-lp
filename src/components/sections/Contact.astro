@@ -4,7 +4,7 @@ import Button from "../ui/Button.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 ---
 
-<section class="contact main">
+<section class="contact main_sec">
   <div class="contents_wrapper">
     <SectionHeader
       headingText="お問い合わせ"
@@ -14,13 +14,13 @@ import SectionHeader from "../ui/SectionHeader.astro";
       align="center"
     />
 
-    <p class="contact__emphasized_text">
+    <h3 class="contact__tit">
       <Img
-        img={{ src: "text/contact__emphasized_text.svg" }}
+        img={{ src: "text/contact__tit.svg" }}
         width={530}
         alt="お問い合わせはこちらから"
       />
-    </p>
+    </h3>
 
     <div class="contact__block">
       <div class="contact__box01" data-item="01">
@@ -35,7 +35,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
             alt=""
           />
         </div>
-        <h3 class="contact__box01_tit">無料相談のお申し込み</h3>
+        <h4 class="contact__box01_tit">無料相談のお申し込み</h4>
         <p class="contact__box01_text">
           現状の課題と目指したい姿を伺い、出島スキームが使えるかどうかも含めて、進め方をご提案します。
         </p>
@@ -46,13 +46,14 @@ import SectionHeader from "../ui/SectionHeader.astro";
           </p>
         </div>
         <Button
-          text="無料相談を申し込む"
-          class="contact__box01_btn"
+          class="contact__box01_button"
           href="###"
           target="_blank"
           rel="noopener noreferrer"
-          data-color="blue"
-        />
+          color="blue"
+        >
+        無料相談を申し込む
+        </Button>
       </div>
       <div class="contact__box01" data-item="02">
         <div class="contact__box01_img_block" data-shadow="on">
@@ -66,7 +67,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
             alt=""
           />
         </div>
-        <h3 class="contact__box01_tit">資料・ホワイトペーパーを請求</h3>
+        <h4 class="contact__box01_tit">資料・ホワイトペーパーを請求</h4>
         <p class="contact__box01_text">
           支援メニュー・自社プロダクト・グループ会社・ご支援実績まで網羅した会社資料に加え、最新ホワイトペーパーを同時お届け。
         </p>
@@ -77,17 +78,18 @@ import SectionHeader from "../ui/SectionHeader.astro";
           </p>
         </div>
         <Button
-          text="資料・ホワイトペーパーを請求する"
-          class="contact__box01_btn"
+          class="contact__box01_button"
           href="###"
           target="_blank"
           rel="noopener noreferrer"
-          data-color="beige"
-        />
+          color="beige"
+        >
+          資料・ホワイトペーパーを請求する
+        </Button>
       </div>
       <div class="contact__box02" data-item="03">
         <div class="contact__box02_contents">
-          <h3 class="contact__box02_tit">メールマガジンに登録する</h3>
+          <h4 class="contact__box02_tit">メールマガジンに登録する</h4>
           <p class="contact__box02_text">
             最新ホワイトペーパー・限定オンライン講演・事業創出事例を、月数回お届け。<br
             />
@@ -102,12 +104,14 @@ import SectionHeader from "../ui/SectionHeader.astro";
         </div>
 
         <Button
-          text="メールマガジンに登録する"
           class="contact__box02_button"
           href="###"
           target="_blank"
           rel="noopener noreferrer"
-        />
+          color="white"
+        >
+          メールマガジンに登録する
+        </Button>
       </div>
     </div>
   </div>
@@ -139,7 +143,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
       }
     }
 
-    &__emphasized_text :global(img) {
+    &__tit :global(img) {
       width: auto;
       height: 4.55rem;
       max-width: 100%;
@@ -238,31 +242,12 @@ import SectionHeader from "../ui/SectionHeader.astro";
         }
       }
 
-      &_btn {
+      &_button {
         margin-top: 3.5rem;
         min-height: 6rem;
         @include media_max(sp) {
           margin-top: 1.7rem;
           min-height: 4.8rem;
-        }
-
-        &[data-color="blue"] {
-          --bg_color: var(--color-deep_blue01);
-          --text_color: var(--color-white);
-          --border_color: var(--color-deep_blue01);
-        }
-        &[data-color="beige"] {
-          --bg_color: var(--color-dark_beige01);
-          --text_color: var(--color-black02);
-          --border_color: var(--color-dark_beige01);
-
-          &:hover {
-            --bg_color: var(--color-dark_beige01);
-            --text_color: var(--color-white);
-            --border_color: var(--color-dark_beige01);
-            background: var(--text_color);
-            filter: brightness(1);
-          }
         }
       }
     }

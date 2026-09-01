@@ -71,13 +71,13 @@ const videos = [
       align="center"
     />
 
-    <p class="videos__emphasized_text">
+    <h3 class="videos__tit">
       <Img
-        img={{ src: "text/videos__emphasized_text.svg" }}
+        img={{ src: "text/videos__tit.svg" }}
         width={340}
         alt="オンライン講演動画"
       />
-    </p>
+    </h3>
 
     <p class="videos__text">
       新規事業推進者向けに毎月開催しているオンライン講演の動画一覧。<br
@@ -97,7 +97,7 @@ const videos = [
               <p class="videos__list_item_tag" set:html={video.tag} />
             </div>
             <div class="videos__list_item_detail02">
-              <h3 class="videos__list_item_tit" set:html={video.tit} />
+              <h4 class="videos__list_item_tit" set:html={video.tit} />
               <p class="videos__list_item_speaker" set:html={video.spekaer} />
             </div>
             <div class="videos__list_item_detail03">
@@ -106,13 +106,14 @@ const videos = [
             </div>
             <div class="videos__list_item_button_wrapper">
               <Button
-                text="視聴する"
                 class="videos__list_item_button"
                 href={video.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 color="beige"
-              />
+              >
+                視聴する
+              </Button>
             </div>
           </li>
         ))
@@ -120,22 +121,26 @@ const videos = [
     </ul>
 
     <Button
-      text="講演動画をすべて見る"
       class="videos__button"
       href="###"
       target="_blank"
       rel="noopener noreferrer"
-    />
+    >
+      講演動画をすべて見る
+    </Button>
   </div>
 </section>
-
 
 <style lang="scss">
   .videos {
     position: relative;
     padding-bottom: 0;
     margin-bottom: 13rem;
+    @include media_min(sp) {
+      padding-top: 19rem;
+    }
     @include media_max(sp) {
+      padding-top: 12.5rem;
       margin-bottom: 7rem;
     }
 
@@ -149,7 +154,7 @@ const videos = [
       }
     }
 
-    &__emphasized_text :global(img) {
+    &__tit :global(img) {
       width: auto;
       height: 4rem;
       max-width: 100%;
@@ -169,7 +174,7 @@ const videos = [
       @include media_max(sp) {
         margin-top: 2.5rem;
         text-align: left;
-        font-size: 1.5rem;
+        font-size: 1.47rem;
         letter-spacing: -0.03em;
       }
     }
@@ -283,6 +288,7 @@ const videos = [
           }
         }
         &_tit {
+          color: var(--color-black01);
           margin-bottom: 0.5rem;
           font-size: 1.5rem;
           font-family: var(--font-noto_serif);
