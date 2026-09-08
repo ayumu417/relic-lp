@@ -5,27 +5,14 @@ import SectionHeader from "../ui/SectionHeader.astro";
 
 <section class="flow main_sec">
   <div class="contents_wrapper">
-    <SectionHeader
-      headingText="ご支援開始までの流れ"
-      imgSrc="text/flow__heading.svg"
-      imgWidth={258}
-      imgAlt="FLOW"
-      align="left"
-    />
+    <SectionHeader headingText="ご支援開始までの流れ" imgSrc="text/flow__heading.svg" imgWidth={258} imgAlt="FLOW" align="left" />
 
     <h3 class="flow__tit">
-      <Img
-        img={{ src: "text/flow__tit.svg" }}
-        width={590}
-        alt="最短2週間での、伴走スタート"
-      />
+      <Img img={{ src: "text/flow__tit.svg" }} width={590} alt="最短2週間での、伴走スタート" />
     </h3>
 
     <p class="flow__text">
-      ISO/IEC 27001 認証取得済。<span class="flow__text_mark">※</span
-      >ご相談前のNDA締結にも対応します。<span class="flow__text_smaller"
-        >※東京本社のみ適用</span
-      >
+      ISO/IEC 27001 認証取得済。<span class="flow__text_mark">※</span>ご相談前のNDA締結にも対応します。<span class="flow__text_smaller">※東京本社のみ適用</span>
     </p>
 
     <ol class="flow__block">
@@ -43,9 +30,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
         </div>
         <div class="flow__block_item_contents">
           <h4 class="flow__block_item_tit">無料相談</h4>
-          <p class="flow__block_item_text">
-            60分のヒアリング。課題と目指す姿の整理。
-          </p>
+          <p class="flow__block_item_text">60分のヒアリング。課題と目指す姿の整理。</p>
         </div>
       </li>
       <li class="flow__block_item">
@@ -62,9 +47,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
         </div>
         <div class="flow__block_item_contents">
           <h4 class="flow__block_item_tit">提案・お見積</h4>
-          <p class="flow__block_item_text">
-            支援内容・体制・スケジュールのご提案。
-          </p>
+          <p class="flow__block_item_text">支援内容・体制・スケジュールのご提案。</p>
         </div>
       </li>
       <li class="flow__block_item">
@@ -81,9 +64,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
         </div>
         <div class="flow__block_item_contents">
           <h4 class="flow__block_item_tit">契約・キックオフ</h4>
-          <p class="flow__block_item_text">
-            体制構築・スコープ確定・初回会議。
-          </p>
+          <p class="flow__block_item_text">体制構築・スコープ確定・初回会議。</p>
         </div>
       </li>
       <li class="flow__block_item">
@@ -196,15 +177,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
             height: auto;
             aspect-ratio: 122/106;
             background: var(--color-magenta01);
-            clip-path: polygon(
-              0 20%,
-              55% 20%,
-              55% 0,
-              100% 50%,
-              55% 100%,
-              55% 80%,
-              0 80%
-            );
+            clip-path: polygon(0 20%, 55% 20%, 55% 0, 100% 50%, 55% 100%, 55% 80%, 0 80%);
             z-index: -1;
             @include media_max(sp) {
               top: calc(100% - 2.6rem);

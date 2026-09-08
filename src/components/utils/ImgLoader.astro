@@ -177,6 +177,7 @@ const finalDensities = img.widths ? undefined : img.densities || [1, 2];
         width={width}
         height={fallbackHeight}
         decoding={decoding}
+        loading={loading}
       />
     ) : (
       <Image
@@ -188,6 +189,8 @@ const finalDensities = img.widths ? undefined : img.densities || [1, 2];
         widths={img.widths}
         sizes={sizes}
         densities={finalDensities}
+        decoding={decoding}
+        loading={loading}
       />
     )
   }

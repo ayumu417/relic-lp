@@ -23,7 +23,6 @@ import Button from "../ui/Button.astro";
         width={1186}
         sizes="(min-width: 1500px) 1800px, 1200px"
         alt=""
-        decoding="sync"
         loading="eager"
       />
     </div>
@@ -39,16 +38,15 @@ import Button from "../ui/Button.astro";
           ]}
           img={{ src: "text/fv__tit.svg" }}
           width={522}
-          alt="新事業を、構想から事業化まで。共に形にする。"
+          alt="新事業を、構想から事業化まで。共に「形」にする。"
           decoding="sync"
+          loading="eager"
         />
       </h1>
       <p class="fv__text">
         戦略策定だけで終わらない。実装だけで終わらない。<br />
-        ビジネス・テクノロジー・クリエイティブの<br
-          class="sp_only"
-        />専門人材が、<br class="pc_only" />
-        御社の新規事業に並走します。
+        ビジネス・テクノロジー・クリエイティブの<br class="sp_only" />専門人材が、<br class="pc_only" />
+        貴社の新規事業に伴走します。
       </p>
     </div>
   </div>
@@ -58,7 +56,7 @@ import Button from "../ui/Button.astro";
       <ul class="fv__cta_list">
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
-            <Img img={{ src: "fv__cta_illust01.svg" }} width={86} alt="" decoding="sync" />
+            <Img img={{ src: "fv__cta_illust01.svg" }} width={86} alt="" loading="eager" />
           </div>
           <div class="fv__cta_list_item_contents">
             <p class="fv__cta_list_item_tit">
@@ -69,7 +67,7 @@ import Button from "../ui/Button.astro";
         </li>
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
-            <Img img={{ src: "fv__cta_illust02.svg" }} width={86} alt="" decoding="sync" />
+            <Img img={{ src: "fv__cta_illust02.svg" }} width={86} alt="" loading="eager" />
           </div>
           <div class="fv__cta_list_item_contents">
             <p class="fv__cta_list_item_tit">
@@ -82,7 +80,7 @@ import Button from "../ui/Button.astro";
         </li>
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
-            <Img img={{ src: "fv__cta_illust03.svg" }} width={86} alt="" decoding="sync" />
+            <Img img={{ src: "fv__cta_illust03.svg" }} width={86} alt="" loading="eager" />
           </div>
           <div class="fv__cta_list_item_contents">
             <p class="fv__cta_list_item_tit">
@@ -93,11 +91,11 @@ import Button from "../ui/Button.astro";
         </li>
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
-            <Img img={{ src: "fv__cta_illust04.svg" }} width={86} alt="" decoding="sync" />
+            <Img img={{ src: "fv__cta_illust04.svg" }} width={86} alt="" loading="eager" />
           </div>
           <div class="fv__cta_list_item_contents">
             <p class="fv__cta_list_item_tit">
-              17<span class="fv__cta_list_item_tit_s">拠点＋</span>
+              18<span class="fv__cta_list_item_tit_xs">都道府県</span>
             </p>
             <p class="fv__cta_list_item_text">
               国内拠点＋<br />
@@ -108,28 +106,15 @@ import Button from "../ui/Button.astro";
       </ul>
 
       <div class="fv__cta_buttons">
-        <Button
-          class="fv__cta_button"
-          href="###"
-          target="_blank"
-          rel="noopener noreferrer"
-          color="black"
-        >
-          無料で相談する
-        </Button>
-        <Button
-          class="fv__cta_button"
-          href="https://relic.co.jp/contact_dl/"
-          target="_blank"
-          rel="noopener noreferrer"
-          color="white"
-        >
+        <Button class="fv__cta_button" href="###" target="_blank" rel="noopener noreferrer" color="black"> 無料で相談する </Button>
+        <Button class="fv__cta_button" href="https://relic.co.jp/contact_dl/" target="_blank" rel="noopener noreferrer" color="white">
           資料・<br class="sp_onnly" />ホワイトペーパー請求
         </Button>
       </div>
     </div>
   </div>
 </section>
+
 
 <style lang="scss">
   .fv {
@@ -144,7 +129,7 @@ import Button from "../ui/Button.astro";
       width: 100%;
       max-width: 1800px;
       margin: 0 auto;
-      font-size: clamp(10px, 0.69vw, 12px);
+      font-size: clamp(8px, 0.69vw, 12px);
       overflow: hidden;
       @include media_max(sp) {
         font-size: 1rem;
@@ -265,7 +250,7 @@ import Button from "../ui/Button.astro";
     /* fv下のcta */
     &__cta {
       margin: 2.8rem auto 0;
-      max-width: 108rem;
+      max-width: 120rem;
       @include media_max(sp) {
         margin-top: 1.5rem;
       }
@@ -339,6 +324,7 @@ import Button from "../ui/Button.astro";
             font-family: var(--font-noto_serif);
             letter-spacing: -0.02em;
             line-height: 1.1;
+            white-space: nowrap;
             @include media_max(sp) {
               font-size: 2.6rem;
             }

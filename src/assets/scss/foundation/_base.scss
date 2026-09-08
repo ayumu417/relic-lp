@@ -15,8 +15,8 @@
   --color-dark_beige01: #D7A47A;
   --color-magenta01: #E30F7B;
 
-  --font-noto_sans: "Noto Sans JP", sans-serif;
-  --font-noto_serif: "Noto Serif JP", serif;
+  --font-noto_sans: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
+  --font-noto_serif: "Noto Serif JP", "Times New Roman", "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", serif;
 
   --header-height: 9rem;
   --wrapper-m: 112rem;
@@ -45,6 +45,7 @@ body {
   letter-spacing: 0;
   font-family: var(--font-noto_sans);
   overflow: auto;
+
   @include media_max(sp) {
     margin-top: 0;
   }
@@ -210,4 +211,3 @@ iframe {
     width: 0rem;
   }
 }
-

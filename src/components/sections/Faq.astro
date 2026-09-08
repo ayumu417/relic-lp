@@ -14,7 +14,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
 const faqs = [
   {
     question: `「出島スキーム」とは具体的に<br class="sp_only"/>どんな仕組みですか？`,
-    answer: `貴社の看板を一時的に外に置くことで、レビュテーションリスクを抑えながら、仮説検証を高速で回せます。検証が進んだ後で貴社に事業を戻す、JV化する、カーブアウトするなど、出口設計も含めてご相談に応じます。`,
+    answer: `貴社の看板を一時的に外に置くことで、レピュテーションリスクを抑えながら、仮説検証を高速で回せます。検証が進んだ後で貴社に事業を戻す、JV化する、カーブアウトするなど、出口設計も含めてご相談に応じます。`,
   },
   {
     question: `支援期間はどれくらいですか？`,
@@ -49,20 +49,10 @@ const faqs = [
 
 <section class="faq main_sec">
   <div class="contents_wrapper">
-    <SectionHeader
-      headingText="よくあるご質問"
-      imgSrc="text/faq__heading.svg"
-      imgWidth={91}
-      imgAlt="FAQ"
-      align="center"
-    />
+    <SectionHeader headingText="よくあるご質問" imgSrc="text/faq__heading.svg" imgWidth={91} imgAlt="FAQ" align="center" />
 
     <h3 class="faq__tit">
-      <Img
-        img={{ src: "text/faq__tit.svg" }}
-        width={325}
-        alt="よくいただくご質問"
-      />
+      <Img img={{ src: "text/faq__tit.svg" }} width={325} alt="よくいただくご質問" />
     </h3>
 
     <dl class="faq__list">

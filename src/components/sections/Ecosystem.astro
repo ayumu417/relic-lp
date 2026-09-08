@@ -78,25 +78,14 @@ const companys = [
 <section class="ecosystem main_sec">
   <div class="ecosystem__bg"></div>
   <div class="contents_wrapper">
-    <SectionHeader
-      headingText="事業共創エコシステム"
-      imgSrc="text/ecosystem__heading.svg"
-      imgWidth={258}
-      imgAlt="ECOSYSTEM"
-      align="left"
-    />
+    <SectionHeader headingText="事業共創エコシステム" imgSrc="text/ecosystem__heading.svg" imgWidth={258} imgAlt="ECOSYSTEM" align="left" />
 
     <h3 class="ecosystem__tit">
-      <Img
-        img={{ src: "text/ecosystem__tit.svg" }}
-        width={570}
-        alt="28社体制で構成する、事業創出のエコシステム"
-      />
+      <Img img={{ src: "text/ecosystem__tit.svg" }} width={570} alt="28社体制で構成する、事業創出のエコシステム" />
     </h3>
 
     <p class="ecosystem__text">
-      Relicは支援するだけでなく、自ら事業会社群を運営する事業共創グループ。<br
-      />
+      Relicは支援するだけでなく、自ら事業会社群を運営する事業共創グループ。<br />
       各領域の専門会社が連携し、貴社の事業を立ち上げ、育て、自走するまで伴走します。
     </p>
 
@@ -170,11 +159,7 @@ const companys = [
       }
     }
     &__bg::before {
-      background-image: linear-gradient(
-        180deg,
-        rgba(241, 241, 241, 0) 0%,
-        rgba(241, 241, 241, 1) 20%
-      );
+      background-image: linear-gradient(180deg, rgba(241, 241, 241, 0) 0%, rgba(241, 241, 241, 1) 20%);
       @include media_max(sp) {
         background: #f1f1f1;
       }
@@ -182,9 +167,7 @@ const companys = [
     &__bg::after {
       height: 106rem;
       background-color: transparent;
-      background-image:
-        linear-gradient(#f3fbfc 1px, transparent 1px),
-        linear-gradient(90deg, #f3fbfc 1px, transparent 1px);
+      background-image: linear-gradient(#f3fbfc 1px, transparent 1px), linear-gradient(90deg, #f3fbfc 1px, transparent 1px);
       background-size: 6.2rem 6.2rem;
       background-position: 0rem 3.5rem;
       opacity: 0.8;
