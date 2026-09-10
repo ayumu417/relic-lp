@@ -3,9 +3,26 @@ import Img from "../utils/ImgLoader.astro";
 import Button from "../ui/Button.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import Cta from "../block/Cta.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import bgVisualImg from "../../assets/img/design/bg_visual_img03.jpg";
+import bgDesignImg from "../../assets/img/design/bg_design_img06.png";
+import bgDesignImgSp from "../../assets/img/design/bg_design_img06-sp.png";
+
+const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" });
+const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
+const bgDesignImgSpOptimized = await getImage({ src: bgDesignImgSp, format: "webp" });
 ---
 
-<section class="resouce main_sec">
+<section
+  class="resouce main_sec"
+  style={{
+    "--bgVisualImgUrl": `url(${bgVisualImgOptimized.src})`,
+    "--bgDesignImgUrl": `url(${bgDesignImgOptimized.src})`,
+    "--bgDesignImgSpUrl": `url(${bgDesignImgSpOptimized.src})`,
+  }}
+>
   <div class="resouce__bg"></div>
   <div class="contents_wrapper">
     <SectionHeader headingText="資料ライブラリ" imgSrc="text/resouce__heading.svg" imgWidth={258} imgAlt="RESOURCE" align="left" />
@@ -30,7 +47,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="新規事業開発を段階的に加速させる。業界初の出島共創スキーム。"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -47,7 +64,7 @@ import Cta from "../block/Cta.astro";
               <p class="resouce__list_item_detail">制約を越えて事業を形にする実務</p>
               <p class="resouce__list_item_meta">全48P／2026年最新版</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20250805_ip_03/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
         <li class="resouce__list_item swiper-slide">
@@ -59,7 +76,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="「最初の10社」をどう獲得するか"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -76,7 +93,7 @@ import Cta from "../block/Cta.astro";
               </p>
               <p class="resouce__list_item_meta">全00P／2026年公開予定</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20260427_ei_14/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
         <li class="resouce__list_item swiper-slide">
@@ -88,7 +105,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="「コスト」としての特許から「利益」を生む特許へ"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -105,7 +122,7 @@ import Cta from "../block/Cta.astro";
               <p class="resouce__list_item_detail">大企業における知財起点の事業開発</p>
               <p class="resouce__list_item_meta">全00P／2026年公開予定</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20251218_dtic_04/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
         <li class="resouce__list_item swiper-slide">
@@ -117,7 +134,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="ヘルスケア新規事業の失敗確率を段階的に下げる方法"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -129,7 +146,7 @@ import Cta from "../block/Cta.astro";
               <h4 class="resouce__list_item_tit">ヘルスケアD2C／PHR領域の事業開発 と、規制対応の実務</h4>
               <p class="resouce__list_item_meta">全36P／2025年公開</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20251128_bc_02/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
         <li class="resouce__list_item swiper-slide">
@@ -141,7 +158,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="地方創成を成功に導く自治体の役割"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -157,7 +174,7 @@ import Cta from "../block/Cta.astro";
               <p class="resouce__list_item_detail">官民連携・起業支援・制度活用の実際</p>
               <p class="resouce__list_item_meta">全00P／2026年公開予定</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20251027_gi_04/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
         <li class="resouce__list_item swiper-slide">
@@ -169,7 +186,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="大企業PoCを止める構造問題を「出島×AI」で突破する"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -182,7 +199,7 @@ import Cta from "../block/Cta.astro";
               <p class="resouce__list_item_detail">失敗が許されない中で仮説検証を進める方法</p>
               <p class="resouce__list_item_meta">全28P／2025年公開</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20260226_ivm_2/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
         <li class="resouce__list_item swiper-slide">
@@ -194,7 +211,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="大企業が生成AI事業を成功させるための、実践的ヒントと成功事例"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -207,7 +224,7 @@ import Cta from "../block/Cta.astro";
               <p class="resouce__list_item_detail">PoCから事業化までの実務</p>
               <p class="resouce__list_item_meta">全44P／2025年公開</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20250630_ax_01/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
         <li class="resouce__list_item swiper-slide">
@@ -219,7 +236,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="社内新規事業プログラムの設計方法"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -234,7 +251,7 @@ import Cta from "../block/Cta.astro";
               </h4>
               <p class="resouce__list_item_meta">全32P／2025年公開</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20260128_ivm_1/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
         <li class="resouce__list_item swiper-slide">
@@ -246,7 +263,7 @@ import Cta from "../block/Cta.astro";
               }}
               sizes="(max-width: 768px) 100vw, 360px"
               width={360}
-              alt=""
+              alt="ディープテック投資は翻訳が9割"
             />
           </div>
           <div class="resouce__list_item_contents">
@@ -259,7 +276,7 @@ import Cta from "../block/Cta.astro";
               <p class="resouce__list_item_detail">事業創出における資本戦略の選び方</p>
               <p class="resouce__list_item_meta">全30P／2025年公開</p>
             </div>
-            <Button class="resouce__list_item_button" href="###" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
+            <Button class="resouce__list_item_button" href="https://relic.co.jp/webinar/20251215_dtic_03/" target="_blank" rel="noopener noreferrer" color="beige"> 資料をダウンロード </Button>
           </div>
         </li>
       </ul>
@@ -288,7 +305,7 @@ import Cta from "../block/Cta.astro";
       position: absolute;
       top: 1rem;
       right: 0;
-      background-image: url(../../assets/img/design/bg_visual_img03.jpg);
+      background-image: var(--bgVisualImgUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: clamp(59rem, 41vw, 70rem);
@@ -306,7 +323,7 @@ import Cta from "../block/Cta.astro";
       position: absolute;
       bottom: -59.6rem;
       left: 0;
-      background-image: url(../../assets/img/design/bg_design_img06.png);
+      background-image: var(--bgDesignImgUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: 45rem;
@@ -315,7 +332,7 @@ import Cta from "../block/Cta.astro";
       z-index: -1;
       @include media_max(sp) {
         bottom: -31.5rem;
-        background-image: url(../../assets/img/design/bg_design_img06-sp.png);
+        background-image: var(--bgDesignImgSpUrl);
         width: 14rem;
         aspect-ratio: 135/439;
       }
@@ -501,6 +518,16 @@ import Cta from "../block/Cta.astro";
           margin-top: 2.1rem;
           width: 90.4%;
         }
+      }
+    }
+
+    // swiepr初期化時の調整
+    @include media_max(sp) {
+      &__list_wrapper:not(.swiper-initialized) {
+        opacity: 0;
+      }
+      &__list_wrapper:not(.swiper-initialized) .resouce__list_item:not(:first-of-type) {
+        display: none;
       }
     }
 

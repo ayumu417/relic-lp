@@ -2,9 +2,23 @@
 import Img from "../utils/ImgLoader.astro";
 import Button from "../ui/Button.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import contactBgPc from "../../assets/img/design/contact__bg-pc.jpg";
+import contactBgSp from "../../assets/img/design/contact__bg-sp.jpg";
+
+const contactBgPcOptimized = await getImage({ src: contactBgPc, format: "webp" });
+const contactBgSpOptimized = await getImage({ src: contactBgSp, format: "webp" });
 ---
 
-<section class="contact main_sec">
+<section
+  class="contact main_sec"
+  style={{
+    "--contactBgPcUrl": `url(${contactBgPcOptimized.src})`,
+    "--contactBgSpUrl": `url(${contactBgSpOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <SectionHeader headingText="お問い合わせ" imgSrc="text/contact__heading.svg" imgWidth={228} imgAlt="CONTACT" align="center" />
 
@@ -79,12 +93,12 @@ import SectionHeader from "../ui/SectionHeader.astro";
     background-repeat: no-repeat;
     background-size: cover;
     @include media_min(sp) {
-      background-image: url(../../assets/img/design/contact__bg-pc.jpg);
+      background-image: var(--contactBgPcUrl);
       padding-top: 14rem;
       padding-bottom: 20rem;
     }
     @include media_max(sp) {
-      background-image: url(../../assets/img/design/contact__bg-sp.jpg);
+      background-image: var(--contactBgSpUrl);
     }
 
     .contents_wrapper {

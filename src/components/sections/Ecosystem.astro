@@ -2,6 +2,12 @@
 import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import bgDesignImg from "../../assets/img/design/bg_design_img05.png";
+
+const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
+
 /**
  * 企業一覧を配列で管理
  * ※ HTMLタグの記載可能
@@ -75,7 +81,12 @@ const companys = [
 ];
 ---
 
-<section class="ecosystem main_sec">
+<section
+  class="ecosystem main_sec"
+  style={{
+    "--bgDesignImgUrl": `url(${bgDesignImgOptimized.src})`,
+  }}
+>
   <div class="ecosystem__bg"></div>
   <div class="contents_wrapper">
     <SectionHeader headingText="事業共創エコシステム" imgSrc="text/ecosystem__heading.svg" imgWidth={258} imgAlt="ECOSYSTEM" align="left" />
@@ -130,7 +141,7 @@ const companys = [
       position: absolute;
       top: -54rem;
       right: 0;
-      background-image: url(../../assets/img/design/bg_design_img05.png);
+      background-image: var(--bgDesignImgUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: 44rem;
@@ -244,6 +255,16 @@ const companys = [
       }
     }
 
+    // swiepr初期化時の調整
+    @include media_max(sp) {
+      &__block_wrapper:not(.swiper-initialized) {
+        opacity: 0;
+      }
+      &__block_wrapper:not(.swiper-initialized) .ecosystem__list_item:not(:first-of-type) {
+        display: none;
+      }
+    }
+
     /* スクロールバーのカスタム */
     .swiper-scrollbar {
       position: static;
@@ -261,40 +282,47 @@ const companys = [
 
 <script>
   // @ts-ignore
-  import Swiper, { Navigation, Autoplay, EffectFade, Scrollbar } from "swiper";
-  // @ts-ignore
   import "swiper/css/bundle";
 
-  // モジュール化を解除し、対象のクラス（.js-ecosystem_swiper）を直接指定
-  const sliders = document.querySelectorAll(".js-ecosystem_swiper");
+  // querySelectorAllに型を指定
+  const sliders = document.querySelectorAll<HTMLElement>(".js-ecosystem_swiper");
 
   if (sliders.length > 0) {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
-    // @ts-ignore
-    let swiperInstances = [];
 
-    function initSwiper() {
+    let swiperInstances: any[] = [];
+    let isSwiperLoaded = false;
+    let SwiperClass: any;
+    let swiperModules: any[];
+
+    // Swiperの初期化・破棄を管理する関数
+    const initSwiper = () => {
+      // SPサイズの場合
       if (mediaQuery.matches) {
+        // まだモジュールが読み込まれていない場合はスキップ（Observerに任せる）
+        if (!isSwiperLoaded) return;
+
         if (swiperInstances.length === 0) {
           sliders.forEach((slider) => {
-            // スクロールバー要素を取得
-            const scrollbarEl = slider.querySelector(".swiper-scrollbar");
+            const scrollbarEl = slider.querySelector<HTMLElement>(".swiper-scrollbar");
 
-            const instance = new Swiper(slider, {
-              // modulesにScrollbarを追加
-              modules: [Navigation, Autoplay, EffectFade, Scrollbar],
-              mousewheel: false,
+            const instance = new SwiperClass(slider, {
+              modules: swiperModules,
+              mousewheel: {
+                forceToAxis: true,
+                sensitivity: 0.9,
+              },
+              freeMode: true,
+              touchRatio: 0.7,
               autoHeight: false,
               loop: false,
               slidesPerView: 1.4,
               speed: 500,
               spaceBetween: "5.4%",
-
-              // スクロールバーの設定を追加
               scrollbar: scrollbarEl
                 ? {
                     el: scrollbarEl,
-                    draggable: true, // ドラッグ操作を有効化
+                    draggable: true,
                   }
                 : false,
             });
@@ -302,18 +330,47 @@ const companys = [
             swiperInstances.push(instance);
           });
         }
-      } else {
+      }
+      // PCサイズの場合
+      else {
         if (swiperInstances.length > 0) {
-          // @ts-ignore
           swiperInstances.forEach((instance) => {
             instance.destroy(true, true);
           });
           swiperInstances = [];
         }
       }
-    }
+    };
 
-    initSwiper();
+    // 画面スクロールに応じた遅延読み込みの設定
+    const observer = new IntersectionObserver(
+      async (entries, obs) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          obs.disconnect(); // 監視を解除
+
+          // まだ読み込まれていなければ、画面に入ったタイミングでインポート
+          if (!isSwiperLoaded) {
+            // @ts-ignore
+            const { default: Swiper, Navigation, Autoplay, EffectFade, Scrollbar, Mousewheel, FreeMode } = await import("swiper");
+
+            SwiperClass = Swiper;
+            swiperModules = [Navigation, Autoplay, EffectFade, Scrollbar, Mousewheel, FreeMode];
+            isSwiperLoaded = true;
+          }
+
+          // 読み込み完了後に初期化判定を実行
+          initSwiper();
+        }
+      },
+      { rootMargin: "300px 0px" }, // 画面に入る300px手前でロード開始
+    );
+
+    // 全てのスライダーを監視対象に追加
+    sliders.forEach((slider) => {
+      observer.observe(slider);
+    });
+
+    // リサイズイベントのハンドリング
     mediaQuery.addEventListener("change", initSwiper);
   }
 </script>

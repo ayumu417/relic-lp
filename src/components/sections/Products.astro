@@ -1,9 +1,26 @@
 ---
 import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import productsBg from "../../assets/img/design/products__bg.png";
+import productsBgSp from "../../assets/img/design/products__bg-sp.png";
+import bgDesignImg from "../../assets/img/design/bg_design_img03.png";
+
+const productsBgOptimized = await getImage({ src: productsBg, format: "webp" });
+const productsBgSpOptimized = await getImage({ src: productsBgSp, format: "webp" });
+const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
 ---
 
-<section class="products main_sec">
+<section
+  class="products main_sec"
+  style={{
+    "--productsBgUrl": `url(${productsBgOptimized.src})`,
+    "--productsBgSpUrl": `url(${productsBgSpOptimized.src})`,
+    "--bgDesignImgUrl": `url(${bgDesignImgOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <SectionHeader headingText="専門人材を増強する独自基盤" imgSrc="text/products__heading.svg" imgWidth={263} imgAlt="PRODUCTS" align="left" />
 
@@ -160,14 +177,14 @@ import SectionHeader from "../ui/SectionHeader.astro";
       position: absolute;
       top: 0;
       left: 0;
-      background-image: url(../../assets/img/design/products__bg.png);
+      background-image: var(--productsBgUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
       height: 200rem;
       z-index: -10;
       @include media_max(sp) {
-        background-image: url(../../assets/img/design/products__bg-sp.png);
+        background-image: var(--productsBgSpUrl);
         height: 120rem;
       }
     }
@@ -177,7 +194,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
       position: absolute;
       top: -21rem;
       right: 0;
-      background-image: url(../../assets/img/design/bg_design_img03.png);
+      background-image: var(--bgDesignImgUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: 50rem;
@@ -332,6 +349,15 @@ import SectionHeader from "../ui/SectionHeader.astro";
             margin-top: 0.4rem;
           }
         }
+      }
+    }
+    // swiepr初期化時の調整
+    @include media_max(sp) {
+      &__block_wrapper:not(.swiper-initialized) {
+        opacity: 0;
+      }
+      &__block_wrapper:not(.swiper-initialized) .products__block_box:not(:first-of-type) {
+        display: none;
       }
     }
 

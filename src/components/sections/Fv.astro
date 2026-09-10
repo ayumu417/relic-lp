@@ -12,8 +12,8 @@ import Button from "../ui/Button.astro";
             media: "(max-width: 768px)",
             src: "fv__bg_img-sp.jpg",
             width: 375,
-            widths: [1125, 750, 375],
-            sizes: "100vw",
+            widths: [1125, 750, 500, 375],
+            sizes: "92vw",
           },
         ]}
         img={{
@@ -24,6 +24,7 @@ import Button from "../ui/Button.astro";
         sizes="(min-width: 1500px) 1800px, 1200px"
         alt=""
         loading="eager"
+        fetchpriority="high"
       />
     </div>
     <div class="fv__contents">
@@ -71,7 +72,7 @@ import Button from "../ui/Button.astro";
           </div>
           <div class="fv__cta_list_item_contents">
             <p class="fv__cta_list_item_tit">
-              <span class="fv__cta_list_item_tit_xs">国内</span>No.1
+              <span class="fv__cta_list_item_tit_xs">国内</span>No.1 <span class="fv__cta_list_item_tit_attention">※</span>
             </p>
             <p class="fv__cta_list_item_text">
               新規事業開発の<br />支援実績シェア
@@ -108,20 +109,25 @@ import Button from "../ui/Button.astro";
       <div class="fv__cta_buttons">
         <Button class="fv__cta_button" href="###" target="_blank" rel="noopener noreferrer" color="black"> 無料で相談する </Button>
         <Button class="fv__cta_button" href="https://relic.co.jp/contact_dl/" target="_blank" rel="noopener noreferrer" color="white">
-          資料・<br class="sp_onnly" />ホワイトペーパー請求
+          資料・<br class="sp_only" />ホワイトペーパー請求
         </Button>
       </div>
     </div>
   </div>
-</section>
 
+  <div class="contents_wrapper">
+    <p class="fv__attention_text">
+      ※2024年7月・10月、株式会社デジタルインファクトによる新規事業開発を支援する業界関係者へのヒアリング、調査主体ならびに調査機関が保有するデータ、公開情報の収集による調査。
+    </p>
+  </div>
+</section>
 
 <style lang="scss">
   .fv {
     position: relative;
-    padding-bottom: 14rem;
+    padding-bottom: 9.2rem;
     @include media_max(sp) {
-      padding-bottom: 11rem;
+      padding-bottom: 9.6rem;
     }
 
     &__inner {
@@ -247,7 +253,21 @@ import Button from "../ui/Button.astro";
       }
     }
 
-    /* fv下のcta */
+    &__attention_text {
+      width: 52rem;
+      margin: 3.2rem 1rem 0 auto;
+      font-size: 1.2rem;
+      line-height: 1.25;
+      font-weight: 500;
+      text-align: center;
+      @include media_max(sp) {
+        width: 100%;
+        letter-spacing: -0.02em;
+        margin: 1.6rem auto 0;
+      }
+    }
+
+    /* fvのcta */
     &__cta {
       margin: 2.8rem auto 0;
       max-width: 120rem;
@@ -318,6 +338,8 @@ import Button from "../ui/Button.astro";
             flex: 1;
           }
           &_tit {
+            position: relative;
+            width: fit-content;
             color: var(--color-black01);
             font-size: 4rem;
             font-weight: 700;
@@ -339,6 +361,17 @@ import Button from "../ui/Button.astro";
               font-size: 2rem;
               @include media_max(sp) {
                 font-size: 1.4rem;
+              }
+            }
+
+            &_attention {
+              position: absolute;
+              top: 0;
+              right: 0;
+              transform: translateX(100%);
+              font-size: 1.4rem;
+              @include media_max(sp) {
+                font-size: 1.2rem;
               }
             }
           }

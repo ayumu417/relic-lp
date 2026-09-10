@@ -1,9 +1,26 @@
 ---
 import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import problemBg from "../../assets/img/design/problem__bg.png";
+import problemBgSp from "../../assets/img/design/problem__bg-sp.png";
+import bgVisualImg from "../../assets/img/design/bg_visual_img01.jpg";
+
+const problemBgImgOptimized = await getImage({ src: problemBg, format: "webp" });
+const problemBgSpOptimized = await getImage({ src: problemBgSp, format: "webp" });
+const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" });
 ---
 
-<section class="problem main_sec">
+<section
+  class="problem main_sec"
+  style={{
+    "--problemBgUrl": `url(${problemBgImgOptimized.src})`,
+    "--problemBgSpUrl": `url(${problemBgSpOptimized.src})`,
+    "--bgVisualImgUrl": `url(${bgVisualImgOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <SectionHeader headingText="新規事業を阻む、3つの壁" imgSrc="text/problem__heading.svg" imgWidth={228} imgAlt="PROBLEM" align="right" />
 
@@ -99,7 +116,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
 <style lang="scss">
   .problem {
     position: relative;
-    background-image: url(../../assets/img/design/problem__bg.png);
+    background-image: var(--problemBgUrl);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -109,7 +126,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
     }
 
     @include media_max(sp) {
-      background-image: url(../../assets/img/design/problem__bg-sp.png);
+      background-image: var(--problemBgSpUrl);
       padding-top: 12.5rem;
     }
 
@@ -118,7 +135,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
       position: absolute;
       top: -5.5rem;
       left: 0;
-      background-image: url(../../assets/img/design/bg_visual_img01.jpg);
+      background-image: var(--bgVisualImgUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: clamp(69rem, 47vw, 77rem);
@@ -263,12 +280,21 @@ import SectionHeader from "../ui/SectionHeader.astro";
         }
       }
     }
+    // swiepr初期化時の調整
+    @include media_max(sp) {
+      &__block_wrapper:not(.swiper-initialized) {
+        opacity: 0;
+      }
+      &__block_wrapper:not(.swiper-initialized) .problem__block_box:not(:first-of-type) {
+        display: none;
+      }
+    }
   }
 </style>
 
 <script>
-  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp"; // 拡張子は環境に合わせて調整
+  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp";
 
-  // このセクションのクラス名を指定して実行
+  // コンポーネントよりスライダーの初期化
   setupResponsiveSwiperSp(".js-problem_swiper");
 </script>

@@ -1,8 +1,22 @@
 ---
 import Img from "../utils/ImgLoader.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import benefitBg from "../../assets/img/design/benefit__bg.jpg";
+import benefitBgSp from "../../assets/img/design/benefit__bg-sp.jpg";
+
+const benefitBgOptimized = await getImage({ src: benefitBg, format: "webp" });
+const benefitBgSpOptimized = await getImage({ src: benefitBgSp, format: "webp" });
 ---
 
-<section class="benefit main_sec">
+<section
+  class="benefit main_sec" 
+  style={{
+    "--benefitBgUrl": `url(${benefitBgOptimized.src})`,
+    "--benefitBgSpUrl": `url(${benefitBgSpOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <h2 class="benefit__heading">私たちの提供価値</h2>
     <h3 class="benefit__tit">
@@ -11,12 +25,12 @@ import Img from "../utils/ImgLoader.astro";
           {
             media: "(max-width: 768px)",
             src: "text/benefit__tit-sp.svg",
-            width: 332,
+            width: 282,
           },
         ]}
         img={{ src: "text/benefit__tit.svg" }}
-        width={640}
-        alt="新規事業開発における難所の理解を持ち、それを共に乗り越え、新規事業を、確実に「形」にする。"
+        width={786}
+        alt="新規事業開発における難所を、身をもって知っている。たから、共に乗り越えられる。貴社の新規事業を、確実に「形」にする。"
       />
     </h3>
     <p class="benefit__name">事業共創カンパニー Relic</p>
@@ -28,7 +42,7 @@ import Img from "../utils/ImgLoader.astro";
     position: relative;
     padding: 14rem 0 16rem;
     background: var(--color-gray01);
-    background-image: url(../../assets/img/design/benefit__bg.jpg);
+    background-image: var(--benefitBgUrl);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -58,7 +72,7 @@ import Img from "../utils/ImgLoader.astro";
     border-image-slice: 1;
     @include media_max(sp) {
       padding: 7.6rem 0 8.2rem;
-      background-image: url(../../assets/img/design/benefit__bg-sp.jpg);
+      background-image: var(--benefitBgSpUrl);
     }
 
     &__heading {
@@ -98,7 +112,7 @@ import Img from "../utils/ImgLoader.astro";
       margin: 0 auto;
       object-fit: contain;
       @include media_max(sp) {
-        width: 96.9%;
+        width: 28.7rem;
         height: auto;
       }
     }

@@ -2,6 +2,12 @@
 import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import bgVisualImg from "../../assets/img/design/bg_visual_img02.jpg";
+
+const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" });
+
 /**
  * 人材紹介を配列で管理
  *
@@ -123,7 +129,13 @@ const experts = [
 ];
 ---
 
-<section id="people" class="people main_sec">
+<section
+  id="people"
+  class="people main_sec"
+  style={{
+    "--bgVisualImgUrl": `url(${bgVisualImgOptimized.src})`,
+  }}
+>
   <div class="people__bg"></div>
   <div class="people__inner">
     <div class="contents_wrapper">
@@ -138,7 +150,7 @@ const experts = [
           ]}
           img={{ src: "text/people__tit.svg" }}
           width={570}
-          alt="難所を共に越える、多種多様な`事業を立てた経験`を持つ人"
+          alt="難所を共に越える、`事業を立てた経験`を持つ人"
         />
       </h3>
       <p class="people__text">
@@ -175,7 +187,7 @@ const experts = [
           構想を実行へ変える、<br />Relicの実行体制
         </h4>
         <p class="people__block01_text">
-          戦略設計からユーザー検証・開発までを一気通貫で支援する実行体制を構築しています。<br />ビジネスとプロダクトの両視点を持つチームが、事業の成功確度を軸に意思決定を行いながら推進します。
+          戦略設計からユーザー検証・開発まで、一気通貫で支援します。<br />ビジネスとプロダクトの両視点を持つチームが、事業の成功確率を軸に意思決定しながら前へ進めます。
         </p>
         <div class="people__block01_figure">
           <Img
@@ -209,7 +221,7 @@ const experts = [
           />
         </div>
       </div>
-      <div class="people__block02_wrapper swiper js-products_swiper">
+      <div class="people__block02_wrapper swiper js-people_swiper">
         <div class="people__block02 swiper-wrapper">
           <div class="people__block02_box swiper-slide">
             <div class="people__block02_box_illust_block">
@@ -228,7 +240,7 @@ const experts = [
               事業を立ち上げた<br />当事者経験を持つ
             </h4>
             <p class="people__block02_box_text">
-              自分自身で事業を立ち上げ、グロースさせ、時に撤退判断まで担ってきた人材が、御社の事業オーナーの傍らに座ります。机上の空論ではなく、自分の事業として動かせる人材構成です。
+              自分自身で事業を立ち上げ、グロースさせ、時に撤退判断まで下してきた人材が、貴社の事業オーナーの傍らで伴走します。机上の空論ではなく、自分の事業として動かします。
             </p>
           </div>
           <div class="people__block02_box swiper-slide">
@@ -284,6 +296,9 @@ const experts = [
     background: var(--color-black02);
     color: var(--color-white);
     z-index: 1;
+    @include media_max(sp) {
+      overflow-x: hidden;
+    }
 
     &__inner {
       overflow: hidden;
@@ -298,7 +313,7 @@ const experts = [
       position: absolute;
       top: -7rem;
       right: 0;
-      background-image: url(../../assets/img/design/bg_visual_img02.jpg);
+      background-image: var(--bgVisualImgUrl);
       width: 73rem;
       height: auto;
       aspect-ratio: 748/270;
@@ -373,10 +388,6 @@ const experts = [
       margin-left: -5rem;
       margin-right: -5.4rem;
 
-      &:not(.swiper-initialized) {
-        display: none;
-      }
-
       @include media_max(sp) {
         margin-top: 4rem;
         margin-left: -2.5rem;
@@ -448,6 +459,10 @@ const experts = [
           margin-top: 1.2rem;
         }
       }
+    }
+
+    &__experts_wrapper:not(.swiper-initialized) {
+      opacity: 0;
     }
 
     /* block01 */
@@ -580,6 +595,15 @@ const experts = [
         }
       }
     }
+    // swiepr初期化時の調整
+    @include media_max(sp) {
+      &__block02_wrapper:not(.swiper-initialized) {
+        opacity: 0;
+      }
+      &__block02_wrapper:not(.swiper-initialized) .people__block02_box:not(:first-of-type) {
+        display: none;
+      }
+    }
 
     /* スクロールバーのカスタム */
     .swiper-scrollbar {
@@ -604,44 +628,82 @@ const experts = [
 </style>
 
 <script>
-  // @ts-ignore
-  import Swiper, { Navigation, Autoplay, EffectFade, Scrollbar } from "swiper";
+  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp";
   // @ts-ignore
   import "swiper/css/bundle";
 
-  // モジュール化を解除し、対象のクラス（.js-expert_swiper）を直接指定
-  const sliders = document.querySelectorAll(".js-expert_swiper");
+  // querySelectorAllに型を指定
+  const sliders = document.querySelectorAll<HTMLElement>(".js-expert_swiper");
 
   if (sliders.length > 0) {
-    sliders.forEach((slider) => {
-      // スクロールバー要素を取得
-      const scrollbarEl = slider.querySelector(".swiper-scrollbar");
+    let isSwiperLoaded = false;
 
-      new Swiper(slider, {
-        // modulesにScrollbarを追加
-        modules: [Navigation, Autoplay, EffectFade, Scrollbar],
-        mousewheel: false,
-        autoHeight: false,
-        loop: false,
-        slidesPerView: 1.1,
-        speed: 500,
-        spaceBetween: "5%",
+    // 明示的に any 型を指定してエラーを回避
+    let SwiperClass: any;
+    let swiperModules: any[];
 
-        // スクロールバーの設定を追加
-        scrollbar: scrollbarEl
-          ? {
-              el: scrollbarEl,
-              draggable: true, // ドラッグ操作を有効化
-            }
-          : false,
+    const initExpertSwipers = () => {
+      sliders.forEach((slider) => {
+        if (slider.classList.contains("swiper-initialized")) return;
 
-        breakpoints: {
-          768: {
-            slidesPerView: 3.5,
-            spaceBetween: "3.25%",
+        // HTMLElementとして型を指定
+        const scrollbarEl = slider.querySelector<HTMLElement>(".swiper-scrollbar");
+
+        new SwiperClass(slider, {
+          modules: swiperModules,
+          mousewheel: {
+            forceToAxis: true,
+            sensitivity: 0.9,
           },
-        },
+          freeMode: true,
+          touchRatio: 0.8,
+          autoHeight: false,
+          loop: false,
+          slidesPerView: 1.1,
+          speed: 500,
+          spaceBetween: "5%",
+          scrollbar: scrollbarEl
+            ? {
+                el: scrollbarEl,
+                draggable: true,
+              }
+            : false,
+          breakpoints: {
+            768: {
+              slidesPerView: 3.5,
+              spaceBetween: "3.25%",
+            },
+          },
+        });
       });
+    };
+
+    const observer = new IntersectionObserver(
+      async (entries, obs) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          obs.disconnect();
+
+          if (!isSwiperLoaded) {
+            // 動的インポートの直前に @ts-ignore を付与して型チェックをスキップ
+            // @ts-ignore
+            const { default: Swiper, Navigation, Autoplay, EffectFade, Scrollbar, Mousewheel, FreeMode } = await import("swiper");
+
+            SwiperClass = Swiper;
+            swiperModules = [Navigation, Autoplay, EffectFade, Scrollbar, Mousewheel, FreeMode];
+            isSwiperLoaded = true;
+          }
+
+          initExpertSwipers();
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+
+    sliders.forEach((slider) => {
+      observer.observe(slider);
     });
   }
+
+  // コンポーネントよりスライダーの初期化
+  setupResponsiveSwiperSp(".js-people_swiper");
 </script>

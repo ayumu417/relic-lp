@@ -2,9 +2,24 @@
 import Img from "../utils/ImgLoader.astro";
 import Button from "../ui/Button.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import dualiiBg from "../../assets/img/design/dualii__bg.png";
+import dualiiBgSp from "../../assets/img/design/dualii__bg-sp.png";
+
+const dualiiBgImgOptimized = await getImage({ src: dualiiBg, format: "webp" });
+const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
 ---
 
-<section id="dualii" class="dualii main_sec">
+<section
+  id="dualii"
+  class="dualii main_sec"
+  style={{
+    "--dualiiBgUrl": `url(${dualiiBgImgOptimized.src})`,
+    "--dualiiBgSpUrl": `url(${dualiiBgSpOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <SectionHeader headingText="＋α　Relicだけの、もう一つの特徴" imgSrc="text/dualii__heading.svg" imgWidth={160} imgAlt="DUALii" align="center" />
 
@@ -92,7 +107,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
     position: relative;
     background: var(--color-black02);
     color: var(--color-white);
-    background-image: url(../../assets/img/design/dualii__bg.png);
+    background-image: var(--dualiiBgUrl);
     background-repeat: no-repeat;
     background-size: cover;
     border-top: 2.5rem solid var(--color-black02);
@@ -120,7 +135,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
     );
     border-image-slice: 1;
     @include media_max(sp) {
-      background-image: url(../../assets/img/design/dualii__bg-sp.png);
+      background-image: var(--dualiiBgSpUrl);
       border-width: 1.8rem;
     }
 

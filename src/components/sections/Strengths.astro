@@ -2,9 +2,24 @@
 import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import Cta from "../block/Cta.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import bgDesignImg from "../../assets/img/design/bg_design_img01.png";
+import bgDesignImgSp from "../../assets/img/design/bg_design_img01-sp.png";
+
+const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
+const bgDesignImgSpOptimized = await getImage({ src: bgDesignImgSp, format: "webp" });
 ---
 
-<section id="strengths" class="strengths main_sec">
+<section
+  id="strengths"
+  class="strengths main_sec"
+  style={{
+    "--bgDesignImgUrl": `url(${bgDesignImgOptimized.src})`,
+    "--bgDesignImgSpSpUrl": `url(${bgDesignImgSpOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <SectionHeader headingText="Relicが選ばれる理由" imgSrc="text/strengths__heading.svg" imgWidth={290} imgAlt="STRENGTHS" align="left" />
 
@@ -33,17 +48,17 @@ import Cta from "../block/Cta.astro";
             </span>
           </h4>
           <p class="strengths__list_item_text">
-            2015年の創業以来、新規事業領域に特化したご支援を続けてきました。経験豊富な専門人材が御社の事業に深く入り込み、構想から事業化まで共に創り上げる伴走者となります。
+            2015年の創業以来、新規事業一筋で5,000社を支援してきました。自ら事業を立ち上げてきた専門人材が貴社の事業に深く入り込み、構想から事業化まで共に創り上げます。
           </p>
         </div>
         <div class="strengths__list_item_img_block">
           <Img
             img={{
               src: "strengths__illust01.png",
-              widths: [500, 400, 300],
+              widths: [500, 400, 320],
             }}
-            sizes="(max-width: 768px) 100vw, 300px"
-            width={300}
+            sizes="(max-width: 768px) 62vw, 320px"
+            width={320}
             alt=""
           />
         </div>
@@ -57,17 +72,17 @@ import Cta from "../block/Cta.astro";
             </span>
           </h4>
           <p class="strengths__list_item_text">
-            事業企画・開発・クリエイティブ・営業・マーケティングまで、事業を形にするために必要な機能をワンストップで提供。"分業の壁"が生まれない一つのチームで、泥臭い実務までやりきります。
+            事業企画・開発・クリエイティブ・営業・マーケティングまで、事業を形にするための全機能をワンストップで提供。分業の壁が生まれない一つのチームで、泥臭い実務までやりきります。
           </p>
         </div>
         <div class="strengths__list_item_img_block">
           <Img
             img={{
               src: "strengths__illust02.png",
-              widths: [550, 450, 350],
+              widths: [550, 450, 340],
             }}
-            sizes="(max-width: 768px) 100vw, 350px"
-            width={350}
+            sizes="(max-width: 768px) 62vw 340px"
+            width={340}
             alt=""
           />
         </div>
@@ -77,21 +92,21 @@ import Cta from "../block/Cta.astro";
           <h4 class="strengths__list_item_tit">
             <span class="strengths__list_item_number"></span>
             <span class="strengths__list_item_tit_inner">
-              アドバイザーではなく、<br />事業パートナーとして並走
+              アドバイザーではなく、<br />事業パートナーとして伴走
             </span>
           </h4>
           <p class="strengths__list_item_text">
-            計画通りに進まない不確実な状況でも、共に乗り越えるパートナー。当事者意識を持って共に悩み、次の打ち手を考え、実行する。受託の枠を超えた関係性が、新規事業を前に進める力になります。
+            計画通りに進まないのが新規事業です。当事者意識を持って共に悩み、次の打ち手を考え、実行する。時には出資やJV設立などリスクを取る側に回り、受託の枠を超えて、新規事業を前に進めます。
           </p>
         </div>
         <div class="strengths__list_item_img_block">
           <Img
             img={{
               src: "strengths__illust03.png",
-              widths: [550, 450, 350],
+              widths: [550, 450, 340],
             }}
-            sizes="(max-width: 768px) 100vw, 350px"
-            width={350}
+            sizes="(max-width: 768px) 62vw, 340px"
+            width={340}
             alt=""
           />
         </div>
@@ -117,7 +132,7 @@ import Cta from "../block/Cta.astro";
       position: absolute;
       top: -55.5rem;
       right: 0;
-      background-image: url(../../assets/img/design/bg_design_img01.png);
+      background-image: var(--bgDesignImgUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: 45.5rem;
@@ -126,7 +141,7 @@ import Cta from "../block/Cta.astro";
       z-index: -1;
       @include media_max(sp) {
         top: -14.4rem;
-        background-image: url(../../assets/img/design/bg_design_img01-sp.png);
+        background-image: var(--bgDesignImgUrlSp);
         width: 10.8rem;
         aspect-ratio: 105/344;
       }

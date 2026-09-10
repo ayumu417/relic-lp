@@ -3,9 +3,21 @@ import Img from "../utils/ImgLoader.astro";
 import Button from "../ui/Button.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import Cta from "../block/Cta.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import bgDesignImg from "../../assets/img/design/bg_design_img04.png";
+
+const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
 ---
 
-<section id="story" class="story main_sec">
+<section
+  id="story"
+  class="story main_sec"
+  style={{
+    "--bgDesignImgUrl": `url(${bgDesignImgOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <SectionHeader headingText="挑戦の物語" imgSrc="text/story__heading.svg" imgWidth={162} imgAlt="STORY" align="right" />
 
@@ -119,7 +131,7 @@ import Cta from "../block/Cta.astro";
       position: absolute;
       top: -22rem;
       left: 0;
-      background-image: url(../../assets/img/design/bg_design_img04.png);
+      background-image: var(--bgDesignImgUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: 48.7rem;
@@ -279,6 +291,15 @@ import Cta from "../block/Cta.astro";
         }
       }
     }
+    // swiepr初期化時の調整
+    @include media_max(sp) {
+      &__block_wrapper:not(.swiper-initialized) {
+        opacity: 0;
+      }
+      &__block_wrapper:not(.swiper-initialized) .story__block_box:not(:first-of-type) {
+        display: none;
+      }
+    }
 
     :global(.cta) {
       position: absolute;
@@ -293,5 +314,5 @@ import Cta from "../block/Cta.astro";
   import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp"; // 拡張子は環境に合わせて調整
 
   // このセクションのクラス名を指定して実行
-  setupResponsiveSwiperSp(".js-service_swiper", "auto", "14%");
+  setupResponsiveSwiperSp(".js-service_swiper", "1.12", "14%");
 </script>

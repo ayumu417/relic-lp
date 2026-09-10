@@ -2,9 +2,29 @@
 import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 import Cta from "../block/Cta.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import serviceBg from "../../assets/img/design/service__bg.png";
+import serviceBgSp from "../../assets/img/design/service__bg-sp.png";
+import bgDesignImg from "../../assets/img/design/bg_design_img02.png";
+import serviceCtaIllust from "../../assets/img/design/service__cta_illust.png";
+
+const serviceBgOptimized = await getImage({ src: serviceBg, format: "webp" });
+const serviceBgSpOptimized = await getImage({ src: serviceBgSp, format: "webp" });
+const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
+const serviceCtaIllustOptimized = await getImage({ src: serviceCtaIllust, format: "webp" });
 ---
 
-<section class="service main_sec">
+<section
+  class="service main_sec"
+  style={{
+    "--serviceBgUrl": `url(${serviceBgOptimized.src})`,
+    "--serviceBgSpUrl": `url(${serviceBgSpOptimized.src})`,
+    "--bgDesignUrl": `url(${bgDesignImgOptimized.src})`,
+    "--serviceCtaIllustUrl": `url(${serviceCtaIllustOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <SectionHeader headingText="サービスメニュー" imgSrc="text/service__heading.svg" imgWidth={258} imgAlt="SERVICE" align="center" />
 
@@ -23,14 +43,13 @@ import Cta from "../block/Cta.astro";
         />
       </h3>
       <p class="service__text">
-        上流の頭脳支援から、開発・グロースの実行支援まで。<br class="pc_only" />
-        御社のフェーズと体制ギャップに応じて、事業パートナーとして動くチームを柔軟に組成します。
+        構想を練る上流から、開発・グロースの実行まで。<br class="pc_only" />貴社のフェーズと、足りない機能に合わせて、事業パートナーとして動くチームを組みます。
       </p>
 
       <ul class="service__block01_list">
         <li class="service__block01_list_item">
           <h4 class="service__block01_list_item_tit">事業構想・戦略策定の伴走</h4>
-          <p class="service__block01_list_item_text">事業オーナーと並走しながら、市場機会の特定・コンセプト設計・収益モデル・ステージゲート設計までを共に組み立てる上流伴走です。</p>
+          <p class="service__block01_list_item_text">事業オーナーと伴走しながら、市場機会の特定、コンセプト設計、収益モデルやステージゲートの設計までを共に組み立てます。</p>
           <p class="service__block01_list_item_position">主な役割：事業開発リード／戦略担当／リサーチャー</p>
         </li>
         <li class="service__block01_list_item">
@@ -45,7 +64,7 @@ import Cta from "../block/Cta.astro";
         </li>
         <li class="service__block01_list_item">
           <h4 class="service__block01_list_item_tit">グロース・組織化支援</h4>
-          <p class="service__block01_list_item_text">PMF後のマーケティング・営業・カスタマーサクセスの運用組織を立ち上げ。社内人材への内製化移管まで設計可能です。</p>
+          <p class="service__block01_list_item_text">PMF後のマーケティング・営業・カスタマーサクセスの運用組織を立ち上げます。最終的に貴社の社内人材へ引き継ぐところまで設計します</p>
           <p class="service__block01_list_item_position">主な役割：グロース戦略／マーケター／セールス／組織開発</p>
         </li>
         <li class="service__block01_list_item">
@@ -76,7 +95,7 @@ import Cta from "../block/Cta.astro";
         />
       </h3>
       <p class="service__text">
-        戦略はコンサルへ、開発はベンダーへ、デザインは制作会社へ。分けて発注すれば、間で伝言ゲームが起きます。Relicは全機能を一つのチームに集約し、意思決定の速さと品質を両立します。
+        戦略はコンサルへ、開発はベンダーへ、デザインは制作会社へ。<br />分けて発注すれば、間で伝言ゲームが起きます。<br />Relicは全機能を一つのチームに集約し、意思決定の速さと品質を両立します。
       </p>
 
       <div class="service__block02_inner">
@@ -204,13 +223,13 @@ import Cta from "../block/Cta.astro";
   .service {
     position: relative;
     padding-bottom: 13.2rem;
-    background-image: url(../../assets/img/design/service__bg.png);
+    background-image: var(--serviceBgUrl);
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
     @include media_max(sp) {
       padding-bottom: 4rem;
-      background-image: url(../../assets/img/design/service__bg-sp.png);
+      background-image: var(--serviceBgSpUrl);
     }
 
     &::after {
@@ -218,7 +237,7 @@ import Cta from "../block/Cta.astro";
       position: absolute;
       bottom: 16rem;
       left: 0;
-      background-image: url(../../assets/img/design/bg_design_img02.png);
+      background-image: var(--bgDesignUrl);
       background-repeat: no-repeat;
       background-size: cover;
       width: 44rem;
@@ -243,6 +262,7 @@ import Cta from "../block/Cta.astro";
       font-weight: 500;
       @include media_max(sp) {
         margin-top: 1.4rem;
+        font-size: 1.47rem;
       }
     }
 
@@ -561,7 +581,7 @@ import Cta from "../block/Cta.astro";
         position: absolute;
         bottom: calc(100% - 2px);
         left: 14rem;
-        background-image: url(../../assets/img/design/service__cta_illust.png);
+        background-image: var(--serviceCtaIllustUrl);
         background-repeat: no-repeat;
         background-size: contain;
         width: 8rem;
@@ -585,7 +605,7 @@ import Cta from "../block/Cta.astro";
     const acc_swith = document.querySelectorAll(".js-acc_switch");
     acc_swith.forEach((button) => {
       button.addEventListener("click", (e) => {
-        let wrapper = e.target.closest(".js-acc_wrapper");
+        let wrapper = button.closest(".js-acc_wrapper");
         if (wrapper) {
           let target = wrapper.querySelector(".js-acc_target");
           if (target) {

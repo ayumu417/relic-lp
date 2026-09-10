@@ -1,9 +1,23 @@
 ---
 import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
+
+/***   背景画像   ***/
+import { getImage } from "astro:assets";
+import recognitionBg from "../../assets/img/design/recognition__bg.jpg";
+import recognitionBgSp from "../../assets/img/design/recognition__bg-sp.jpg";
+
+const recognitionBgOptimized = await getImage({ src: recognitionBg, format: "webp" });
+const recognitionBgSpOptimized = await getImage({ src: recognitionBgSp, format: "webp" });
 ---
 
-<section class="recognition main_sec">
+<section
+  class="recognition main_sec"
+  style={{
+    "--recognitionBgUrl": `url(${recognitionBgOptimized.src})`,
+    "--recognitionBgSpUrl": `url(${recognitionBgSpOptimized.src})`,
+  }}
+>
   <div class="contents_wrapper">
     <SectionHeader headingText="メディア掲載・受賞歴" imgSrc="text/recognition__heading.svg" imgWidth={340} imgAlt="RECOGNITION" align="center" />
 
@@ -185,13 +199,13 @@ import SectionHeader from "../ui/SectionHeader.astro";
       left: 0;
       width: 100%;
       height: calc(100% + 8rem);
-      background-image: url(../../assets/img/design/recognition__bg.jpg);
+      background-image: var(--recognitionBgUrl);
       background-size: cover;
       background-repeat: no-repeat;
       z-index: -10;
       @include media_max(sp) {
         height: 100%;
-        background-image: url(../../assets/img/design/recognition__bg-sp.jpg);
+        background-image: var(--recognitionBgSpUrl);
       }
     }
 

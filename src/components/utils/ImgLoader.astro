@@ -13,7 +13,7 @@ import { Image, getImage as astroGetImage } from "astro:assets";
   alt="サンプル画像"
 />
 
-*****   アートディレクション    *****
+*****   アートディレクション & LCP最適化（ファーストビュー）    *****
 <Img
   sources={[
     {
@@ -26,6 +26,7 @@ import { Image, getImage as astroGetImage } from "astro:assets";
   width={1200} // PC用の表示幅
   alt="ヒーローバナー"
   loading="eager" // ファーストビュー向け
+  fetchpriority="high" // ★ LCP要素に指定して最優先で読み込ませる
 />
 
 *****   widthsやsizesでの画像サイズの切り替え    *****
@@ -56,6 +57,7 @@ import { Image, getImage as astroGetImage } from "astro:assets";
  */
 const allImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/img/**/*.{jpg,jpeg,png,webp,avif,gif,svg}",
+  { eager: true },
 );
 
 interface SourceItem {
@@ -63,14 +65,14 @@ interface SourceItem {
   src: string;
   width?: number; // PC等の表示上の横幅（省略可）
   height?: number; // 指定がなければ元画像の比率から自動計算
-  densities?: (number | string)[];
+  densities?: (number | `${number}x`)[] | undefined;
   widths?: number[];
   sizes?: string;
 }
 
 interface ImgItem {
   src: string;
-  densities?: (number | string)[];
+  densities?: (number | `${number}x`)[] | undefined;
   widths?: number[]; // sizes利用時に生成したい画像横幅の配列（例: [400, 800, 1200]）
 }
 
@@ -79,6 +81,7 @@ interface Props {
   class?: string;
   loading?: "lazy" | "eager";
   decoding?: "async" | "sync";
+  fetchpriority?: "high" | "low" | "auto"; // ★ 追加
   width: number; // 基本となる表示上の横幅
   height?: number; // 指定がなければ元画像の比率から自動計算
   sources?: SourceItem[];
@@ -91,6 +94,7 @@ const {
   class: className,
   loading = "lazy",
   decoding = "async",
+  fetchpriority, // ★ 追加
   width,
   height,
   sources = [],
@@ -108,7 +112,7 @@ async function getAsset(path: string) {
       `画像 "${fullPath}" が見つかりません。src/assets/img/ 配下を確認してください。`,
     );
   }
-  const mod = await allImages[fullPath]();
+  const mod = allImages[fullPath];
   return mod.default;
 }
 
@@ -178,6 +182,7 @@ const finalDensities = img.widths ? undefined : img.densities || [1, 2];
         height={fallbackHeight}
         decoding={decoding}
         loading={loading}
+        fetchpriority={fetchpriority}
       />
     ) : (
       <Image
@@ -188,9 +193,9 @@ const finalDensities = img.widths ? undefined : img.densities || [1, 2];
         height={fallbackHeight}
         widths={img.widths}
         sizes={sizes}
-        densities={finalDensities}
         decoding={decoding}
         loading={loading}
+        fetchpriority={fetchpriority}
       />
     )
   }
