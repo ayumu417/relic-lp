@@ -2,10 +2,7 @@
 import "../assets/scss/style.scss";
 
 const BaseUrl = new URL(Astro.url.pathname, Astro.site);
-const { PageTitle = "ReLic", PageDescription = "description" } = Astro.props;
-
-// Google Fonts URLを変数化して管理
-const googleFontUrl = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap";
+const { PageTitle = "ReLic", PageDescription = "説明文です" } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,22 +29,6 @@ const googleFontUrl = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wgh
     <link rel="icon" type="image/svg+xml" href={`${BaseUrl}assets/img/settings/favicon.svg`} />
     <link rel="icon" href={`${BaseUrl}assets/img/settings/favicon.ico`} />
     <link rel="apple-touch-icon" href={`${BaseUrl}assets/img/settings/favicon.png`} />
-
-    <!-- web fonts (非同期読み込み・非ブロック化) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href={googleFontUrl} />
-    <link
-      rel="stylesheet"
-      href={googleFontUrl}
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link rel="stylesheet" href={googleFontUrl} />
-    </noscript>
-
-    <!-- css -->
   </head>
   <body>
     <div id="body_inner">

@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 export default defineConfig({
   // 公開URLの設定
@@ -41,4 +41,20 @@ export default defineConfig({
       },
     },
   },
+
+  // フォントの読み込み最適化
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Noto Sans JP',
+      cssVariable: '--font-sans',
+      weights: ['400 700'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Noto Serif JP',
+      cssVariable: '--font-serif',
+      weights: [700],
+    }
+  ],
 });

@@ -17,7 +17,7 @@ const serviceCtaIllustOptimized = await getImage({ src: serviceCtaIllust, format
 ---
 
 <section
-  class="service main_sec"
+  class="service main_section lazy_section"
   style={{
     "--serviceBgUrl": `url(${serviceBgOptimized.src})`,
     "--serviceBgSpUrl": `url(${serviceBgSpOptimized.src})`,
@@ -604,7 +604,7 @@ const serviceCtaIllustOptimized = await getImage({ src: serviceCtaIllust, format
   (() => {
     const acc_swith = document.querySelectorAll(".js-acc_switch");
     acc_swith.forEach((button) => {
-      button.addEventListener("click", (e) => {
+      button.addEventListener("click", () => {
         let wrapper = button.closest(".js-acc_wrapper");
         if (wrapper) {
           let target = wrapper.querySelector(".js-acc_target");

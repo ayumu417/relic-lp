@@ -4,64 +4,68 @@ import Button from "../ui/Button.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 
 /**
+ * 「オンライン講演動画」の型定義
+ */
+type Video = {
+  date: string;
+  number: string;
+  tag: string;
+  tit: string;
+  speaker: string;
+  time: string;
+  type: string;
+  link: string;
+};
+
+/**
  * 「オンライン講演動画」を配列で管理
  * ※ HTMLタグの記載可能
- *
- * date: 日付,
- * number: 第何回目か,
- * tag: タグ,
- * tit: タイトル,
- * spekaer: 登壇者など（タイトル下）,
- * time: 講演時間,
- * type: 申し込み者数／業種等,
- * link: 「視聴する」の動画リンク(https://...),
  */
-
-const videos = [
+const videos: Video[] = [
   {
     date: `2026年4月`,
     number: `第32回`,
     tag: `出島スキーム`,
     tit: `新規事業を「形にする」──出島スキーム実践事例`,
-    spekaer: `登壇：Relic 事業プロデュース統括／大手製造業 新規事業推進室 室長`,
+    speaker: `登壇：Relic 事業プロデュース統括／大手製造業 新規事業推進室 室長`,
     time: `視聴目安 60分`,
     type: `申込 412名／業界横断`,
-    link: `###`,
+    link: `#`,
   },
   {
     date: `2026年3月`,
     number: `第31回`,
     tag: `業界別／金融`,
     tit: `大手金融機関の新規事業──BaaS／組込み型金融の事業化最前線`,
-    spekaer: `登壇：Relic CVC 担当ディレクター／金融大手 DX推進部 部長`,
+    speaker: `登壇：Relic CVC 担当ディレクター／金融大手 DX推進部 部長`,
     time: `視聴目安 75分`,
     type: `申込 368名／金融機関中心`,
-    link: `###`,
+    link: `#`,
   },
   {
     date: `2026年2月`,
     number: `第30回`,
     tag: `技術活用`,
     tit: `生成AI／LLM時代の新規事業創出──PoCから事業化までのリアルな道のり`,
-    spekaer: `登壇：Relic CTO／AWS高度パートナー認定エンジニア`,
+    speaker: `登壇：Relic CTO／AWS高度パートナー認定エンジニア`,
     time: `視聴目安 65分`,
     type: `申込 524名／DX推進部門中心`,
-    link: `###`,
+    link: `#`,
   },
   {
     date: `2026年1月`,
     number: `第29回`,
     tag: `人材・組織`,
     tit: `社内起業家を発掘・育成する制度設計──Innovator's 101の現場から`,
-    spekaer: `登壇：Relic 人材育成事業責任者`,
+    speaker: `登壇：Relic 人材育成事業責任者`,
     time: `視聴目安 60分`,
     type: `申込 295名／人事・新規事業`,
-    link: `###`,
+    link: `#`,
   },
 ];
 ---
 
-<section class="videos main_sec">
+<section class="videos main_section lazy_section">
   <div class="contents_wrapper">
     <SectionHeader
       headingText="講演動画"
@@ -98,7 +102,7 @@ const videos = [
             </div>
             <div class="videos__list_item_detail02">
               <h4 class="videos__list_item_tit" set:html={video.tit} />
-              <p class="videos__list_item_speaker" set:html={video.spekaer} />
+              <p class="videos__list_item_speaker" set:html={video.speaker} />
             </div>
             <div class="videos__list_item_detail03">
               <p class="videos__list_item_time" set:html={video.time} />
@@ -122,7 +126,7 @@ const videos = [
 
     <Button
       class="videos__button"
-      href="###"
+      href="#"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -132,6 +136,7 @@ const videos = [
 </section>
 
 <style lang="scss">
+  /* CSS部分は変更なしのため省略せずにそのままお使いいただけます */
   .videos {
     position: relative;
     padding-bottom: 0;

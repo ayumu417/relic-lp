@@ -187,7 +187,6 @@ iframe {
 }
 
 
-
 /***   display none   ***/
 @include media_max(sp) {
   .pc_only {
@@ -202,11 +201,8 @@ iframe {
 }
 
 
-
-
 /***   スクロールバー   ***/
 ::-webkit-scrollbar {
-
   @include media_max(sp) {
     width: 0rem;
   }

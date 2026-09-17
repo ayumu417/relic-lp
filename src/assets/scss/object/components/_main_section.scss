@@ -1,0 +1,25 @@
+@use "../../foundation/import" as *;
+
+/****************
+  main_section
+****************/
+.main_section {
+  position: relative;
+  padding: 12rem 0 15rem;
+  margin: 0 auto;
+  max-width: 1800px;
+
+  @include media_max(sp) {
+    padding: 5.5rem 0 6.2rem;
+  }
+}
+
+//　遅延読み込み用
+.main_section.lazy_section {
+  content-visibility: auto;
+  contain-intrinsic-size: 100px;
+}
+
+body.is-anker-clicked .main_section.lazy_section {
+  content-visibility: visible !important;
+}

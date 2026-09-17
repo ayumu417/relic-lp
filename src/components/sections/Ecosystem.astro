@@ -82,7 +82,7 @@ const companys = [
 ---
 
 <section
-  class="ecosystem main_sec"
+  class="ecosystem main_section"
   style={{
     "--bgDesignImgUrl": `url(${bgDesignImgOptimized.src})`,
   }}
@@ -290,10 +290,10 @@ const companys = [
   if (sliders.length > 0) {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
 
-    let swiperInstances: any[] = [];
+    let swiperInstances = [];
     let isSwiperLoaded = false;
-    let SwiperClass: any;
-    let swiperModules: any[];
+    let SwiperClass;
+    let swiperModules;
 
     // Swiperの初期化・破棄を管理する関数
     const initSwiper = () => {

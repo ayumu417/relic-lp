@@ -47,7 +47,7 @@ const faqs = [
 ];
 ---
 
-<section class="faq main_sec">
+<section class="faq main_section lazy_section">
   <div class="contents_wrapper">
     <SectionHeader headingText="よくあるご質問" imgSrc="text/faq__heading.svg" imgWidth={91} imgAlt="FAQ" align="center" />
 
@@ -190,8 +190,8 @@ const faqs = [
   (() => {
     const acc_swith = document.querySelectorAll(".js-acc_switch");
     acc_swith.forEach((button) => {
-      button.addEventListener("click", (e) => {
-        let wrapper = e.target.closest(".js-acc_wrapper");
+      button.addEventListener("click", () => {
+        let wrapper = button.closest(".js-acc_wrapper");
         if (wrapper) {
           let target = wrapper.querySelector(".js-acc_target");
           if (target) {
