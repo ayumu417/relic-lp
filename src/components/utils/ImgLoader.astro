@@ -6,38 +6,47 @@ import { Image, getImage as astroGetImage } from "astro:assets";
  *
  * 使用マニュアル
  *
+ * ***************************/
+/*
 *****   基本的な使い方    *****
 <Img
-  img={{ src: "sample.jpg" }}
-  width={800}
-  alt="サンプル画像"
+  img={{ src: "sample.jpg" }} //画像パス
+  width={800} //ベースとなる画像サイズ
+  alt=""
 />
 
-*****   アートディレクション & LCP最適化（ファーストビュー）    *****
+*****   アートディレクション   *****
 <Img
   sources={[
     {
       media: "(max-width: 767px)",
-      src: "sp/hero-kv.webp",
+      src: "sample-sp.jpg", // スマホ用の画像パスを指定
       width: 375, // スマホ用の幅を指定
     }
   ]}
-  img={{ src: "pc/hero-kv.webp" }}
+  img={{ src: "sample-pc.jpg" }} // PC用の画像パスを指定
   width={1200} // PC用の表示幅
-  alt="ヒーローバナー"
+  alt=""
+/>
+
+*****   LCP最適化（ファーストビュー等）   *****
+<Img
+  img={{ src: "sample.jpg" }}
+  width={300}
   loading="eager" // ファーストビュー向け
-  fetchpriority="high" // ★ LCP要素に指定して最優先で読み込ませる
+  fetchpriority="high" // LCP要素に指定して最優先で読み込ませる
+  alt=""
 />
 
 *****   widthsやsizesでの画像サイズの切り替え    *****
 <Img
   img={{
-    src: "thumbnail.png",
+    src: "sample.jpg",
     widths: [400, 800, 1200] // 生成したい画像サイズ
   }}
   sizes="(max-width: 768px) 100vw, 800px" // ブラウザに伝える画像の表示幅
   width={800}
-  alt="サムネイル"
+  alt=""
 />
 
 *****   svg画像    *****
@@ -49,8 +58,8 @@ import { Image, getImage as astroGetImage } from "astro:assets";
 
 
 *
-* /使用マニュアル
 ***************************/
+
 
 /**
  * 画像アセットを一括インポート

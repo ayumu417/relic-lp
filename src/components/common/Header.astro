@@ -4,6 +4,7 @@ import Img from "../utils/ImgLoader.astro";
 
 <header id="header" class="header">
   <div class="header__inner">
+    <!-- ロゴエリア -->
     <a href="./" class="header__logo">
       <Img
         img={{
@@ -13,9 +14,13 @@ import Img from "../utils/ImgLoader.astro";
         alt="Relic"
       />
     </a>
+    
+    <!-- ハンバーガーメニューボタン（SP時のみ表示） -->
     <div id="js-hamburger_btn" class="hamburger_btn sp_only">
       <div></div>
     </div>
+    
+    <!-- ナビゲーションメニュー -->
     <nav class="header__nav">
       <ul class="header__nav_list">
         <li class="header__nav_list_item">
@@ -101,6 +106,7 @@ import Img from "../utils/ImgLoader.astro";
       justify-content: flex-start;
       column-gap: 4.5rem;
 
+      /* SPサイズのナビゲーション（初期状態は非表示） */
       @include media_max(sp) {
         position: absolute;
         top: 100%;
@@ -211,6 +217,8 @@ import Img from "../utils/ImgLoader.astro";
       }
     }
   }
+
+  /* ハンバーガーメニュー展開時のナビゲーション表示設定 */
   .header.is-hamburger-active {
     @include media_max(sp) {
       .header__nav {
@@ -221,7 +229,7 @@ import Img from "../utils/ImgLoader.astro";
     }
   }
 
-  // ハンバーガーボタン
+  // ハンバーガーボタン（3本線のアニメーション用ベース）
   .hamburger_btn {
     position: relative;
     display: block;
@@ -256,6 +264,8 @@ import Img from "../utils/ImgLoader.astro";
       top: calc(50% + 1.2rem);
     }
   }
+
+  /* ハンバーガーメニュー展開時のボタン「×」への変形アニメーション */
   .header.is-hamburger-active {
     .hamburger_btn {
       > div {
@@ -288,8 +298,12 @@ import Img from "../utils/ImgLoader.astro";
      ************************/
     const header = document.getElementById("header");
     const hamburger_menu_btn = document.getElementById("js-hamburger_btn");
+    
     if (hamburger_menu_btn && header) {
-      const header_link = header.querySelectorAll("a");
+      // リンククリック時にメニューを閉じるため、全てのアンカー要素を取得
+      const header_link = header.querySelectorAll<HTMLAnchorElement>("a");
+      
+      // ハンバーガーボタンクリック時の開閉処理（クラスの付け外し）
       hamburger_menu_btn.addEventListener(
         "click",
         function () {
@@ -298,6 +312,7 @@ import Img from "../utils/ImgLoader.astro";
         false,
       );
 
+      // ナビゲーション内のリンククリック時、メニューを強制的に閉じる
       header_link.forEach((target) => {
         target.addEventListener("click", function () {
           header.classList.remove("is-hamburger-active");

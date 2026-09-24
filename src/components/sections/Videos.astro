@@ -65,8 +65,10 @@ const videos: Video[] = [
 ];
 ---
 
+<!-- 講演動画（VIDEOS）セクション -->
 <section class="videos main_section lazy_section">
   <div class="contents_wrapper">
+    <!-- セクションヘッダー（中央寄せ） -->
     <SectionHeader
       headingText="講演動画"
       imgSrc="text/videos__heading.svg"
@@ -75,6 +77,7 @@ const videos: Video[] = [
       align="center"
     />
 
+    <!-- メイン見出し画像 -->
     <h3 class="videos__tit">
       <Img
         img={{ src: "text/videos__tit.svg" }}
@@ -83,31 +86,42 @@ const videos: Video[] = [
       />
     </h3>
 
+    <!-- リードテキスト -->
     <p class="videos__text">
       新規事業推進者向けに毎月開催しているオンライン講演の動画一覧。<br
         class="pc_only"
       />登壇者は事業を実際に立ち上げてきた専門人材と、ご一緒した企業のご担当者さまです。
     </p>
 
+    <!-- 講演動画リスト -->
     <ul class="videos__list">
       {
         videos.map((video) => (
           <li class="videos__list_item">
+            <!-- 開催年月・回数 -->
             <div class="videos__list_item_detail01">
               <p class="videos__list_item_date" set:html={video.date} />
               <p class="videos__list_item_number" set:html={video.number} />
             </div>
+
+            <!-- タグ情報 -->
             <div class="videos__list_item_tags">
               <p class="videos__list_item_tag" set:html={video.tag} />
             </div>
+
+            <!-- タイトル・登壇者情報 -->
             <div class="videos__list_item_detail02">
               <h4 class="videos__list_item_tit" set:html={video.tit} />
               <p class="videos__list_item_speaker" set:html={video.speaker} />
             </div>
+
+            <!-- 視聴時間・実績情報 -->
             <div class="videos__list_item_detail03">
               <p class="videos__list_item_time" set:html={video.time} />
               <p class="videos__list_item_type" set:html={video.type} />
             </div>
+
+            <!-- 視聴ボタンエリア -->
             <div class="videos__list_item_button_wrapper">
               <Button
                 class="videos__list_item_button"
@@ -124,6 +138,7 @@ const videos: Video[] = [
       }
     </ul>
 
+    <!-- 全動画一覧へのボタン -->
     <Button
       class="videos__button"
       href="#"
@@ -136,7 +151,7 @@ const videos: Video[] = [
 </section>
 
 <style lang="scss">
-  /* CSS部分は変更なしのため省略せずにそのままお使いいただけます */
+  /* 講演動画セクション全体のスタイル */
   .videos {
     position: relative;
     padding-bottom: 0;
@@ -159,6 +174,7 @@ const videos: Video[] = [
       }
     }
 
+    /* タイトル画像スタイル */
     &__tit :global(img) {
       width: auto;
       height: 4rem;
@@ -171,6 +187,7 @@ const videos: Video[] = [
       }
     }
 
+    /* リードテキストスタイル */
     &__text {
       margin-top: 2.2em;
       text-align: center;
@@ -184,6 +201,7 @@ const videos: Video[] = [
       }
     }
 
+    /* 全動画一覧ボタンの位置調整 */
     &__button {
       margin-top: 6.6rem;
       @include media_max(sp) {
@@ -191,6 +209,7 @@ const videos: Video[] = [
       }
     }
 
+    /* 動画リスト（表形式グリッド） */
     &__list {
       border-top: 1px solid var(--color-black01);
       margin: 6rem 0 0;
@@ -198,6 +217,7 @@ const videos: Video[] = [
         margin-top: 3rem;
       }
 
+      /* 1行ごとのグリッドレイアウト定義（PC時:4列構成 / SP時:3列構成へ再配置） */
       &_item {
         display: grid;
         grid-template-columns: 9.2rem auto 19rem 15rem;
@@ -211,6 +231,7 @@ const videos: Video[] = [
           padding: 1.6rem 0 1.7rem;
         }
 
+        /* 開催年月・回数エリアの位置 */
         &_detail01 {
           grid-column: 1/2;
           grid-row: 1/3;
@@ -224,6 +245,7 @@ const videos: Video[] = [
             margin-right: 1.2rem;
           }
         }
+        /* タグエリアの位置 */
         &_tags {
           grid-column: 2/3;
           grid-row: 1/2;
@@ -237,6 +259,7 @@ const videos: Video[] = [
             margin-bottom: 0;
           }
         }
+        /* タイトル・登壇者エリアの位置 */
         &_detail02 {
           grid-column: 2/3;
           grid-row: 2/3;
@@ -247,6 +270,7 @@ const videos: Video[] = [
             margin-bottom: 1rem;
           }
         }
+        /* 視聴時間・申込実績エリアの位置 */
         &_detail03 {
           grid-column: 3/4;
           grid-row: 1/3;
@@ -255,6 +279,7 @@ const videos: Video[] = [
             grid-row: 3/4;
           }
         }
+        /* ボタンエリアの位置 */
         &_button_wrapper {
           grid-column: 4/5;
           grid-row: 1/3;
@@ -264,6 +289,7 @@ const videos: Video[] = [
           }
         }
 
+        /* 各要素の装飾スタイル */
         &_tag {
           width: fit-content;
           padding: 0.2em 0.86em 0.25em;

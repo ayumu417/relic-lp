@@ -7,8 +7,8 @@ export default defineConfig({
   base: '/lp',
   trailingSlash: 'always',
   //テスト用
-  site: 'https://test-server.ayumu.website',
-  base: '/relic-lp',
+  // site: '',
+  // base: '/relic-lp',
 
   // 出力形式の調整（URLから .html 削除）
   build: {

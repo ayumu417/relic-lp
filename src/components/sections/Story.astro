@@ -8,9 +8,11 @@ import Cta from "../block/Cta.astro";
 import { getImage } from "astro:assets";
 import bgDesignImg from "../../assets/img/design/bg_design_img04.png";
 
+// 背景画像の最適化（WebP変換）処理
 const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
 ---
 
+<!-- 挑戦の物語（STORY）セクション -->
 <section
   id="story"
   class="story main_section"
@@ -19,8 +21,10 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
   }}
 >
   <div class="contents_wrapper">
+    <!-- セクションヘッダー（右寄せ） -->
     <SectionHeader headingText="挑戦の物語" imgSrc="text/story__heading.svg" imgWidth={162} imgAlt="STORY" align="right" />
 
+    <!-- メイン見出し画像 -->
     <h3 class="story__tit">
       <Img
         sources={[
@@ -35,11 +39,13 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       />
     </h3>
 
+    <!-- リードテキスト -->
     <p class="story__text">
-      単なる成果のご紹介ではなく、<br class="sp_only" />一人のご担当社様がどんな葛藤を抱え、<br class="sp_only" />Relicと共にどう突破したか。<br />
+      単なる成果のご紹介ではなく、<br class="sp_only" />一人のご担当者様がどんな葛藤を抱え、<br class="sp_only" />Relicと共にどう突破したか。<br />
       ストーリーとしてお届けします。
     </p>
 
+    <!-- 事例カード群（PC時:逆順段々配置 / SP時:Swiperスライダー） -->
     <div class="story__block_wrapper swiper js-service_swiper">
       <div class="story__block swiper-wrapper">
         <div class="story__block_box swiper-slide">
@@ -53,7 +59,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                   src: "story__img01.jpg",
                   widths: [630, 420, 350],
                 }}
-                sizes="(max-width: 768px) 100vw, 420px"
+                sizes="(max-width: 768px) 90vw, 420px"
                 width={420}
                 alt=""
               />
@@ -75,6 +81,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
             </div>
           </div>
         </div>
+
         <div class="story__block_box swiper-slide">
           <h4 class="story__block_box_tit">
             <Img img={{ src: "text/story__label_tit02.svg" }} width={82} alt="構想が固まらないところから始まった新規事業" />
@@ -86,7 +93,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                   src: "story__img02.jpg",
                   widths: [630, 420, 350],
                 }}
-                sizes="(max-width: 768px) 100vw, 420px"
+                sizes="(max-width: 768px) 90vw, 420px"
                 width={420}
                 alt=""
               />
@@ -108,15 +115,20 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
         </div>
       </div>
 
+      <!-- SP用ページネーション -->
       <div class="swiper-pagination sp_only"></div>
     </div>
 
+    <!-- 事例一覧ボタン -->
     <Button class="story__button" href="https://relic.co.jp/services/dis/" target="_blank" rel="noopener noreferrer" color="beige"> すべての事例ストーリーを読む </Button>
   </div>
+
+  <!-- 下部オーバーラップ表示するCTAコンポーネント -->
   <Cta />
 </section>
 
 <style lang="scss">
+  /* STORYセクション全体のスタイル */
   .story {
     position: relative;
     padding-top: 10.6rem;
@@ -126,6 +138,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       padding-bottom: 12rem;
     }
 
+    /* 左側の背景装飾画像 */
     &::after {
       content: "";
       position: absolute;
@@ -179,7 +192,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       }
     }
 
-    //　sp版は swiper
+    /* SP版Swiperスライダー用エリア設定 */
     &__block_wrapper {
       @include media_min(sp) {
         overflow: inherit;
@@ -189,6 +202,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
         margin-right: -2.5rem;
       }
     }
+
+    /* PC時: 逆順（flex-direction: row-reverse）で右から配置し、2枚目を下にずらす */
     &__block {
       margin-top: 8.7rem;
       @include media_min(sp) {
@@ -206,6 +221,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
         @include media_min(sp) {
           width: 42rem;
 
+          /* 2枚目以降のカードを下にずらしてレイアウトに動きを出す */
           &:nth-of-type(n + 2) {
             margin-top: 7.7rem;
           }
@@ -224,6 +240,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
           width: 100%;
         }
 
+        /* 右上バッジの絶対配置設定 */
         &_tit {
           position: absolute;
           top: -4rem;
@@ -257,6 +274,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
           letter-spacing: -0.02em;
           line-height: 1.45;
         }
+
+        /* 下線矢印付きのリンク（ホバー時に右へスライド） */
         &_link {
           position: relative;
           display: block;
@@ -270,6 +289,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
             margin-top: 1.9rem;
           }
 
+          /* SVGの下線矢印アイコン */
           &::after {
             content: "";
             position: absolute;
@@ -285,13 +305,15 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
             transform-origin: bottom left;
           }
 
+          /* ホバー時に右へ移動 */
           &:hover::after {
             transform: translateX(1em);
           }
         }
       }
     }
-    // swiepr初期化時の調整
+
+    /* Swiper初期化前の1枚目以外のカード非表示制御 */
     @include media_max(sp) {
       &__block_wrapper:not(.swiper-initialized) {
         opacity: 0;
@@ -301,6 +323,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       }
     }
 
+    /* セクション下部にCTAを半分重なる形で配置 */
     :global(.cta) {
       position: absolute;
       bottom: 0;
@@ -311,8 +334,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
 </style>
 
 <script>
-  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp"; // 拡張子は環境に合わせて調整
+  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp";
 
-  // このセクションのクラス名を指定して実行
+  // SP用事例スライダー初期化関数の呼び出し（表示比率と間隔を指定）
   setupResponsiveSwiperSp(".js-service_swiper", "1.12", "14%");
 </script>

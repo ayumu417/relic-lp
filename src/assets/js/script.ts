@@ -4,10 +4,10 @@
  * ユーザーの操作感知でイベント停止
  */
 (() => {
-  let isUserInterrupted = false;
+  let isUserInterrupted: boolean = false;
 
   // ユーザーの操作を検知した際に実行されるハンドラ（スクロール強制停止）
-  const cancelScrollHandler = () => {
+  const cancelScrollHandler = (): void => {
     if (!isUserInterrupted) {
       isUserInterrupted = true;
       window.scrollTo({
@@ -18,27 +18,30 @@
   };
 
   // キーボード操作用のハンドラ（名前付き関数にすることで後で解除可能にする）
-  const keydownHandler = (e) => {
+  const keydownHandler = (e: KeyboardEvent): void => {
     // 画面スクロールを引き起こすキー操作を検知
-    const scrollKeys = ["ArrowUp", "ArrowDown", "Space", "PageUp", "PageDown", "Home", "End"];
+    const scrollKeys: string[] = ["ArrowUp", "ArrowDown", "Space", "PageUp", "PageDown", "Home", "End"];
     if (scrollKeys.includes(e.code)) {
       cancelScrollHandler();
     }
   };
 
-  const setupSmoothScroll = () => {
-    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+  const setupSmoothScroll = (): void => {
+    // HTMLAnchorElementとして取得
+    const smoothScrollLinks = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
 
     smoothScrollLinks.forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
-        document.querySelector("body").classList.add("is-anker-clicked");
+      anchor.addEventListener('click', function (this: HTMLAnchorElement, e: MouseEvent) {
+        document.querySelector("body")?.classList.add("is-anker-clicked");
         e.preventDefault();
+        
         const href = this.getAttribute('href');
         if (!href || href === '#') return;
-        const targetElement = document.querySelector(href);
+        
+        const targetElement = document.querySelector<HTMLElement>(href);
 
         if (targetElement) {
-          const header = document.querySelector('#header');
+          const header = document.querySelector<HTMLElement>('#header');
           const headerHeight = header ? header.offsetHeight : 0;
           let count = 0;
 
@@ -49,13 +52,13 @@
           window.addEventListener('keydown', keydownHandler, { passive: true }); // キーボード操作の監視
 
           // 監視解除用のヘルパー関数
-          const removeListeners = () => {
+          const removeListeners = (): void => {
             window.removeEventListener('wheel', cancelScrollHandler);
             window.removeEventListener('touchstart', cancelScrollHandler);
             window.removeEventListener('keydown', keydownHandler); // キーボード操作の監視も解除
           };
 
-          async function ankerlink_smooth(before) {
+          async function ankerlink_smooth(before: number): Promise<void> {
             // ユーザー操作があった場合は再帰ループを終了し、監視を解除
             if (isUserInterrupted) {
               removeListeners();
@@ -63,7 +66,7 @@
             }
 
             if (count <= 5) {
-              let elementPosition = targetElement.getBoundingClientRect().top;
+              let elementPosition = targetElement!.getBoundingClientRect().top;
               let targetPosition = elementPosition + window.scrollY - headerHeight;
               let diff = Math.abs(targetPosition - before);
 
@@ -100,6 +103,3 @@
   document.addEventListener('DOMContentLoaded', setupSmoothScroll);
   document.addEventListener('astro:page-load', setupSmoothScroll);
 })();
-
-
-///    document.querySelector("body").classList.add("is-anker-linked");

@@ -3,15 +3,19 @@ import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 
 /**
+ * 「FAQ」の型定義
+ */
+type Faq = {
+  question: string;
+  answer: string;
+};
+
+/**
  * 「FAQ」を配列で管理
  * ※ pタグ内に出力
  * ※ HTMLタグの記載可能
- *
- * question: `質問`,
- * answer: `回答`,
  */
-
-const faqs = [
+const faqs: Faq[] = [
   {
     question: `「出島スキーム」とは具体的に<br class="sp_only"/>どんな仕組みですか？`,
     answer: `貴社の看板を一時的に外に置くことで、レピュテーションリスクを抑えながら、仮説検証を高速で回せます。検証が進んだ後で貴社に事業を戻す、JV化する、カーブアウトするなど、出口設計も含めてご相談に応じます。`,
@@ -47,21 +51,27 @@ const faqs = [
 ];
 ---
 
+<!-- よくあるご質問（FAQ）セクション -->
 <section class="faq main_section lazy_section">
   <div class="contents_wrapper">
+    <!-- セクションヘッダー（中央寄せ） -->
     <SectionHeader headingText="よくあるご質問" imgSrc="text/faq__heading.svg" imgWidth={91} imgAlt="FAQ" align="center" />
 
+    <!-- メイン見出し画像 -->
     <h3 class="faq__tit">
       <Img img={{ src: "text/faq__tit.svg" }} width={325} alt="よくいただくご質問" />
     </h3>
 
+    <!-- FAQアコーディオンリスト -->
     <dl class="faq__list">
       {
         faqs.map((faq) => (
           <div class="faq__list_item js-acc_wrapper">
+            <!-- 質問エリア（クリックで開閉トリガー） -->
             <dt class="faq__list_item_head js-acc_switch">
               <p set:html={faq.question} />
             </dt>
+            <!-- 回答エリア（開閉対象） -->
             <dd class="faq__list_item_contents js-acc_target">
               <div class="faq__list_item_contents_inner">
                 <p set:html={faq.answer} />
@@ -75,6 +85,7 @@ const faqs = [
 </section>
 
 <style lang="scss">
+  /* FAQセクション全体のスタイル */
   .faq {
     position: relative;
     padding-top: 0;
@@ -87,6 +98,7 @@ const faqs = [
       max-width: var(--wrapper-s);
     }
 
+    /* 見出し画像スタイル */
     &__tit :global(img) {
       width: auto;
       height: 4rem;
@@ -98,6 +110,7 @@ const faqs = [
       }
     }
 
+    /* FAQリストスタイリング */
     &__list {
       --border: 1px solid var(--color-black01);
       border-top: var(--border);
@@ -105,6 +118,7 @@ const faqs = [
       @include media_max(sp) {
         margin-top: 3.2rem;
       }
+      
       &_item {
         --padding-left: 3.4rem;
         --padding-right: 9.6rem;
@@ -114,6 +128,7 @@ const faqs = [
           --padding-right: 3.2rem;
         }
 
+        /* 質問（ヘッダー）スタイリング */
         &_head {
           color: var(--color-black01);
           position: relative;
@@ -128,12 +143,14 @@ const faqs = [
             padding: 1.8rem var(--padding-right) 2rem var(--padding-left);
           }
 
+          /* 質問テキスト先頭への「Q. 」付与 */
           p {
             &::before {
               content: "Q. ";
             }
           }
 
+          /* 右側の開閉アイコン（くの字矢印）描画 */
           &::after {
             content: "";
             position: absolute;
@@ -155,10 +172,12 @@ const faqs = [
           }
         }
 
+        /* アコーディオン展開時の矢印反転アニメーション */
         &.active &_head::after {
           transform: translateY(-32%) rotateY(30deg) rotateZ(-135deg);
         }
 
+        /* 回答コンテンツエリア（初期状態は非表示） */
         &_contents {
           position: relative;
           display: none;
@@ -185,23 +204,30 @@ const faqs = [
   import * as slide from "../../assets/js/lib/slide";
 
   /*-------------------------------------------
-    アコーディオン
+    アコーディオン開閉JavaScript処理
   -------------------------------------------*/
   (() => {
-    const acc_swith = document.querySelectorAll(".js-acc_switch");
+    // 開閉スイッチ要素を全件取得
+    const acc_swith = document.querySelectorAll<HTMLElement>(".js-acc_switch");
+    
     acc_swith.forEach((button) => {
       button.addEventListener("click", () => {
-        let wrapper = button.closest(".js-acc_wrapper");
+        // 親のラッパー要素を取得
+        let wrapper = button.closest<HTMLElement>(".js-acc_wrapper");
         if (wrapper) {
-          let target = wrapper.querySelector(".js-acc_target");
+          // 開閉対象のターゲット要素を取得
+          let target = wrapper.querySelector<HTMLElement>(".js-acc_target");
           if (target) {
             let style = getComputedStyle(target);
-            if (!(style.overflow == "hidden")) {
-              if (style.display == "none") {
+            // 連打防止チェック（アニメーション動作中でない場合のみ処理）
+            if (style.overflow !== "hidden") {
+              if (style.display === "none") {
+                // 開く処理
                 wrapper.classList.add("active");
                 target.classList.add("active");
                 slide.slideDown(target, 470);
               } else {
+                // 閉じる処理
                 wrapper.classList.remove("active");
                 target.classList.remove("active");
                 slide.slideUp(target, 470);

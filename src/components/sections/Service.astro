@@ -602,16 +602,18 @@ const serviceCtaIllustOptimized = await getImage({ src: serviceCtaIllust, format
     アコーディオン
   -------------------------------------------*/
   (() => {
-    const acc_swith = document.querySelectorAll(".js-acc_switch");
+    // HTMLElementの型を指定
+    const acc_swith = document.querySelectorAll<HTMLElement>(".js-acc_switch");
     acc_swith.forEach((button) => {
       button.addEventListener("click", () => {
-        let wrapper = button.closest(".js-acc_wrapper");
+        let wrapper = button.closest<HTMLElement>(".js-acc_wrapper");
         if (wrapper) {
-          let target = wrapper.querySelector(".js-acc_target");
+          let target = wrapper.querySelector<HTMLElement>(".js-acc_target");
           if (target) {
             let style = getComputedStyle(target);
-            if (!(style.overflow == "hidden")) {
-              if (style.display == "none") {
+            // 厳密等価演算子 (===, !==) に変更
+            if (style.overflow !== "hidden") {
+              if (style.display === "none") {
                 wrapper.classList.add("active");
                 target.classList.add("active");
                 slide.slideDown(target, 470);

@@ -3,8 +3,10 @@ import Img from "../utils/ImgLoader.astro";
 import Button from "../ui/Button.astro";
 ---
 
+<!-- FV（ファーストビュー）セクション -->
 <section class="fv">
   <div class="fv__inner">
+    <!-- 背景画像エリア -->
     <div class="fv__bg">
       <Img
         sources={[
@@ -27,6 +29,7 @@ import Button from "../ui/Button.astro";
         fetchpriority="high"
       />
     </div>
+    <!-- キャッチコピー・リード文エリア -->
     <div class="fv__contents">
       <p class="fv__lead">新規事業の推進をリードする方へ</p>
       <h1 class="fv__tit">
@@ -39,7 +42,7 @@ import Button from "../ui/Button.astro";
           ]}
           img={{ src: "text/fv__tit.svg" }}
           width={522}
-          alt="新事業を、構想から事業化まで。共に「形」にする。"
+          alt="新規事業を、構想から事業化まで。共に「形」にする。"
           decoding="sync"
           loading="eager"
         />
@@ -52,8 +55,10 @@ import Button from "../ui/Button.astro";
     </div>
   </div>
 
+  <!-- 実績数値・CTAボタンエリア -->
   <div class="fv__cta">
     <div class="contents_wrapper">
+      <!-- 実績リスト (4項目) -->
       <ul class="fv__cta_list">
         <li class="fv__cta_list_item">
           <div class="fv__cta_list_item_illust_block">
@@ -106,6 +111,7 @@ import Button from "../ui/Button.astro";
         </li>
       </ul>
 
+      <!-- コンバージョンボタン2種 -->
       <div class="fv__cta_buttons">
         <Button class="fv__cta_button" href="#" target="_blank" rel="noopener noreferrer" color="black"> 無料で相談する </Button>
         <Button class="fv__cta_button" href="https://relic.co.jp/contact_dl/" target="_blank" rel="noopener noreferrer" color="white">
@@ -115,6 +121,7 @@ import Button from "../ui/Button.astro";
     </div>
   </div>
 
+  <!-- 調査注記テキスト -->
   <div class="contents_wrapper">
     <p class="fv__attention_text">
       ※2024年7月-10月、株式会社デジタルインファクトによる新規事業開発を支援する業界関係者へのヒアリング、調査主体ならびに調査機関が保有するデータ、公開情報の収集による調査。
@@ -123,6 +130,7 @@ import Button from "../ui/Button.astro";
 </section>
 
 <style lang="scss">
+  /* FVセクション全体のレイアウト設定 */
   .fv {
     position: relative;
     padding-bottom: 9.2rem;
@@ -141,6 +149,8 @@ import Button from "../ui/Button.astro";
         font-size: 1rem;
       }
     }
+    
+    /* 背景画像エリアの配置設定 */
     &__bg {
       width: 119em;
       margin: 0 0 0 auto;
@@ -159,6 +169,7 @@ import Button from "../ui/Button.astro";
       }
     }
 
+    /* キャッチコピー重ね合わせ位置の制御 */
     &__contents {
       position: absolute;
       top: 50%;
@@ -177,6 +188,7 @@ import Button from "../ui/Button.astro";
       }
     }
 
+    /* リード文テキストとアンダーライングラデーション */
     &__lead {
       position: relative;
       width: fit-content;
@@ -192,6 +204,7 @@ import Button from "../ui/Button.astro";
         font-size: 1.4rem;
       }
 
+      /* 18色のグラデーションラインを波線状に表示 */
       &::after {
         content: "";
         position: absolute;
@@ -253,6 +266,7 @@ import Button from "../ui/Button.astro";
       }
     }
 
+    /* 調査注意書きテキスト */
     &__attention_text {
       width: 52rem;
       margin: 3.2rem 1rem 0 auto;
@@ -267,7 +281,7 @@ import Button from "../ui/Button.astro";
       }
     }
 
-    /* fvのcta */
+    /* fv内の実績数値・CTAブロック */
     &__cta {
       margin: 2.8rem auto 0;
       max-width: 120rem;
@@ -275,6 +289,7 @@ import Button from "../ui/Button.astro";
         margin-top: 1.5rem;
       }
 
+      /* 実績数値の横並びレイアウト（SP時は2x2グリッド化） */
       &_list {
         display: flex;
         align-items: stretch;
@@ -293,6 +308,7 @@ import Button from "../ui/Button.astro";
           justify-content: flex-start;
           column-gap: 1rem;
           padding: 1.1rem 0;
+          /* 各アイテム間の仕切り線設定 */
           @include media_min(sp) {
             &:nth-of-type(n + 2) {
               padding-left: 2.4rem;
@@ -300,6 +316,7 @@ import Button from "../ui/Button.astro";
               border-left: 1px solid #d9d9d9;
             }
           }
+          /* SP時の並び順（order）制御 */
           @include media_max(sp) {
             padding: 0.4rem 0 0.5rem;
             &:nth-of-type(1) {
@@ -337,6 +354,8 @@ import Button from "../ui/Button.astro";
           &_contents {
             flex: 1;
           }
+          
+          /* 数値タイトル・フォントサイズ調整 */
           &_tit {
             position: relative;
             width: fit-content;
@@ -364,6 +383,7 @@ import Button from "../ui/Button.astro";
               }
             }
 
+            /* 米印アスタリスクの右寄せ表示 */
             &_attention {
               position: absolute;
               top: 0;
@@ -390,6 +410,7 @@ import Button from "../ui/Button.astro";
         }
       }
 
+      /* ボタンエリア（2並列） */
       &_buttons {
         display: flex;
         justify-content: center;
@@ -416,6 +437,7 @@ import Button from "../ui/Button.astro";
           }
         }
       }
+      /* 白ボタンのボーダー色上書き */
       :global(.button--white) {
         --border_color: var(--color-black01);
         @include media_max(sp) {

@@ -8,10 +8,12 @@ import { getImage } from "astro:assets";
 import dualiiBg from "../../assets/img/design/dualii__bg.png";
 import dualiiBgSp from "../../assets/img/design/dualii__bg-sp.png";
 
+// 背景画像の最適化（WebP変換）処理
 const dualiiBgImgOptimized = await getImage({ src: dualiiBg, format: "webp" });
 const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
 ---
 
+<!-- DUALii（出島共創スキーム）セクション -->
 <section
   id="dualii"
   class="dualii main_section lazy_section"
@@ -21,8 +23,10 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
   }}
 >
   <div class="contents_wrapper">
-    <SectionHeader headingText="＋α　Relicだけの、もう一つの特徴" imgSrc="text/dualii__heading.svg" imgWidth={160} imgAlt="DUALii" align="center" />
+    <!-- セクションヘッダー -->
+    <SectionHeader headingText="＋α Relicだけの、もう一つの特徴" imgSrc="text/dualii__heading.svg" imgWidth={160} imgAlt="DUALii" align="center" />
 
+    <!-- メインタイトル画像（SP/PC切り替え） -->
     <h3 class="dualii__tit">
       <Img
         sources={[
@@ -37,6 +41,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
       />
     </h3>
 
+    <!-- DUALiiの概要定義リスト -->
     <dl class="dualii__block">
       <dt class="dualii__block_tit">
         DUALii<span class="dualii__block_tit_smaller">(デュアリー)</span>とは？
@@ -45,6 +50,8 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
         一気通貫で実行・検証するインキュベーション・プラットフォームです。市場の中で事業を磨き上げ、検証済みの事業を貴社へ持ち帰る。そこから事業化・スケールへつなげます。
       </dd>
     </dl>
+    
+    <!-- DUALii説明図 -->
     <div class="dualii__figure">
       <Img
         sources={[
@@ -53,7 +60,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
             src: "dualii__figure_img-sp.png",
             width: 375,
             widths: [350, 700, 1050],
-            sizes: "100vw",
+            sizes: "90vw",
           },
         ]}
         img={{
@@ -61,11 +68,12 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
           widths: [945, 1410],
         }}
         width={945}
-        sizes="(max-width: 1200px) 100vw, 1200px"
+        sizes="(max-width: 1200px) 90vw, 1200px"
         alt="「DUALii」の説明図"
       />
     </div>
 
+    <!-- DUALiiのメリット（実現できること）リスト -->
     <h3 class="dualii__list_tit">「DUALii」で実現できること</h3>
     <ul class="dualii__list">
       <li class="dualii__list_item">
@@ -85,6 +93,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
       </li>
     </ul>
 
+    <!-- DUALii詳細への導線（CTAカード） -->
     <div class="dualii__cta">
       <div class="dualii__cta_inner">
         <div class="dualii__cta_contents">
@@ -103,6 +112,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
 </section>
 
 <style lang="scss">
+  /* セクション全体パターンと上・下のグラデーション境界線設定 */
   .dualii {
     position: relative;
     background: var(--color-black02);
@@ -139,11 +149,13 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
       border-width: 1.8rem;
     }
 
+    /* コンポーネント内のセクションヘッダー色を白用に上書き */
     :global(.section_header) {
       --color-text: #fff;
       --color-border: #fff;
     }
 
+    /* タイトル画像スタイル */
     &__tit :global(img) {
       width: auto;
       height: 11.7rem;
@@ -156,6 +168,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
       }
     }
 
+    /* 「DUALiiとは？」のレイアウト */
     &__block {
       display: flex;
       align-items: stretch;
@@ -202,6 +215,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
       }
     }
 
+    /* 図版（イラスト）エリア */
     &__figure {
       max-width: 95rem;
       margin: 6.6rem auto 0;
@@ -211,6 +225,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
       }
     }
 
+    /* メリットリスト見出し */
     &__list_tit {
       margin: 8.7rem auto 5rem;
       font-size: 3.2rem;
@@ -222,7 +237,10 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
         font-size: 2rem;
       }
     }
+
+    /* メリットリスト（3カラム／SP時1カラム） */
     &__list {
+      /* ナンバリング用のカウンターをリセット */
       counter-reset: number 0;
       display: flex;
       align-items: stretch;
@@ -264,6 +282,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
           }
         }
 
+        /* 項目番号（01, 02, 03）とCAPABILITIESテキスト表示 */
         &_number {
           display: flex;
           flex-direction: column;
@@ -273,12 +292,14 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
           margin-bottom: 2.2rem;
           color: #d9d9d9;
 
+          /* 上部にラベルを表示 */
           &::before {
             content: "CAPABILITIES";
             font-weight: 700;
             font-size: 0.22em;
             letter-spacing: -0.04em;
           }
+          /* カウンターを自動インクリメントして2桁表示 */
           &::after {
             counter-increment: number 1;
             content: counter(number, decimal-leading-zero);
@@ -321,7 +342,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
       }
     }
 
-    /* cta */
+    /* DUALii用セクション内CTAカード */
     &__cta {
       position: relative;
       width: 100%;
@@ -335,6 +356,7 @@ const dualiiBgSpOptimized = await getImage({ src: dualiiBgSp, format: "webp" });
         margin-top: 3.2rem;
       }
 
+      /* CTA下部のグラデーションライン */
       &::after {
         content: "";
         position: relative;

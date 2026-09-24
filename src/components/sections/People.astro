@@ -6,10 +6,21 @@ import SectionHeader from "../ui/SectionHeader.astro";
 import { getImage } from "astro:assets";
 import bgVisualImg from "../../assets/img/design/bg_visual_img02.jpg";
 
+// 背景ビジュアル画像のWebP最適化処理
 const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" });
 
 /**
- * 人材紹介を配列で管理
+ * 「人材紹介」（Expert）の型定義
+ */
+type Expert = {
+  img: string;
+  position: string;
+  name: string;
+  introduction: string;
+};
+
+/**
+ * 「人材紹介」を配列で管理
  *
  * img:人物画像のパス（推奨アスペクト比：1/1）
  * name: `名前`,
@@ -17,7 +28,7 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
  * introduction: `紹介文`,
  */
 
-const experts = [
+const experts: Expert[] = [
   {
     img: `people__expert_img001.jpg`,
     position: `代表取締役CEO｜Founder`,
@@ -26,13 +37,13 @@ const experts = [
   },
   {
     img: `people__expert_img002.jpg`,
-    position: `代表取締役CTO ｜ Co-Founder`,
+    position: `代表取締役CTO｜Co-Founder`,
     name: `大庭 亮`,
     introduction: `奈良先端科学技術大学院大学 情報科学研究科に在学中、産業技術総合研究所の技術研修生としてロボット工学の研究やロボット開発に従事した後、DeNAに入社。EC事業領域の新規事業・新規サービスや大手小売業との協働事業であるECサイトやショッピングモールの開発・運用の責任者としてリード。その後、100万人以上のユーザーが利用するスマートフォンアプリの開発や新規事業の開発リーダーを経験。2015年より複数のスタートアップのサービス開発や運用支援、及び技術アドバイザリーに従事した後、2016年、株式会社Relicに参画し、取締役CTOに就任。`,
   },
   {
     img: `people__expert_img003.jpg`,
-    position: `取締役CRO ｜Co-Founder`,
+    position: `取締役CRO｜Co-Founder`,
     name: `大丸 徹也`,
     introduction: `慶應義塾大学卒業後、フューチャーアーキテクトにてITコンサルティングやシステム開発のPMを多数経験し、大手流通小売業の大規模システム刷新プロジェクトでは要件定義から保守/運用までプロジェクトリーダーとして推進。その後、DeNAに入社し、主にEC事業領域での新規事業や大手小売業とのオープンイノベーションによる新規事業の運営責任者を歴任。2015年に独立し、大手出版社や大手IT/通信事業者、EC事業者やスタートアップへのコンサルティングやハンズオンでの経営支援など幅広く活動。2016年に株式会社Relicに参画し、取締役COOに就任。`,
   },
@@ -64,7 +75,7 @@ const experts = [
     img: `people__expert_img008.jpg`,
     position: `執行役員｜イノベーションマネジメント事業部 VP`,
     name: `土谷 勇太郎`,
-    introduction: `岩手大学農学部農林環境科学科を卒業後、大手メーカーに入社。その後、M&Aコンサルティング会社に転職し、2018年にM&Aコンサルティング・プラットフォーム事業を手掛ける「株式会社ALIVAL(現：M&Aナビ)」に共同創業メンバーとして立ち上げに参画。上場企業や国内外ファンドによる、中堅企業やスタートアップ企業等の買収やカーブアウトの実行支援に従事。Relicでは大企業向けの新規事業創出のための、制度・運用設計、ボトムアップやトップダウンの新規事業戦略・方針の策定、スタートアップM＆AやCVCの戦略・実行支援等、幅広い領域で支援を推進。`,
+    introduction: `岩手大学農学部農林環境科学科を卒業後、大手メーカーに入社。その後、M&Aコンサルティング会社に転職し、2018年にM&Aコンサルティング・プラットフォーム事業を手掛ける「株式会社ALIVAL(現：M&Aナビ)」に共同創業メンバーとして立ち上げに参画。上場企業や国内外ファンドによる、中堅企業やスタートアップ企業等の買収やカーブアウトの実行支援に従事。Relicでは大企業向けの新規事業創出のための、制度・運用設計、ボトムアップやトップダウンの新規事業戦略・方針の策定、スタートアップM&AやCVCの戦略・実行支援等、幅広い領域で支援を推進。`,
   },
   {
     img: `people__expert_img009.jpg`,
@@ -92,9 +103,9 @@ const experts = [
   },
   {
     img: `people__expert_img013.jpg`,
-    position: `執行役員 ｜新規事業開発室長`,
+    position: `執行役員｜新規事業開発室長`,
     name: `土屋 益雄`,
-    introduction: `大学卒業後、中小企業向けコンサルティング会社に入社。2004年にDeNAへ入社し、大手レコード会社との新規事業の立ち上げ・グロースを担当後、モバゲータウンで小説・音楽等の企画立ち上げを推進後、DeNAトラベルで海外オンライン旅行事業のマーケティング・企画編集責任者として事業グロースや新規メディア立ち上げを推進。モバオクで事業企画・マーケティングを担当。2016年にKDDIコマースフォワード（現auコマース＆ライフ）へ執行役員として参画。2019年のLUXAとの合併後、戦略・管理部門責任者を経て2020年に取締役就任。2023年に株式会社Relicへ参画。`,
+    introduction: `大学卒業後、中小企業向けコンサルティング会社に入社。2004年にDeNAへ入社し、大手レコード会社との新規事業の立ち上げ・グロースを担当後、モバゲータウンで小説・音楽等の企画立ち上げを推進後、DeNAトラベルで海外オンライン旅行事業のマーケティング・企画編集責任者として事業グロースや新規メディア立ち上げを推進。モバオクで事業企画・マーケティングを担当。2016年にKDDIコマースフォワード（現auコマース&ライフ）へ執行役員として参画。2019年のLUXAとの合併後、戦略・管理部門責任者を経て2020年に取締役就任。2023年に株式会社Relicへ参画。`,
   },
   {
     img: `people__expert_img014.jpg`,
@@ -110,13 +121,13 @@ const experts = [
   },
   {
     img: `people__expert_img016.jpg`,
-    position: `執行役員 ｜x-AI事業部長`,
+    position: `執行役員｜x-AI事業部長`,
     name: `臺 健太郎`,
     introduction: `同志社大学経済学部卒業後、国家公務員として省庁で勤務した後、東京都庁、福島県庁などで政策立案・施策推進に従事し、国・自治体双方で制度設計と実務を経験。その後Relicに入社し、クラウドファンディング・ECプラットフォーム開発でリードエンジニアを務め、iOS/Androidアプリのバックエンド・インフラ開発も牽引。SREを主戦場とし、新規事業開発を強みとする。現在はx-AI事業部長としてクラウド・AI・ハードウェアを活用したソリューション提供を担う。2023年にPro3Labを設立しCEOに就任。RubyWorld Conference 2022登壇、AWS公式認定資格を複数保有。`,
   },
   {
     img: `people__expert_img017.jpg`,
-    position: `執行役員 ｜x-AI事業部長`,
+    position: `執行役員｜x-AI事業部 VP`,
     name: `本田 佳久`,
     introduction: `東京工業大学大学院総合理工学研究科卒業後、日本電気株式会社に入社し、IoT・AI等を活用した新規事業開発に従事。大手小売へ出向し、企業間データ利活用サービス開発を経験。新規事業開発に強みをもつコンサルティングファームに転職し、新規事業開発支援を担当。Relic参画後は、AI/LLMを活用した業務効率化やAIエージェントの企画など、AI/LLM技術の新規事業活用プロジェクトを推進。事業会社・コンサルティングファーム双方での事業開発経験と豊富なプロジェクトマネジメントを強みに、アイデア創出から計画立案、プロトタイプ構築、KPI設定まで一気通貫で支援。`,
   },
@@ -129,6 +140,7 @@ const experts = [
 ];
 ---
 
+<!-- 専門人材（PEOPLE）セクション -->
 <section
   id="people"
   class="people main_section"
@@ -136,10 +148,14 @@ const experts = [
     "--bgVisualImgUrl": `url(${bgVisualImgOptimized.src})`,
   }}
 >
+  <!-- 背景用描画要素 -->
   <div class="people__bg"></div>
   <div class="people__inner">
     <div class="contents_wrapper">
+      <!-- セクションヘッダー -->
       <SectionHeader headingText="私たちを構成する人" imgSrc="text/people__heading.svg" imgWidth={258} imgAlt="PEOPLE" align="left" />
+      
+      <!-- メインタイトル画像 -->
       <h3 class="people__tit">
         <Img
           sources={[
@@ -153,9 +169,13 @@ const experts = [
           alt="難所を共に越える、`事業を立てた経験`を持つ人"
         />
       </h3>
+      
+      <!-- リード文 -->
       <p class="people__text">
         メソッドでもプロダクトでもなく、まず「人」。<br class="sp_only" />ご支援に入るのは、自分自身で事業を立ち上げてきた経験を持つ専門人材です。
       </p>
+
+      <!-- 専門家メンバーのスライダー（Swiper）エリア -->
       <div class="people__experts_wrapper swiper js-expert_swiper">
         <p class="people__experts_hint">スワイプで他のメンバーを見る</p>
         <ul class="people__experts swiper-wrapper">
@@ -168,7 +188,7 @@ const experts = [
                       src: expert.img,
                       widths: [960, 640, 480, 400, 320],
                     }}
-                    sizes="(max-width: 768px) 100vw, 400px"
+                    sizes="(max-width: 768px) 87vw, 400px"
                     width={400}
                     alt={expert.name}
                   />
@@ -182,6 +202,8 @@ const experts = [
         </ul>
         <div class="swiper-scrollbar"></div>
       </div>
+
+      <!-- ブロック01: Relicの実行体制図エリア -->
       <div class="people__block01">
         <h4 class="people__block01_tit">
           構想を実行へ変える、<br />Relicの実行体制
@@ -197,7 +219,7 @@ const experts = [
                 src: "people__figure-sp.png",
                 width: 375,
                 widths: [1125, 750, 375],
-                sizes: "100vw",
+                sizes: "110vw",
               },
             ]}
             img={{
@@ -215,14 +237,17 @@ const experts = [
               src: "people__figure_detail-sp.png",
               widths: [800, 500],
             }}
-            sizes="(max-width: 768px) 100vw, 500px"
+            sizes="(max-width: 768px) 90vw, 500px"
             width={500}
             alt=""
           />
         </div>
       </div>
+
+      <!-- ブロック02: 特徴カード3種（PC時:グリッド / SP時:Swiper） -->
       <div class="people__block02_wrapper swiper js-people_swiper">
         <div class="people__block02 swiper-wrapper">
+          <!-- 特徴1 -->
           <div class="people__block02_box swiper-slide">
             <div class="people__block02_box_illust_block">
               <Img
@@ -230,7 +255,7 @@ const experts = [
                   src: "people__illust01.png",
                   widths: [600, 450, 300],
                 }}
-                sizes="(max-width: 768px) 100vw, 300px"
+                sizes="(max-width: 768px) 76vw, 300px"
                 width={300}
                 alt=""
               />
@@ -243,6 +268,8 @@ const experts = [
               自分自身で事業を立ち上げ、グロースさせ、時に撤退判断まで下してきた人材が、貴社の事業オーナーの傍らで伴走します。机上の空論ではなく、自分の事業として動かします。
             </p>
           </div>
+
+          <!-- 特徴2 -->
           <div class="people__block02_box swiper-slide">
             <div class="people__block02_box_illust_block">
               <Img
@@ -250,7 +277,7 @@ const experts = [
                   src: "people__illust02.png",
                   widths: [600, 450, 300],
                 }}
-                sizes="(max-width: 768px) 100vw, 300px"
+                sizes="(max-width: 768px) 76vw, 300px"
                 width={300}
                 alt=""
               />
@@ -263,6 +290,8 @@ const experts = [
               社員の約半数がエンジニアまたはデザイナー。事業開発・PdM・UX/UI・エンジニアリング・グロースマーケまでを、ひとつのチームで提供します。"分業の壁"がそもそも発生しません。
             </p>
           </div>
+
+          <!-- 特徴3 -->
           <div class="people__block02_box swiper-slide">
             <div class="people__block02_box_illust_block">
               <Img
@@ -270,7 +299,7 @@ const experts = [
                   src: "people__illust03.png",
                   widths: [600, 450, 300],
                 }}
-                sizes="(max-width: 768px) 100vw, 300px"
+                sizes="(max-width: 768px) 76vw, 300px"
                 width={300}
                 alt=""
               />
@@ -284,6 +313,7 @@ const experts = [
             </p>
           </div>
         </div>
+        <!-- SP用ページネーション -->
         <div class="swiper-pagination sp_only"></div>
       </div>
     </div>
@@ -291,6 +321,7 @@ const experts = [
 </section>
 
 <style lang="scss">
+  /* 専門人材セクション全体スタイル */
   .people {
     position: relative;
     background: var(--color-black02);
@@ -308,6 +339,7 @@ const experts = [
       padding-top: 21rem;
     }
 
+    /* 右上の背景ビジュアルグラフィック */
     &::before {
       content: "";
       position: absolute;
@@ -323,6 +355,7 @@ const experts = [
       }
     }
 
+    /* 背景グリッド線模様 */
     &__bg::before {
       content: "";
       position: absolute;
@@ -340,6 +373,7 @@ const experts = [
         background-position: 0rem 0rem;
       }
     }
+    /* 下部の斜め切削ポリゴン背景 */
     &__bg::after {
       content: "";
       position: absolute;
@@ -358,6 +392,7 @@ const experts = [
       }
     }
 
+    /* コンポーネント内のセクションヘッダー色定義をオーバーライド */
     :global(.section_header) {
       --color-text: var(--color-white);
       --color-border: var(--color-dark_beige01);
@@ -383,6 +418,7 @@ const experts = [
       }
     }
 
+    /* 専門家メンバー横スクロール（Swiper）エリア */
     &__experts_wrapper {
       margin-top: 8rem;
       margin-left: -5rem;
@@ -398,6 +434,7 @@ const experts = [
     &__experts {
       display: flex;
 
+      /* 「スワイプで他のメンバーを見る」誘導テキスト */
       &_hint {
         display: flex;
         align-items: center;
@@ -461,11 +498,12 @@ const experts = [
       }
     }
 
+    /* スライダー初期化前のチラつき防止（透明化） */
     &__experts_wrapper:not(.swiper-initialized) {
       opacity: 0;
     }
 
-    /* block01 */
+    /* ブロック01：実行体制のグリッドレイアウト */
     &__block01 {
       margin-top: 8.7rem;
       @include media_max(sp) {
@@ -522,7 +560,7 @@ const experts = [
       }
     }
 
-    //　sp版 swiper
+    /* ブロック02：特徴カードレイアウト */
     &__block02_wrapper {
       @include media_min(sp) {
         overflow: inherit;
@@ -573,6 +611,7 @@ const experts = [
           font-family: var(--font-noto_serif);
           line-height: 1.4;
           z-index: 1;
+          /* ナンバリング数値背景の描画 */
           &::before {
             content: var(--slide-num);
             position: absolute;
@@ -595,7 +634,8 @@ const experts = [
         }
       }
     }
-    // swiepr初期化時の調整
+    
+    /* Swiper初期化前の1枚目以外のカード非表示制御 */
     @include media_max(sp) {
       &__block02_wrapper:not(.swiper-initialized) {
         opacity: 0;
@@ -605,7 +645,7 @@ const experts = [
       }
     }
 
-    /* スクロールバーのカスタム */
+    /* カスタムスクロールバー（Swiper） */
     .swiper-scrollbar {
       position: static;
       background: transparent;
@@ -632,21 +672,21 @@ const experts = [
   // @ts-ignore
   import "swiper/css/bundle";
 
-  // querySelectorAllに型を指定
+  // js-expert_swiper を持つ要素を取得
   const sliders = document.querySelectorAll<HTMLElement>(".js-expert_swiper");
 
   if (sliders.length > 0) {
-    let isSwiperLoaded = false;
+    let isSwiperLoaded: boolean = false;
 
-    // 明示的に any 型を指定してエラーを回避
+    // 型定義エラー回避用の型指定
     let SwiperClass: any;
     let swiperModules: any[];
 
-    const initExpertSwipers = () => {
+    // 専門家カード用Swiperスライダー初期化処理
+    const initExpertSwipers = (): void => {
       sliders.forEach((slider) => {
         if (slider.classList.contains("swiper-initialized")) return;
 
-        // HTMLElementとして型を指定
         const scrollbarEl = slider.querySelector<HTMLElement>(".swiper-scrollbar");
 
         new SwiperClass(slider, {
@@ -661,7 +701,7 @@ const experts = [
           loop: false,
           slidesPerView: 1.1,
           speed: 500,
-          spaceBetween: "5%",
+          spaceBetween: "5%" as any,
           scrollbar: scrollbarEl
             ? {
                 el: scrollbarEl,
@@ -671,20 +711,20 @@ const experts = [
           breakpoints: {
             768: {
               slidesPerView: 3.5,
-              spaceBetween: "3.25%",
+              spaceBetween: "3.25%" as any,
             },
           },
         });
       });
     };
 
+    // 画面内に入ったタイミングで遅延初期化（IntersectionObserver）
     const observer = new IntersectionObserver(
       async (entries, obs) => {
         if (entries.some((entry) => entry.isIntersecting)) {
           obs.disconnect();
 
           if (!isSwiperLoaded) {
-            // 動的インポートの直前に @ts-ignore を付与して型チェックをスキップ
             // @ts-ignore
             const { default: Swiper, Navigation, Autoplay, EffectFade, Scrollbar, Mousewheel, FreeMode } = await import("swiper");
 
@@ -704,6 +744,6 @@ const experts = [
     });
   }
 
-  // コンポーネントよりスライダーの初期化
+  // ブロック02（特徴カード）のSP用Swiper初期化関数の呼び出し
   setupResponsiveSwiperSp(".js-people_swiper");
 </script>

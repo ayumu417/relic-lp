@@ -8,11 +8,13 @@ import problemBg from "../../assets/img/design/problem__bg.png";
 import problemBgSp from "../../assets/img/design/problem__bg-sp.png";
 import bgVisualImg from "../../assets/img/design/bg_visual_img01.jpg";
 
+// 背景画像の最適化（WebP変換）処理
 const problemBgImgOptimized = await getImage({ src: problemBg, format: "webp" });
 const problemBgSpOptimized = await getImage({ src: problemBgSp, format: "webp" });
 const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" });
 ---
 
+<!-- 課題提起（PROBLEM）セクション -->
 <section
   class="problem main_section"
   style={{
@@ -22,8 +24,10 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
   }}
 >
   <div class="contents_wrapper">
+    <!-- セクションヘッダー（右寄せ） -->
     <SectionHeader headingText="新規事業を阻む、3つの壁" imgSrc="text/problem__heading.svg" imgWidth={228} imgAlt="PROBLEM" align="right" />
 
+    <!-- メイン見出し画像 -->
     <h3 class="problem__tit">
       <Img
         sources={[
@@ -39,11 +43,13 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
       />
     </h3>
 
+    <!-- リードテキスト -->
     <p class="problem__text">
       私たちは5,000社以上の支援を通じて、<br />
       新規事業の責任者がどこでつまずくかを<br class="sp_only" />身をもって知っています。<br class="sp_only" />突き詰めると、この3つです。
     </p>
 
+    <!-- 3つの壁カード（PC時:階段状配置 / SP時:Swiperスライダー） -->
     <div class="problem__block_wrapper swiper js-problem_swiper">
       <div class="problem__block swiper-wrapper">
         <div class="problem__block_box swiper-slide">
@@ -68,6 +74,7 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
             </p>
           </div>
         </div>
+
         <div class="problem__block_box swiper-slide">
           <Img
             img={{
@@ -87,6 +94,7 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
             <p class="problem__block_box_text">戦略構築や社内調整は得意でも、事業を実際に立ち上げた経験を持つ人材・チームが社内にいない。泥臭い実務までやりきれる現場部隊が欲しい。</p>
           </div>
         </div>
+
         <div class="problem__block_box swiper-slide">
           <Img
             img={{
@@ -108,12 +116,14 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
         </div>
       </div>
 
+      <!-- SP用ページネーション -->
       <div class="swiper-pagination sp_only"></div>
     </div>
   </div>
 </section>
 
 <style lang="scss">
+  /* 課題提起セクション全体の背景とパディング設定 */
   .problem {
     position: relative;
     background-image: var(--problemBgUrl);
@@ -130,6 +140,7 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
       padding-top: 12.5rem;
     }
 
+    /* 左上の背景ビジュアルグラフィック表示 */
     &::before {
       content: "";
       position: absolute;
@@ -180,7 +191,7 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
       }
     }
 
-    //　sp版 swiper
+    /* SP版Swiperスライダー用エリア設定 */
     &__block_wrapper {
       @include media_min(sp) {
         overflow: inherit;
@@ -190,6 +201,8 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
         margin-right: -2.5rem;
       }
     }
+    
+    /* カードコンテナ設定 */
     & &__block {
       @include media_min(sp) {
         display: flex;
@@ -200,11 +213,15 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
       @include media_max(sp) {
         margin-top: 3.5rem;
       }
+      
+      /* 各カードのスタイル */
       &_box {
         height: auto;
         background: #fff;
         border-radius: 1.4rem;
         filter: drop-shadow(0 0 2rem rgba(0, 0, 0, 0.1));
+        
+        /* PC時に2番目・3番目のカードを段々（階段状）に下へずらすアニメーション効果 */
         @include media_min(sp) {
           flex: 1;
           @for $i from 2 through 3 {
@@ -228,6 +245,7 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
             padding: 3.2rem 2.5rem 3rem;
           }
 
+          /* カード背景右上の連番表示（01, 02, 03） */
           &::before {
             content: var(--slide-num);
             position: absolute;
@@ -280,7 +298,8 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
         }
       }
     }
-    // swiepr初期化時の調整
+    
+    /* Swiper初期化前の1枚目以外のカード非表示制御（レイアウト崩れ対策） */
     @include media_max(sp) {
       &__block_wrapper:not(.swiper-initialized) {
         opacity: 0;
@@ -295,6 +314,6 @@ const bgVisualImgOptimized = await getImage({ src: bgVisualImg, format: "webp" }
 <script>
   import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp";
 
-  // コンポーネントよりスライダーの初期化
+  // SP用スライダー初期化関数の呼び出し
   setupResponsiveSwiperSp(".js-problem_swiper");
 </script>

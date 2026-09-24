@@ -3,19 +3,25 @@ import Img from "../utils/ImgLoader.astro";
 import SectionHeader from "../ui/SectionHeader.astro";
 ---
 
+<!-- ご支援開始までの流れ（FLOW）セクション -->
 <section class="flow main_section">
   <div class="contents_wrapper">
+    <!-- セクションヘッダー -->
     <SectionHeader headingText="ご支援開始までの流れ" imgSrc="text/flow__heading.svg" imgWidth={258} imgAlt="FLOW" align="left" />
 
+    <!-- メイン見出し画像 -->
     <h3 class="flow__tit">
       <Img img={{ src: "text/flow__tit.svg" }} width={590} alt="最短2週間での、伴走スタート" />
     </h3>
 
+    <!-- 注記付きリードテキスト -->
     <p class="flow__text">
       ISO/IEC 27001 認証取得済。<span class="flow__text_mark">※</span>ご相談前のNDA締結にも対応します。<span class="flow__text_smaller">※東京本社のみ適用</span>
     </p>
 
+    <!-- フローのステップリスト（1〜4） -->
     <ol class="flow__block">
+      <!-- ステップ1 -->
       <li class="flow__block_item">
         <div class="flow__block_item_illust_block">
           <Img
@@ -23,7 +29,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
               src: "flow__illust01.png",
               widths: [380, 250, 190],
             }}
-            sizes="(max-width: 768px) 100vw, 190px"
+            sizes="(max-width: 768px) 40vw, 190px"
             width={190}
             alt=""
           />
@@ -33,6 +39,8 @@ import SectionHeader from "../ui/SectionHeader.astro";
           <p class="flow__block_item_text">60分のヒアリング。課題と目指す姿の整理。</p>
         </div>
       </li>
+
+      <!-- ステップ2 -->
       <li class="flow__block_item">
         <div class="flow__block_item_illust_block">
           <Img
@@ -40,7 +48,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
               src: "flow__illust02.png",
               widths: [380, 250, 190],
             }}
-            sizes="(max-width: 768px) 100vw, 190px"
+            sizes="(max-width: 768px) 40vw, 190px"
             width={190}
             alt=""
           />
@@ -50,6 +58,8 @@ import SectionHeader from "../ui/SectionHeader.astro";
           <p class="flow__block_item_text">支援内容・体制・スケジュールのご提案。</p>
         </div>
       </li>
+
+      <!-- ステップ3 -->
       <li class="flow__block_item">
         <div class="flow__block_item_illust_block">
           <Img
@@ -57,7 +67,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
               src: "flow__illust03.png",
               widths: [380, 250, 190],
             }}
-            sizes="(max-width: 768px) 100vw, 190px"
+            sizes="(max-width: 768px) 40vw, 190px"
             width={190}
             alt=""
           />
@@ -67,6 +77,8 @@ import SectionHeader from "../ui/SectionHeader.astro";
           <p class="flow__block_item_text">体制構築・スコープ確定・初回会議。</p>
         </div>
       </li>
+
+      <!-- ステップ4 -->
       <li class="flow__block_item">
         <div class="flow__block_item_illust_block">
           <Img
@@ -74,7 +86,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
               src: "flow__illust04.png",
               widths: [380, 250, 190],
             }}
-            sizes="(max-width: 768px) 100vw, 190px"
+            sizes="(max-width: 768px) 40vw, 190px"
             width={190}
             alt=""
           />
@@ -89,6 +101,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
 </section>
 
 <style lang="scss">
+  /* フローセクション全体のスタイル */
   .flow {
     position: relative;
     padding-top: 6.2rem;
@@ -98,10 +111,12 @@ import SectionHeader from "../ui/SectionHeader.astro";
       padding-bottom: 2rem;
     }
 
+    /* セクションヘッダーのアンダーライン色をブラックに変更 */
     :global(.section_header)::after {
       background: var(--color-black02);
     }
 
+    /* メイン見出し画像スタイル */
     &__tit :global(img) {
       width: auto;
       height: 5.4rem;
@@ -114,6 +129,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
       }
     }
 
+    /* 注記付きテキストスタイル */
     &__text {
       margin-top: 2.2rem;
       font-weight: 500;
@@ -121,6 +137,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
         margin-top: 1.2rem;
       }
 
+      /* 米印のスタイリング */
       &_mark {
         position: relative;
         margin-left: -1em;
@@ -129,12 +146,14 @@ import SectionHeader from "../ui/SectionHeader.astro";
         line-height: 1;
         vertical-align: top;
       }
+      /* 補足テキストの小サイズ化 */
       &_smaller {
         font-size: 1.2rem;
         margin-left: 0.8em;
       }
     }
 
+    /* ステップ配置用レイアウト */
     &__block {
       display: flex;
       align-items: flex-start;
@@ -156,6 +175,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
           column-gap: 1.9rem;
         }
 
+        /* イラストと背景矢印描画エリア */
         &_illust_block {
           position: relative;
           width: fit-content;
@@ -167,6 +187,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
             filter: drop-shadow(0 0 2rem rgba(0, 0, 0, 0.1));
           }
 
+          /* clip-pathによるマゼンタ色の右向き（SP時は下向き）矢印を描画 */
           &::after {
             content: "";
             position: absolute;
@@ -188,6 +209,7 @@ import SectionHeader from "../ui/SectionHeader.astro";
           }
         }
 
+        /* 各ステップの重なり順（z-index）を順に下げて矢印が重なるように制御 */
         @for $i from 1 through 5 {
           &:nth-child(#{$i}) &_illust_block {
             z-index: 10 - $i;

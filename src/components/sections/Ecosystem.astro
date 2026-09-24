@@ -6,18 +6,23 @@ import SectionHeader from "../ui/SectionHeader.astro";
 import { getImage } from "astro:assets";
 import bgDesignImg from "../../assets/img/design/bg_design_img05.png";
 
+// 背景デザイン画像のWebP最適化処理
 const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
+
+/**
+ * 企業情報の型定義
+ */
+type Company = {
+  logo: string;
+  name: string;
+  text: string;
+};
 
 /**
  * 企業一覧を配列で管理
  * ※ HTMLタグの記載可能
- *
- * logo: `画像パス`,
- * name: `名前`,
- * text: `テキスト`,
  */
-
-const companys = [
+const companys: Company[] = [
   {
     logo: `ecosystem__logo001.png`,
     name: `Relic Holdings`,
@@ -81,25 +86,31 @@ const companys = [
 ];
 ---
 
+<!-- 事業共創エコシステム（ECOSYSTEM）セクション -->
 <section
   class="ecosystem main_section"
   style={{
     "--bgDesignImgUrl": `url(${bgDesignImgOptimized.src})`,
   }}
 >
+  <!-- 背景デザイン描画用要素 -->
   <div class="ecosystem__bg"></div>
   <div class="contents_wrapper">
+    <!-- セクションヘッダー -->
     <SectionHeader headingText="事業共創エコシステム" imgSrc="text/ecosystem__heading.svg" imgWidth={258} imgAlt="ECOSYSTEM" align="left" />
 
+    <!-- メイン見出し画像 -->
     <h3 class="ecosystem__tit">
       <Img img={{ src: "text/ecosystem__tit.svg" }} width={570} alt="28社体制で構成する、事業創出のエコシステム" />
     </h3>
 
+    <!-- リード文 -->
     <p class="ecosystem__text">
       Relicは支援するだけでなく、自ら事業会社群を運営する事業共創グループ。<br />
       各領域の専門会社が連携し、貴社の事業を立ち上げ、育て、自走するまで伴走します。
     </p>
 
+    <!-- 企業一覧リスト（PC時:グリッド / SP時:Swiperスライダー） -->
     <div class="ecosystem__list_wrapper swiper js-ecosystem_swiper">
       <ul class="ecosystem__list swiper-wrapper">
         {
@@ -111,7 +122,7 @@ const companys = [
                     src: company.logo,
                     widths: [530, 400, 300],
                   }}
-                  sizes="(max-width: 768px) 100vw, 400px"
+                  sizes="(max-width: 768px) 70vw, 400px"
                   width={266}
                   alt={company.name}
                 />
@@ -125,17 +136,20 @@ const companys = [
         }
       </ul>
 
+      <!-- SP用スクロールバー -->
       <div class="swiper-scrollbar sp_only"></div>
     </div>
   </div>
 </section>
 
 <style lang="scss">
+  /* エコシステムセクションの全体スタイル */
   .ecosystem {
     position: relative;
     padding-top: 5rem;
     padding-bottom: 10rem;
 
+    /* 右上の装飾アクセント画像 */
     &::before {
       content: "";
       position: absolute;
@@ -153,6 +167,7 @@ const companys = [
       }
     }
 
+    /* 背景のグラデーションおよび方眼パターンレイヤー */
     &__bg::before,
     &__bg::after {
       --top: -30.9rem;
@@ -169,12 +184,14 @@ const companys = [
         height: calc(100%);
       }
     }
+    /* 縦グラデーション背景 */
     &__bg::before {
       background-image: linear-gradient(180deg, rgba(241, 241, 241, 0) 0%, rgba(241, 241, 241, 1) 20%);
       @include media_max(sp) {
         background: #f1f1f1;
       }
     }
+    /* 方眼グリッド線パターン背景 */
     &__bg::after {
       height: 106rem;
       background-color: transparent;
@@ -207,7 +224,7 @@ const companys = [
       }
     }
 
-    //　sp版 swiper
+    /* SP版Swiperスライダー用レイアウト */
     &__list_wrapper {
       @include media_min(sp) {
         overflow: inherit;
@@ -217,6 +234,7 @@ const companys = [
         margin-right: -2.5rem;
       }
     }
+    /* 企業カードの配置（PC時は4カラムグリッド） */
     & &__list {
       @include media_min(sp) {
         display: grid;
@@ -255,7 +273,7 @@ const companys = [
       }
     }
 
-    // swiepr初期化時の調整
+    // Swiper初期化前のチラつき(CLS)防止調整
     @include media_max(sp) {
       &__block_wrapper:not(.swiper-initialized) {
         opacity: 0;
@@ -265,7 +283,7 @@ const companys = [
       }
     }
 
-    /* スクロールバーのカスタム */
+    /* スクロールバーのカスタムデザイン */
     .swiper-scrollbar {
       position: static;
       background: #fff;
@@ -281,25 +299,23 @@ const companys = [
 </style>
 
 <script>
-  // @ts-ignore
-  import "swiper/css/bundle";
+  import type { Swiper } from "swiper/types";
 
-  // querySelectorAllに型を指定
+  // js-ecosystem_swiper クラスを持つ要素を取得
   const sliders = document.querySelectorAll<HTMLElement>(".js-ecosystem_swiper");
 
   if (sliders.length > 0) {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
 
-    let swiperInstances = [];
-    let isSwiperLoaded = false;
-    let SwiperClass;
-    let swiperModules;
+    // Swiperインスタンスおよび読み込み状態の管理
+    let swiperInstances: Swiper[] = [];
+    let isSwiperLoaded: boolean = false;
+    let SwiperClass: typeof Swiper;
+    let swiperModules: any[];
 
-    // Swiperの初期化・破棄を管理する関数
-    const initSwiper = () => {
-      // SPサイズの場合
+    // SPサイズ時のみSwiperを初期化・実行する関数
+    const initSwiper = (): void => {
       if (mediaQuery.matches) {
-        // まだモジュールが読み込まれていない場合はスキップ（Observerに任せる）
         if (!isSwiperLoaded) return;
 
         if (swiperInstances.length === 0) {
@@ -318,7 +334,7 @@ const companys = [
               loop: false,
               slidesPerView: 1.4,
               speed: 500,
-              spaceBetween: "5.4%",
+              spaceBetween: "5.4%" as any,
               scrollbar: scrollbarEl
                 ? {
                     el: scrollbarEl,
@@ -330,9 +346,8 @@ const companys = [
             swiperInstances.push(instance);
           });
         }
-      }
-      // PCサイズの場合
-      else {
+      } else {
+        // PCサイズの場合はSwiperを破棄
         if (swiperInstances.length > 0) {
           swiperInstances.forEach((instance) => {
             instance.destroy(true, true);
@@ -342,14 +357,14 @@ const companys = [
       }
     };
 
-    // 画面スクロールに応じた遅延読み込みの設定
+    // IntersectionObserverを用いた視界に入ったタイミングでの遅延ロード（Lazy Load）
     const observer = new IntersectionObserver(
       async (entries, obs) => {
         if (entries.some((entry) => entry.isIntersecting)) {
-          obs.disconnect(); // 監視を解除
+          obs.disconnect(); // 監視解除
 
-          // まだ読み込まれていなければ、画面に入ったタイミングでインポート
           if (!isSwiperLoaded) {
+            // モジュール動的インポート
             // @ts-ignore
             const { default: Swiper, Navigation, Autoplay, EffectFade, Scrollbar, Mousewheel, FreeMode } = await import("swiper");
 
@@ -358,19 +373,17 @@ const companys = [
             isSwiperLoaded = true;
           }
 
-          // 読み込み完了後に初期化判定を実行
           initSwiper();
         }
       },
-      { rootMargin: "300px 0px" }, // 画面に入る300px手前でロード開始
+      { rootMargin: "300px 0px" }, 
     );
 
-    // 全てのスライダーを監視対象に追加
     sliders.forEach((slider) => {
       observer.observe(slider);
     });
 
-    // リサイズイベントのハンドリング
+    // 画面リサイズ（ブレイクポイント変更）検知
     mediaQuery.addEventListener("change", initSwiper);
   }
 </script>

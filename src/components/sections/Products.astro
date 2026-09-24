@@ -8,11 +8,13 @@ import productsBg from "../../assets/img/design/products__bg.png";
 import productsBgSp from "../../assets/img/design/products__bg-sp.png";
 import bgDesignImg from "../../assets/img/design/bg_design_img03.png";
 
+// 背景画像の最適化（WebP変換）処理
 const productsBgOptimized = await getImage({ src: productsBg, format: "webp" });
 const productsBgSpOptimized = await getImage({ src: productsBgSp, format: "webp" });
 const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" });
 ---
 
+<!-- 独自プロダクト（PRODUCTS）セクション -->
 <section
   class="products main_section"
   style={{
@@ -22,8 +24,10 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
   }}
 >
   <div class="contents_wrapper">
+    <!-- セクションヘッダー（左寄せ） -->
     <SectionHeader headingText="専門人材を増強する独自基盤" imgSrc="text/products__heading.svg" imgWidth={263} imgAlt="PRODUCTS" align="left" />
 
+    <!-- メイン見出し画像 -->
     <h3 class="products__tit">
       <Img
         sources={[
@@ -39,13 +43,16 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       />
     </h3>
 
+    <!-- リードテキスト -->
     <p class="products__text">
       Relicは支援だけでなく、自社で事業創出のためのプロダクト群を開発・運営しています。<br />
       プロジェクトのご状況に応じて、これらの独自プロダクトもご活用いただけます。
     </p>
 
+    <!-- プロダクトカード群（PC時:グリッド配置 / SP時:Swiperスライダー） -->
     <div class="products__block_wrapper swiper js-products_swiper">
       <div class="products__block swiper-wrapper">
+        <!-- プロダクト01 -->
         <div class="products__block_box swiper-slide">
           <div class="products__block_box_logo_block">
             <Img
@@ -53,7 +60,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                 src: "products__logo01.png",
                 widths: [600, 450, 300],
               }}
-              sizes="(max-width: 768px) 100vw, 300px"
+              sizes="(max-width: 768px) 76vw, 300px"
               width={300}
               alt="IDEATION Cloud"
             />
@@ -63,6 +70,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
             世界で実証されたスタートアップの成功事例をもとに、日本市場に最適化した自社向けの新規事業アイデアを創出するSaaS。社内コンテスト・社員発案制度の運用にも活用できる戦略的アイディエーション基盤です。
           </p>
         </div>
+
+        <!-- プロダクト02-->
         <div class="products__block_box swiper-slide">
           <div class="products__block_box_logo_block">
             <Img
@@ -70,7 +79,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                 src: "products__logo02.png",
                 widths: [400, 300, 200],
               }}
-              sizes="(max-width: 768px) 100vw, 200px"
+              sizes="(max-width: 768px) 76vw, 200px"
               width={200}
               alt=""
             />
@@ -80,6 +89,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
             大企業を中心に2,000社・5万人以上が導入。新規事業創出プログラム・社内ベンチャー制度・オープンイノベーション等を一元管理するイノベーションマネジメント・プラットフォーム。生成AI機能を含めた継続的なアップデートで進化を続けています。
           </p>
         </div>
+
+        <!-- プロダクト03 -->
         <div class="products__block_box swiper-slide">
           <div class="products__block_box_logo_block">
             <Img
@@ -87,7 +98,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                 src: "products__logo03.png",
                 widths: [400, 300, 200],
               }}
-              sizes="(max-width: 768px) 100vw, 200px"
+              sizes="(max-width: 768px) 76vw, 200px"
               width={200}
               alt=""
             />
@@ -98,6 +109,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
           </p>
         </div>
 
+        <!-- 複合プロダクトブロック1 -->
         <div class="products__block_box_wrapper swiper-slide">
           <div class="products__block_box">
             <div class="products__block_box_logo_block">
@@ -106,7 +118,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                   src: "products__logo04.png",
                   widths: [300, 200, 150],
                 }}
-                sizes="(max-width: 768px) 100vw, 150px"
+                sizes="(max-width: 768px) 76vw, 150px"
                 width={150}
                 alt=""
               />
@@ -120,7 +132,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                   src: "products__logo05.png",
                   widths: [400, 300, 200],
                 }}
-                sizes="(max-width: 768px) 100vw, 200px"
+                sizes="(max-width: 768px) 76vw, 200px"
                 width={200}
                 alt=""
               />
@@ -128,6 +140,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
             <p class="products__block_box_text">業界唯一の新規事業特化型eラーニング。社内に推進役を育てます。</p>
           </div>
         </div>
+
+        <!-- 複合プロダクトブロック2 -->
         <div class="products__block_box_wrapper swiper-slide">
           <div class="products__block_box">
             <div class="products__block_box_logo_block">
@@ -136,7 +150,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                   src: "products__logo06.png",
                   widths: [400, 300, 200],
                 }}
-                sizes="(max-width: 768px) 100vw, 200px"
+                sizes="(max-width: 768px) 76vw, 200px"
                 width={200}
                 alt=""
               />
@@ -150,7 +164,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
                   src: "products__logo07.png",
                   widths: [400, 300, 200],
                 }}
-                sizes="(max-width: 768px) 100vw, 200px"
+                sizes="(max-width: 768px) 76vw, 200px"
                 width={200}
                 alt=""
               />
@@ -160,18 +174,22 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
         </div>
       </div>
 
+      <!-- SP用ページネーション -->
       <div class="swiper-pagination sp_only"></div>
     </div>
   </div>
 </section>
 
 <style lang="scss">
+  /* プロダクトセクション全体のスタイル */
   .products {
     position: relative;
     padding-bottom: 7rem;
     @include media_max(sp) {
       padding-bottom: 4rem;
     }
+
+    /* 背景画像表示エリア */
     &::before {
       content: "";
       position: absolute;
@@ -189,6 +207,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       }
     }
 
+    /* 右上の背景アクセント画像 */
     &::after {
       content: "";
       position: absolute;
@@ -230,7 +249,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       }
     }
 
-    //　sp版 swiper
+    /* SP版Swiperスライダー用エリア設定 */
     &__block_wrapper {
       @include media_min(sp) {
         overflow: inherit;
@@ -241,6 +260,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
         margin-right: -2.5rem;
       }
     }
+
+    /* PC時: 3カラムグリッド風フレックス配置 */
     &__block {
       --gap: 2rem;
       @include media_min(sp) {
@@ -255,6 +276,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       @include media_min(sp) {
       }
 
+      /* 各プロダクトカードスタイル */
       &_box {
         display: block;
         background: var(--color-white);
@@ -305,6 +327,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
         }
       }
 
+      /* 2列分割用の複合カードラッパー（PC時:2列グリッド / SP時:縦積みカード） */
       &_box_wrapper {
         display: flex;
         align-items: center;
@@ -336,6 +359,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
           border-radius: 0;
           padding: 0;
 
+          /* 複合カード内の2つ目の項目との区切り線 */
           &:nth-of-type(2) {
             border-top: 1px solid var(--color-black02);
             padding-top: 0.4rem;
@@ -351,7 +375,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
         }
       }
     }
-    // swiepr初期化時の調整
+
+    /* Swiper初期化前の1枚目以外のカード非表示制御 */
     @include media_max(sp) {
       &__block_wrapper:not(.swiper-initialized) {
         opacity: 0;
@@ -361,6 +386,7 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
       }
     }
 
+    /* Swiperページネーションドットのカスタムドロップシャドウ・カラー */
     :global(.swiper-pagination) {
       filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.25));
     }
@@ -371,8 +397,8 @@ const bgDesignImgOptimized = await getImage({ src: bgDesignImg, format: "webp" }
 </style>
 
 <script>
-  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp"; // 拡張子は環境に合わせて調整
+  import { setupResponsiveSwiperSp } from "../../assets/js/setupSwiperSp";
 
-  // このセクションのクラス名を指定して実行
+  // SP用プロダクトスライダー初期化関数の呼び出し
   setupResponsiveSwiperSp(".js-products_swiper");
 </script>
